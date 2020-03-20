@@ -43,27 +43,27 @@ export default class Home extends React.Component {
             taken to the specs of how to make it.
           </p>
         </section>
-        <section class="product">
+        <section className="product">
           <h3>Product Name</h3>
           <p>product image</p>
           <Link to="/product-details">Details</Link>
         </section>
-        <section class="product">
+        <section className="product">
           <h3>Product Name</h3>
           <p>product image</p>
           <Link to="/product-details">Details</Link>
         </section>
-        <section class="product">
+        <section className="product">
           <h3>Product Name</h3>
           <p>product image</p>
           <Link to="/product-details">Details</Link>
         </section>
-        <section class="product">
+        <section className="product">
           <h3>Product Name</h3>
           <p>product image</p>
           <Link to="/product-details">Details</Link>
         </section>
-        <section class="product">
+        <section className="product">
           <h3>Product Name</h3>
           <p>product image</p>
           <Link to="/product-details">Details</Link>

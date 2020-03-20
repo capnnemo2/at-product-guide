@@ -11,7 +11,11 @@ const dummyStore = [
         oneQuarter: `4 x 11 1/4"`
       }
     ],
-    softSteel: `1 x 20', bend @ 67", cut @ 134"`,
+    softSteel: [
+      {
+        threeEigths: `1 x 20', bend @ 67", cut @ 134"`
+      }
+    ],
     prepBend: `Use the ST on the metal wheely table. Bend to 5-7" from jig.`,
     prepWeld: "",
     weld: `First weld: 12" from top.`
@@ -28,7 +32,11 @@ const dummyStore = [
         oneQuarter: [`3 x 16"`, `1 x 27"`]
       }
     ],
-    softSteel: ``,
+    softSteel: [
+      {
+        threeEigths: ``
+      }
+    ],
     prepBend: `Use the top circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
     weld: `First weld: one foot spike length up from the bottom.`
@@ -45,7 +53,11 @@ const dummyStore = [
         oneQuarter: [`3 x 24"`, `1 x 36"`]
       }
     ],
-    softSteel: ``,
+    softSteel: [
+      {
+        threeEigths: ``
+      }
+    ],
     prepBend: `Use the second circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
     weld: `First weld: one foot spike length up from the bottom.`
@@ -62,7 +74,11 @@ const dummyStore = [
         oneQuarter: [`3 x 27"`, `1 x 47"`]
       }
     ],
-    softSteel: ``,
+    softSteel: [
+      {
+        threeEigths: ``
+      }
+    ],
     prepBend: `Use the third circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
     weld: `First weld: Add a piece of ⅜” with a crosspiece to the end of your table so that the entire bent piece of steel can rest on table with only the bottom hanging off the edge. After you slide the bent piece of steel into the crosspiece, mark on your table one foot spike length up from the bottom. This is your first weld location.`

@@ -9,9 +9,9 @@
   margin: 0 auto;
 }
 
-/* not sure why this is necessary, but it is for right now */
+/* not sure why this is necessary, but it is */
 ul {
-  margin-left: -40px;
+  margin-left: -38px;
 }
 
 .Home__li {

@@ -1,26 +1,48 @@
 import React from "react";
 import "./ProductDetails.css";
+import dummyStore from "../dummyStore";
 
 export default class ProductDetails extends React.Component {
   render() {
+    const productId = this.props.match.params.product_id;
+    const product = dummyStore.find(p => Number(p.id) === Number(productId));
+
     return (
       <div className="ProductDetails">
         <section>
-          <p>
-            A larger image of the product than the one you clicked on to get to
-            this page.
-          </p>
+          <h2>{product.productName}</h2>
+          <div className="dummyImage"></div>
         </section>
         <section>
           <h3>Materials</h3>
           <ul>
-            <li>Mesh:</li>
-            <li>Hard steel:</li>
-            <ul>
-              <li>3/8":</li>
-              <li>1/4":</li>
-            </ul>
-            <li>Soft steel:</li>
+            <li>
+              <span className="bold">Mesh: </span>
+              {product.mesh}
+            </li>
+            <li>
+              <span className="bold">Hard steel:</span>
+              <ul>
+                <li>
+                  <span className="bold">3/8": </span>
+                  {product.hardSteel[0].threeEigths}
+                </li>
+                <li>
+                  <span className="bold">1/4": </span>
+                  {product.hardSteel[0].oneQuarter}
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <span className="bold">Soft steel:</span>
+              <ul>
+                <li>
+                  <span className="bold">3/8": </span>
+                  {product.softSteel[0].threeEigths}
+                </li>
+              </ul>
+            </li>
           </ul>
         </section>
         <section>

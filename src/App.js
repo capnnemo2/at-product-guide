@@ -18,7 +18,10 @@ export default class App extends React.Component {
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/home" component={Home} />
-          <Route path="/product-details" component={ProductDetails} />
+          <Route
+            path="/productDetails/:product_id"
+            component={ProductDetails}
+          />
           <Route path="/add-product" component={AddProduct} />
         </main>
       </div>
