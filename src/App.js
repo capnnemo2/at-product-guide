@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
 import ProductDetails from "./ProductDetails/ProductDetails";
+import AddProduct from "./AddProduct/AddProduct";
 
 export default class App extends React.Component {
   render() {
@@ -17,6 +18,7 @@ export default class App extends React.Component {
           <Route exact path="/" component={Landing} />
           <Route path="/home" component={Home} />
           <Route path="/product-details" component={ProductDetails} />
+          <Route path="/add-product" component={AddProduct} />
         </main>
       </div>
     );

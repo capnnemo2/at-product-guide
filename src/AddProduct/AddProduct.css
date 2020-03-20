@@ -1,0 +1,9 @@
+textarea {
+  height: 150px;
+  width: 70%;
+}
+
+.textarea__container label,
+.textarea__container textarea {
+  vertical-align: text-top;
+}

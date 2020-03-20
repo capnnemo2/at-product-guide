@@ -51,7 +51,7 @@ export default class Home extends React.Component {
           <p>product image</p>
           <Link to="/product-details">Details</Link>
         </section>
-        <a href="add-new-product.html">Add a new product</a>
+        <Link to="/add-product">Add new product</Link>
       </div>
     );
   }
