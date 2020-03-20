@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import Header from "./Header/Header";
 import Landing from "./Landing/Landing";
+import Home from "./Home/Home";
 
 export default class App extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class App extends React.Component {
         </header>
         <main>
           <Route exact path="/" component={Landing} />
+          <Route path="/home" component={Home} />
         </main>
       </div>
     );

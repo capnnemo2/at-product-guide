@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Landing.css";
 
 export default class Landing extends React.Component {
   render() {
     return (
-      <div>
+      <div className="Landing">
         <section className="section">
           <p>
             This product guide is a repository of specifications on how to make
@@ -21,7 +22,7 @@ export default class Landing extends React.Component {
           <p>
             Post comments to share your personal tricks, see what others do.
           </p>
-          <a href="home-page.html">Home page</a>
+          <Link to="/home">Home</Link>
         </section>
       </div>
     );
