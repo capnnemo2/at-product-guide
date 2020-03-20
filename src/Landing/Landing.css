@@ -1,12 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  text-align: center;
-  background-color: black;
-}
-
 section {
   min-height: 200px;
   padding: 6% 0;

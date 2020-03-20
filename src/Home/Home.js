@@ -1,17 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import dummyStore from "../dummyStore";
 
 export default class Home extends React.Component {
   render() {
     return (
       <div className="Home">
         <div className="Home__subheader">
-          <h2>All products</h2>
+          <h2>Filters</h2>
           <p>
-            This have product type filters, also like the AT product catalog.
+            This should have product type filters, like the AT product catalog.
           </p>
         </div>
+
+        <ul>
+          <li key="0" className="Home__li">
+            <a href="http://www.artisantrellis.com/all-products">
+              Artisan Trellis Catalog
+            </a>
+          </li>
+          {dummyStore.map(p => (
+            <li key={p.id} className="Home__li">
+              <Link to={`productDetails/${p.id}`} className="Home__link">
+                {p.productName}
+              </Link>
+              <div className="dummyImage"></div>
+            </li>
+          ))}
+        </ul>
 
         <section>
           <p>

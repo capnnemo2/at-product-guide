@@ -68,3 +68,5 @@ const dummyStore = [
     weld: `First weld: Add a piece of ⅜” with a crosspiece to the end of your table so that the entire bent piece of steel can rest on table with only the bottom hanging off the edge. After you slide the bent piece of steel into the crosspiece, mark on your table one foot spike length up from the bottom. This is your first weld location.`
   }
 ];
+
+export default dummyStore;

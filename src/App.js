@@ -5,6 +5,7 @@ import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import AddProduct from "./AddProduct/AddProduct";
+import "./App.css";
 
 export default class App extends React.Component {
   render() {
