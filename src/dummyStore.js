@@ -18,7 +18,14 @@ const dummyStore = [
     ],
     prepBend: `Use the ST on the metal wheely table. Bend to 5-7" from jig.`,
     prepWeld: "",
-    weld: `First weld: 12" from top.`
+    weld: `First weld: 12" from top.`,
+    comments: [
+      {
+        id: 1,
+        user_name: `Jeff`,
+        content: `The jig for STs lives in my area.`
+      }
+    ]
   },
   {
     id: 2,
@@ -39,7 +46,14 @@ const dummyStore = [
     ],
     prepBend: `Use the top circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
-    weld: `First weld: one foot spike length up from the bottom.`
+    weld: `First weld: one foot spike length up from the bottom.`,
+    comments: [
+      {
+        id: 1,
+        user_name: `Jeff`,
+        content: `These are easy-peasy.`
+      }
+    ]
   },
   {
     id: 3,
@@ -60,7 +74,14 @@ const dummyStore = [
     ],
     prepBend: `Use the second circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
-    weld: `First weld: one foot spike length up from the bottom.`
+    weld: `First weld: one foot spike length up from the bottom.`,
+    comments: [
+      {
+        id: 1,
+        user_name: `Marty`,
+        content: `These are the same as MTs, just bigger.`
+      }
+    ]
   },
   {
     id: 4,
@@ -81,7 +102,19 @@ const dummyStore = [
     ],
     prepBend: `Use the third circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
-    weld: `First weld: Add a piece of ⅜” with a crosspiece to the end of your table so that the entire bent piece of steel can rest on table with only the bottom hanging off the edge. After you slide the bent piece of steel into the crosspiece, mark on your table one foot spike length up from the bottom. This is your first weld location.`
+    weld: `First weld: Add a piece of ⅜” with a crosspiece to the end of your table so that the entire bent piece of steel can rest on table with only the bottom hanging off the edge. After you slide the bent piece of steel into the crosspiece, mark on your table one foot spike length up from the bottom. This is your first weld location.`,
+    comments: [
+      {
+        id: 1,
+        user_name: `Marty`,
+        content: `These are very big.`
+      },
+      {
+        id: 2,
+        user_name: `Ben`,
+        content: `Whoa, these are heavy.`
+      }
+    ]
   }
 ];
 
