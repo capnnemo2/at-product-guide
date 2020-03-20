@@ -20,7 +20,6 @@ export default class Home extends React.Component {
             <option value="all">All</option>
             <option value="trellis">Trellises</option>
             <option value="arbor">Arbors</option>
-            <option value="shelf/displayRack">Shelves/Display Racks</option>
             <option value="topiary">Topiary</option>
           </select>
         </form>

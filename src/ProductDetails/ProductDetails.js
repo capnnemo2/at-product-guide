@@ -24,6 +24,7 @@ export default class ProductDetails extends React.Component {
               <span className="bold">Hard steel:</span>
               <ul>
                 <li>
+                  {/* it would be great if this created a ul with an li for each threeEigths entry */}
                   <span className="bold">3/8": </span>
                   {product.hardSteel[0].threeEigths}
                 </li>

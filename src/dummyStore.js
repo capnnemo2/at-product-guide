@@ -119,6 +119,35 @@ const dummyStore = [
         content: `Whoa, these are heavy.`
       }
     ]
+  },
+  {
+    id: 5,
+    productCode: "SA",
+    productName: "Small Arbor",
+    productType: "arbor",
+    image: "",
+    mesh: `16't x 1'w`,
+    hardSteel: [
+      {
+        threeEigths: [`2 x 20', bend @ 135", cut @ 30"`, `2 x ~10 3/8"`],
+        oneQuarter: ``
+      }
+    ],
+    softSteel: [
+      {
+        threeEigths: ``
+      }
+    ],
+    prepBend: `Use the circle jig table, bend on the fifth circle to the second hole`,
+    prepWeld: "",
+    weld: `First weld: 13 1/2"`,
+    comments: [
+      {
+        id: 1,
+        user_name: `Daniel`,
+        content: `I can make a million of these in one day.`
+      }
+    ]
   }
 ];
 
