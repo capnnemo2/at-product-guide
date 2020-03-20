@@ -69,21 +69,12 @@ export default class ProductDetails extends React.Component {
           <div>
             <ul>
               {product.comments.map(comment => (
-                <li key={comment.id}>
-                  {comment.user_name} says: {comment.content}
+                <li key={comment.id} className="comment">
+                  <p className="italic">{comment.user_name} says:</p>
+                  <blockquote>{comment.content}</blockquote>
                 </li>
               ))}
             </ul>
-
-            {/* <p>Mark says:</p>
-            <blockquote>
-              Make sure you use the 90" 1/4" steel, not the 5' pieces. That way
-              you don't have as much scrap.
-            </blockquote>
-          </div>
-          <div>
-            <p>Taylor says:</p>
-            <blockquote>I always turn my table when making these.</blockquote> */}
           </div>
         </section>
       </div>

@@ -10,8 +10,17 @@ ul {
   font-weight: 900;
 }
 
+.italic {
+  font-style: italic;
+}
+
 .description {
   text-align: left;
   width: 80%;
   margin: 0 auto;
+}
+
+.comment {
+  border: 1px dashed black;
+  margin: 10px;
 }
