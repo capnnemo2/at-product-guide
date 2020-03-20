@@ -4,6 +4,15 @@ import "./Home.css";
 import dummyStore from "../dummyStore";
 
 export default class Home extends React.Component {
+  state = {
+    filter: "all"
+  };
+
+  updateFilter(filter) {
+    this.setState({
+      filter: filter
+    });
+  }
   render() {
     return (
       <div className="Home">
@@ -14,9 +23,8 @@ export default class Home extends React.Component {
           </p>
         </div>
 
-        {/* will probably need an onChange for this form */}
         <form>
-          <select>
+          <select onChange={e => this.updateFilter(e.target.value)}>
             <option value="all">All</option>
             <option value="trellis">Trellises</option>
             <option value="arbor">Arbors</option>
@@ -30,6 +38,7 @@ export default class Home extends React.Component {
               Artisan Trellis Catalog
             </a>
           </li>
+          {/* maybe use reduce(), a combo of filter() then map(), or flatMap()? */}
           {dummyStore.map(p => (
             <li key={p.id} className="Home__li">
               <Link to={`productDetails/${p.id}`} className="Home__link">
