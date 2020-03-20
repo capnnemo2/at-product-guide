@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ProductDetails.css";
 import dummyStore from "../dummyStore";
 
@@ -62,7 +63,9 @@ export default class ProductDetails extends React.Component {
           <p className="description">{product.weld}</p>
         </section>
         <section>
-          <button type="button">Edit specs</button>
+          <Link to={"/editProduct"}>Edit specs</Link>
+          <br />
+          <Link to={"/home"}>Home</Link>
         </section>
         <section>
           <h4 className="uppercase">Comments</h4>
