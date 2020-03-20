@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import Header from "./Header/Header";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
+import ProductDetails from "./ProductDetails/ProductDetails";
 
 export default class App extends React.Component {
   render() {
@@ -15,6 +16,7 @@ export default class App extends React.Component {
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/home" component={Home} />
+          <Route path="/product-details" component={ProductDetails} />
         </main>
       </div>
     );

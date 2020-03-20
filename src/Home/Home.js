@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 export default class Home extends React.Component {
@@ -28,27 +29,27 @@ export default class Home extends React.Component {
         <section class="product">
           <h3>Product Name</h3>
           <p>product image</p>
-          <a href="product-details.html">Details</a>
+          <Link to="/product-details">Details</Link>
         </section>
         <section class="product">
           <h3>Product Name</h3>
           <p>product image</p>
-          <a href="product-details.html">Details</a>
+          <Link to="/product-details">Details</Link>
         </section>
         <section class="product">
           <h3>Product Name</h3>
           <p>product image</p>
-          <a href="product-details.html">Details</a>
+          <Link to="/product-details">Details</Link>
         </section>
         <section class="product">
           <h3>Product Name</h3>
           <p>product image</p>
-          <a href="product-details.html">Details</a>
+          <Link to="/product-details">Details</Link>
         </section>
         <section class="product">
           <h3>Product Name</h3>
           <p>product image</p>
-          <a href="product-details.html">Details</a>
+          <Link to="/product-details">Details</Link>
         </section>
         <a href="add-new-product.html">Add a new product</a>
       </div>
