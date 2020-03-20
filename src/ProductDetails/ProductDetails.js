@@ -10,11 +10,11 @@ export default class ProductDetails extends React.Component {
     return (
       <div className="ProductDetails">
         <section>
-          <h2>{product.productName}</h2>
+          <h2 className="uppercase">{product.productName}</h2>
           <div className="dummyImage"></div>
         </section>
         <section>
-          <h3>Materials</h3>
+          <h3 className="uppercase">Materials</h3>
           <ul>
             <li>
               <span className="bold">Mesh: </span>
@@ -46,26 +46,26 @@ export default class ProductDetails extends React.Component {
           </ul>
         </section>
         <section>
-          <h3>Prep bends</h3>
-          <p>Description of any bending and/or cutting.</p>
+          <h3 className="uppercase">Prep bend</h3>
+          {/* maybe this should be an un/ordered list? */}
+          <p className="description">{product.prepBend}</p>
         </section>
         <section>
-          <h3>Prep welds</h3>
-          <p>Description of any modular welding.</p>
+          <h3 className="uppercase">Prep weld</h3>
+          {/* maybe this should be an un/ordered list? */}
+          <p className="description">{product.prepWeld}</p>
         </section>
         <section>
-          <h3>Weld</h3>
-          <p>
-            First weld, order of putting together modules, directions on foot
-            spikes, reminder to back weld.
-          </p>
+          <h3 className="uppercase">Weld</h3>
+          {/* maybe this should be an un/ordered list? */}
+          <p className="description">{product.weld}</p>
         </section>
         <section>
           <button type="button">Add comment</button>
           <button type="button">Edit specs</button>
         </section>
         <section>
-          <h4>Comments</h4>
+          <h4 className="uppercase">Comments</h4>
           <div>
             <p>Mark says:</p>
             <blockquote>

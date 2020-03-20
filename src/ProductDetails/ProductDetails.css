@@ -2,6 +2,16 @@ ul {
   list-style-type: none;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .bold {
   font-weight: 900;
+}
+
+.description {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
 }
