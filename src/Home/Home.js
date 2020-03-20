@@ -25,7 +25,8 @@ export default class Home extends React.Component {
           <label htmlFor="search" className="filter-label">
             Know what you're looking for? Enter product code:
           </label>{" "}
-          <input type="text" id="search" />
+          {/* maybe an onChange for this to setState, then the onClick can use that state to navigate to that specific product? */}
+          <input type="text" name="search" id="search" />
           {/* need an onClick for this btn */}
           <button type="button">Go</button>
           <br />

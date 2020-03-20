@@ -22,7 +22,7 @@ export default class Landing extends React.Component {
           <p>
             Post comments to share your personal tricks, see what others do.
           </p>
-          <Link to="/home">Home</Link>
+          <Link to="/home">Begin</Link>
         </section>
       </div>
     );
