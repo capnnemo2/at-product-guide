@@ -14,6 +14,17 @@ export default class Home extends React.Component {
           </p>
         </div>
 
+        {/* will probably need an onChange for this form */}
+        <form>
+          <select>
+            <option value="all">All</option>
+            <option value="trellis">Trellises</option>
+            <option value="arbor">Arbors</option>
+            <option value="shelf/displayRack">Shelves/Display Racks</option>
+            <option value="topiary">Topiary</option>
+          </select>
+        </form>
+
         <ul>
           <li key="0" className="Home__li">
             <a href="http://www.artisantrellis.com/all-products">

@@ -3,6 +3,7 @@ const dummyStore = [
     id: 1,
     productCode: "ST",
     productName: "Small Trellis",
+    productType: "trellis",
     image: "",
     mesh: `4't x 1'w`,
     hardSteel: [
@@ -31,6 +32,7 @@ const dummyStore = [
     id: 2,
     productCode: "MT",
     productName: "Medium Trellis",
+    productType: "Trellis",
     image: "",
     mesh: `5't x 2'w`,
     hardSteel: [
@@ -59,6 +61,7 @@ const dummyStore = [
     id: 3,
     productCode: "LT",
     productName: "Large Trellis",
+    productType: "Trellis",
     image: "",
     mesh: `5't x 3'w`,
     hardSteel: [
@@ -87,6 +90,7 @@ const dummyStore = [
     id: 4,
     productCode: "XT",
     productName: "Extra Large Trellis",
+    productType: "Trellis",
     image: "",
     mesh: `5'8"t x 4'w`,
     hardSteel: [

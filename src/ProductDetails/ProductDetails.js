@@ -61,7 +61,6 @@ export default class ProductDetails extends React.Component {
           <p className="description">{product.weld}</p>
         </section>
         <section>
-          <button type="button">Add comment</button>
           <button type="button">Edit specs</button>
         </section>
         <section>
@@ -76,6 +75,7 @@ export default class ProductDetails extends React.Component {
               ))}
             </ul>
           </div>
+          <button type="button">Add comment</button>
         </section>
       </div>
     );
