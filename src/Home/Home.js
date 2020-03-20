@@ -20,15 +20,11 @@ export default class Home extends React.Component {
         : dummyStore.filter(p => p.productType === this.state.filter);
     return (
       <div className="Home">
-        <div className="Home__subheader">
-          <h2>Filters</h2>
-          <p>
-            This should have product type filters, like the AT product catalog.
-          </p>
-        </div>
-
         <form>
-          <select onChange={e => this.updateFilter(e.target.value)}>
+          <label htmlFor="filter" className="filter-label">
+            Filter:{" "}
+          </label>
+          <select id="filter" onChange={e => this.updateFilter(e.target.value)}>
             <option value="all">All</option>
             <option value="trellis">Trellises</option>
             <option value="arbor">Arbors</option>
