@@ -5,7 +5,8 @@ import dummyStore from "../dummyStore";
 
 export default class Home extends React.Component {
   state = {
-    filter: "all"
+    filter: "all",
+    productCode: ""
   };
 
   updateFilter(filter) {
@@ -13,7 +14,24 @@ export default class Home extends React.Component {
       filter: filter
     });
   }
+
+  updateProductCode(code) {
+    this.setState({
+      // will I need .toString() here if there are numbers involved?
+      productCode: code.toUpperCase()
+    });
+  }
+
   render() {
+    //   there should be a better, more efficient way to get the productCode that the user has entered
+    const getProduct = dummyStore.filter(
+      p => p.productCode === this.state.productCode
+    );
+    const productCode = getProduct ? getProduct[0] : "";
+    const finalCodeCheck = productCode ? productCode.productCode : "";
+    console.log(finalCodeCheck);
+    // end of the inefficiency
+
     const productsToDisplay =
       this.state.filter === "all"
         ? dummyStore
@@ -25,8 +43,12 @@ export default class Home extends React.Component {
           <label htmlFor="search" className="filter-label">
             Know what you're looking for? Enter product code:
           </label>{" "}
-          {/* maybe an onChange for this to setState, then the onClick can use that state to navigate to that specific product? */}
-          <input type="text" name="search" id="search" />
+          <input
+            type="text"
+            name="search"
+            id="search"
+            onChange={e => this.updateProductCode(e.target.value)}
+          />
           {/* need an onClick for this btn */}
           <button type="button">Go</button>
           <br />
