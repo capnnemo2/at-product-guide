@@ -24,12 +24,12 @@ export default class Home extends React.Component {
 
   render() {
     //   there should be a better, more efficient way to get the productCode that the user has entered
-    const getProduct = dummyStore.filter(
+    const findProduct = dummyStore.filter(
       p => p.productCode === this.state.productCode
     );
-    const productCode = getProduct ? getProduct[0] : "";
-    const finalCodeCheck = productCode ? productCode.productCode : "";
-    console.log(finalCodeCheck);
+    const getProduct = findProduct ? findProduct[0] : "";
+    const productId = getProduct ? getProduct.id : "";
+    console.log(productId);
     // end of the inefficiency
 
     const productsToDisplay =
@@ -49,8 +49,8 @@ export default class Home extends React.Component {
             id="search"
             onChange={e => this.updateProductCode(e.target.value)}
           />
-          {/* need an onClick for this btn */}
-          <button type="button">Go</button>
+          {/* this link shouldn't be active if there is no input */}
+          <Link to={`/productDetails/${productId}`}>Zip to it</Link>
           <br />
           <label htmlFor="filter" className="filter-label">
             Filter:
