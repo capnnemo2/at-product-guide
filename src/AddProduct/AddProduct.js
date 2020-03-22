@@ -2,6 +2,10 @@ import React from "react";
 import "./AddProduct.css";
 
 export default class AddProduct extends React.Component {
+  handleClickCancel = () => {
+    this.props.history.goBack();
+  };
+
   render() {
     return (
       <div className="AddProduct">
@@ -42,18 +46,14 @@ export default class AddProduct extends React.Component {
               <legend>Prep bend:</legend>
               <div className="textarea__container">
                 <label for="bends">Bend instructions:</label>
-                <textarea type="text" name="bends" id="bends"></textarea>
+                <textarea name="bends" id="bends"></textarea>
               </div>
             </fieldset>
             <fieldset>
               <legend>Prep weld:</legend>
               <div className="textarea__container">
                 <label for="prep-weld">Weld instructions:</label>
-                <textarea
-                  type="text"
-                  name="prep-weld"
-                  id="prep-weld"
-                ></textarea>
+                <textarea name="prep-weld" id="prep-weld"></textarea>
               </div>
             </fieldset>
             <fieldset>
@@ -61,10 +61,13 @@ export default class AddProduct extends React.Component {
               <legend>Weld:</legend>
               <div className="textarea__container">
                 <label for="weld">Weld instructions:</label>
-                <textarea type="text" name="weld" id="weld"></textarea>
+                <textarea name="weld" id="weld"></textarea>
               </div>
             </fieldset>
             <button type="submit">Submit</button>
+            <button type="button" onClick={this.handleClickCancel}>
+              Cancel
+            </button>
           </form>
         </section>
       </div>

@@ -79,7 +79,7 @@ export default class ProductDetails extends React.Component {
               ))}
             </ul>
           </div>
-          <button type="button">Add comment</button>
+          <Link to={"/Add-comment"}>Add comment</Link>
         </section>
       </div>
     );

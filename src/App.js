@@ -8,17 +8,17 @@ import ProductDetails from "./ProductDetails/ProductDetails";
 import AddProduct from "./AddProduct/AddProduct";
 import NotFound from "./NotFound/NotFound";
 import "./App.css";
+import AddComment from "./AddComment/AddComment";
 
 export default class App extends React.Component {
   render() {
     return (
       <div className="App">
         <nav>
-          {/* <Route path="/home" component={Nav} /> */}
           <Nav />
         </nav>
         <header>
-          {/* maybe just want the header for the landing and home page, when you look at individual products maybe just a navbar */}
+          {/* maybe just want the header for the landing and home page, when you look at individual products maybe just a navbar? */}
           <Header />
         </header>
 
@@ -31,6 +31,7 @@ export default class App extends React.Component {
               component={ProductDetails}
             />
             <Route path="/add-product" component={AddProduct} />
+            <Route path="/add-comment" component={AddComment} />
             <Route component={NotFound} />
           </Switch>
         </main>
