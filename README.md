@@ -1,7 +1,5 @@
 # Artisan Trellis Product Guide
 
----
-
 This app serves as a repository for the specs of all products manufactored by the company Artisan Trellis.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
