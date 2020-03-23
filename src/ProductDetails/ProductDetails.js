@@ -63,7 +63,7 @@ export default class ProductDetails extends React.Component {
           <p className="description">{product.weld}</p>
         </section>
         <section>
-          <Link to={"/editProduct"}>Edit specs</Link>
+          <Link to={"/edit-product"}>Edit specs</Link>
           <br />
           <Link to={"/home"}>Home</Link>
         </section>
@@ -75,11 +75,12 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
+                  <Link to={"/edit-comment"}>Edit comment</Link>
                 </li>
               ))}
             </ul>
           </div>
-          <Link to={"/Add-comment"}>Add comment</Link>
+          <Link to={"/add-comment"}>Add comment</Link>
         </section>
       </div>
     );

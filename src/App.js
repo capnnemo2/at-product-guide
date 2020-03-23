@@ -1,14 +1,16 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from "./Header/Header";
 import Nav from "./Nav/Nav";
+import Header from "./Header/Header";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import AddProduct from "./AddProduct/AddProduct";
+import AddComment from "./AddComment/AddComment";
+import EditProduct from "./EditProduct/EditProduct";
+import EditComment from "./EditComment/EditComment";
 import NotFound from "./NotFound/NotFound";
 import "./App.css";
-import AddComment from "./AddComment/AddComment";
 
 export default class App extends React.Component {
   render() {
@@ -32,6 +34,8 @@ export default class App extends React.Component {
             />
             <Route path="/add-product" component={AddProduct} />
             <Route path="/add-comment" component={AddComment} />
+            <Route path="/edit-product" component={EditProduct} />
+            <Route path="/edit-comment" component={EditComment} />
             <Route component={NotFound} />
           </Switch>
         </main>
