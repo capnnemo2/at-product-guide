@@ -63,6 +63,7 @@ export default class ProductDetails extends React.Component {
           <p className="description">{product.weld}</p>
         </section>
         <section>
+          {/* should editing be available to all users or just admin? is there a way for anyone to make changes, but they don't go into effect until the admin approves them? */}
           <Link to={"/edit-product"}>Edit specs</Link>
           <br />
           <Link to={"/home"}>Home</Link>
@@ -75,7 +76,10 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
+                  {/* the edit comment option should only be available for the user who left it */}
                   <Link to={"/edit-comment"}>Edit comment</Link>
+                  {/* this button should only appear for the admin user */}
+                  <button type="button">Delete</button>
                 </li>
               ))}
             </ul>

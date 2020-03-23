@@ -4,6 +4,7 @@ import Nav from "./Nav/Nav";
 import Header from "./Header/Header";
 import Landing from "./Landing/Landing";
 import Home from "./Home/Home";
+import Resources from "./Resources/Resources";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import AddProduct from "./AddProduct/AddProduct";
 import AddComment from "./AddComment/AddComment";
@@ -28,6 +29,7 @@ export default class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/home" component={Home} />
+            <Route path="/resources" component={Resources} />
             <Route
               path="/productDetails/:product_id"
               component={ProductDetails}
