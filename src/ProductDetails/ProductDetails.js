@@ -35,7 +35,9 @@ export default class ProductDetails extends React.Component {
                 <li>
                   {/* it would be great if this created a ul with an li for each threeEigths entry */}
                   <span className="bold">3/8": </span>
-                  {product.hardSteel[0].threeEigths}
+                  {product.hardSteel[0].threeEigths[0]}
+                  <br />
+                  {product.hardSteel[0].threeEigths[1]}
                 </li>
                 <li>
                   <span className="bold">1/4": </span>

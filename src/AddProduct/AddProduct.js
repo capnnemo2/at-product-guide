@@ -19,6 +19,7 @@ export default class AddProduct extends React.Component {
               <legend>Materials:</legend>
               <label for="mesh">Mesh:</label>
               <input type="text" name="mesh" id="mesh" />
+              <button type="button">Add field</button>
               <fieldset>
                 <legend>Hard steel:</legend>
                 <label for="three-eigths">3/8":</label>
@@ -30,6 +31,7 @@ export default class AddProduct extends React.Component {
                 </p>
                 <label for="quarter-inch">1/4":</label>
                 <input type="text" name="quarter-inch" id="quarter-inch" />
+                <button type="button">Add field</button>
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
