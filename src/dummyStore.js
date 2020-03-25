@@ -4,7 +4,10 @@ const dummyStore = [
     productCode: "ST",
     productName: "Small Trellis",
     productType: "trellis",
-    image: "",
+    image: {
+      src: "../pics/ST-XT.jpg",
+      alt: "small trellis"
+    },
     mesh: `4't x 1'w`,
     hardSteel: [
       {
@@ -33,7 +36,10 @@ const dummyStore = [
     productCode: "MT",
     productName: "Medium Trellis",
     productType: "trellis",
-    image: "",
+    image: {
+      src: "../pics/ST-XT.jpg",
+      alt: "medium trellis"
+    },
     mesh: `5't x 2'w`,
     hardSteel: [
       {
@@ -62,7 +68,10 @@ const dummyStore = [
     productCode: "LT",
     productName: "Large Trellis",
     productType: "trellis",
-    image: "",
+    image: {
+      src: "../pics/ST-XT.jpg",
+      alt: "large trellis"
+    },
     mesh: `5't x 3'w`,
     hardSteel: [
       {
@@ -91,7 +100,10 @@ const dummyStore = [
     productCode: "XT",
     productName: "Extra Large Trellis",
     productType: "trellis",
-    image: "",
+    image: {
+      src: "../pics/ST-XT.jpg",
+      alt: "extra large trellis"
+    },
     mesh: `5'8"t x 4'w`,
     hardSteel: [
       {
@@ -125,7 +137,10 @@ const dummyStore = [
     productCode: "SA",
     productName: "Small Arbor",
     productType: "arbor",
-    image: "",
+    image: {
+      src: "../pics/SA.jpg",
+      alt: "small arbor"
+    },
     mesh: `16't x 1'w`,
     hardSteel: [
       {

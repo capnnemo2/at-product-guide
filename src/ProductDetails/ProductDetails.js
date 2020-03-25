@@ -12,7 +12,15 @@ export default class ProductDetails extends React.Component {
       <div className="ProductDetails">
         <section>
           <h2 className="uppercase">{product.productName}</h2>
-          <div className="dummyImage"></div>
+          {/* <div className="dummyImage"></div> */}
+          <div>
+            <img
+              src={require("../pics/SA.jpg")}
+              alt="small arbor"
+              height="400"
+              width="400"
+            />
+          </div>
         </section>
         <section>
           <h3 className="uppercase">Materials</h3>
