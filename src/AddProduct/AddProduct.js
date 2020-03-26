@@ -3,16 +3,51 @@ import "./AddProduct.css";
 
 export default class AddProduct extends React.Component {
   state = {
+    productCode: "",
+    productName: "",
     productType: "",
     mesh: [{ measurements: "" }],
     hardThreeEighths: [{ measurements: "" }],
     hardOneQuarter: [{ measurements: "" }],
-    softThreeEighths: []
+    softThreeEighths: [],
+    prepBend: "",
+    prepWeld: "",
+    weld: ""
   };
+
+  updateProductCode(code) {
+    this.setState({
+      productCode: code
+    });
+  }
+
+  updateProductName(name) {
+    this.setState({
+      productName: name
+    });
+  }
 
   updateProductType(type) {
     this.setState({
       productType: type
+    });
+  }
+
+  updatePrepBend(pBend) {
+    this.setState({
+      prepBend: pBend
+    });
+  }
+
+  updatePrepWeld(pWeld) {
+    this.setState({
+      prepWeld: pWeld
+    });
+  }
+
+  updateWeld(weld) {
+    this.setState({
+      weld: weld
     });
   }
 
@@ -123,13 +158,24 @@ export default class AddProduct extends React.Component {
         <section>
           <form>
             <div>
-              <label htmlFor="name">Product name: </label>
-              <input type="text" name="name" id="name" required />
-              <br />
               <label htmlFor="code">Product code: </label>
-              <input type="text" name="code" id="code" required />
+              <input
+                type="text"
+                name="code"
+                id="code"
+                onChange={e => this.updateProductCode(e.target.value)}
+                required
+              />
               <br />
-              {/* this should be a select/option */}
+              <label htmlFor="name">Product name: </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                onChange={e => this.updateProductName(e.target.value)}
+                required
+              />
+              <br />
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
@@ -239,14 +285,22 @@ export default class AddProduct extends React.Component {
               <legend>Prep bend:</legend>
               <div className="textarea__container">
                 <label htmlFor="bends">Bend instructions:</label>
-                <textarea name="bends" id="bends"></textarea>
+                <textarea
+                  name="bends"
+                  id="bends"
+                  onChange={e => this.updatePrepBend(e.target.value)}
+                ></textarea>
               </div>
             </fieldset>
             <fieldset>
               <legend>Prep weld:</legend>
               <div className="textarea__container">
                 <label htmlFor="prep-weld">Weld instructions:</label>
-                <textarea name="prep-weld" id="prep-weld"></textarea>
+                <textarea
+                  name="prep-weld"
+                  id="prep-weld"
+                  onChange={e => this.updatePrepWeld(e.target.value)}
+                ></textarea>
               </div>
             </fieldset>
             <fieldset>
@@ -254,7 +308,11 @@ export default class AddProduct extends React.Component {
               <legend>Weld:</legend>
               <div className="textarea__container">
                 <label htmlFor="weld">Weld instructions:</label>
-                <textarea name="weld" id="weld"></textarea>
+                <textarea
+                  name="weld"
+                  id="weld"
+                  onChange={e => this.updateWeld(e.target.value)}
+                ></textarea>
               </div>
             </fieldset>
             <button type="submit">Submit</button>
