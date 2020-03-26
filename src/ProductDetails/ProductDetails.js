@@ -2,11 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ProductDetails.css";
 import dummyStore from "../dummyStore";
+import ATContext from "../ATContext";
 
 export default class ProductDetails extends React.Component {
+  static contextType = ATContext;
   render() {
     const productId = this.props.match.params.product_id;
-    const product = dummyStore.find(p => Number(p.id) === Number(productId));
+    const product = this.context.products.find(
+      p => Number(p.id) === Number(productId)
+    );
 
     const threeEighthSteel = Object.values(product.hardSteel)[0]
       ? Object.values(product.hardSteel)[0]
@@ -100,6 +104,8 @@ export default class ProductDetails extends React.Component {
           <Link to={"/edit-product"}>Edit specs</Link>
           <br />
           <Link to={"/home"}>Home</Link>
+          <br />
+          <button type="button">Delete product</button>
         </section>
         <section>
           <h4 className="uppercase">Comments</h4>
