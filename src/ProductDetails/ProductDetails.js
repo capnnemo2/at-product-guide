@@ -10,28 +10,12 @@ export default class ProductDetails extends React.Component {
     const product = this.context.products.find(
       p => Number(p.id) === Number(productId)
     );
-
-    const threeEighthSteel = Object.values(product.hardSteel)[0]
-      ? Object.values(product.hardSteel)[0]
-      : [];
-
-    const quarterInchSteel = Object.values(product.hardSteel)[1]
-      ? Object.values(product.hardSteel)[1]
-      : [];
-
-    const softSteel = Object.values(product.softSteel)
-      ? Object.values(product.softSteel)
-      : [];
-
-    const prepBend = Object.values(product.prepBend)
-      ? Object.values(product.prepBend)
-      : [];
-
-    const prepWeld = Object.values(product.prepWeld)
-      ? Object.values(product.prepWeld)
-      : [];
-
-    const weld = Object.values(product.weld) ? Object.values(product.weld) : [];
+    const threeEighthSteel = Object.values(product.hardSteel)[0];
+    const quarterInchSteel = Object.values(product.hardSteel)[1];
+    const softSteel = Object.values(product.softSteel);
+    const prepBend = Object.values(product.prepBend);
+    const prepWeld = Object.values(product.prepWeld);
+    const weld = Object.values(product.weld);
 
     return (
       <div className="ProductDetails">

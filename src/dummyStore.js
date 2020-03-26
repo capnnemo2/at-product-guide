@@ -209,6 +209,46 @@ const dummyStore = [
         content: `I know electricity.`
       }
     ]
+  },
+  {
+    id: 7,
+    productCode: "FT51",
+    productName: "Flat Top Trellis 5x1",
+    productType: "trellis",
+    image: {
+      src: "/pics/shark.jpg",
+      alt: "ft51"
+    },
+    mesh: [`5't x 1'w`],
+    hardSteel: {
+      threeEighths: [`2 x 6'`, `2 x 11 1/4"`],
+      oneQuarter: []
+    },
+    softSteel: {
+      threeEighths: ``
+    },
+    prepBend: [],
+    prepWeld: [],
+    weld: [
+      `Weld the ⅜” together.`,
+      `Weld the mesh to the ⅜”.`,
+      `Weld all of the top of the mesh to the ⅜” before completing the side.`,
+      `Rotate the product so that you can add the other side piece of ⅜”.`,
+      `Weld the ⅜” together first then the closest piece of mesh.`,
+      `Place your crosspiece across the bottom you can ensure that it will fit as is.
+      If it is too long, ignore it for now and weld your mesh. You can burn it down to fit after.
+      If it is too short, you will have to cut a new ⅜” piece. 
+      If it fits, weld the bottom piece of mesh and complete the side.`,
+      `Weld ⅜” crosspiece to mesh and ⅜”.`,
+      `Backweld.`
+    ],
+    comments: [
+      {
+        id: 1,
+        user_name: `Nate`,
+        content: `I can make these!`
+      }
+    ]
   }
 ];
 
