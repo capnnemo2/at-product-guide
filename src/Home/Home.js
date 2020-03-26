@@ -71,7 +71,13 @@ export default class Home extends React.Component {
               <Link to={`productDetails/${p.id}`} className="Home__link">
                 {p.productName}
               </Link>
-              <div className="dummyImage"></div>
+              <br />
+              <img
+                src={p.image.src}
+                alt={p.image.alt}
+                height="200"
+                width="200"
+              />
             </li>
           ))}
         </ul>

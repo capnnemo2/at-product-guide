@@ -33,12 +33,17 @@ export default class ProductDetails extends React.Component {
         <section>
           <h3 className="uppercase">Materials</h3>
           <div className="materials">
-            <fieldset>
-              <legend>
-                <span className="bold">Mesh</span>
-              </legend>
-              {product.mesh}
-            </fieldset>
+            {product.mesh !== "" ? (
+              <fieldset>
+                <legend>
+                  <span className="bold">Mesh</span>
+                </legend>
+                {product.mesh}
+              </fieldset>
+            ) : (
+              ""
+            )}
+            {/* proof of concept with the mesh: if it's empty, don't display it. circle back to this for the other fields */}
             <fieldset className="hard-steel">
               <legend>
                 <span className="bold">Hard steel</span>

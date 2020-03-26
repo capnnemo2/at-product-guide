@@ -6,13 +6,6 @@
   color: white;
 }
 
-.dummyImage {
-  height: 150px;
-  width: 150px;
-  background-color: grey;
-  margin: 0 auto;
-}
-
 /* not sure why this is necessary, but it is */
 ul {
   margin-left: -38px;

@@ -162,10 +162,10 @@ const dummyStore = [
     productName: "Small Ball",
     productType: "topiary",
     image: {
-      src: "/pics/shark.jpg",
+      src: "/pics/SB-LB.jpg",
       alt: "small ball"
     },
-    mesh: [],
+    mesh: "",
     hardSteel: {
       threeEighths: [],
       oneQuarter: [
@@ -216,7 +216,7 @@ const dummyStore = [
     productName: "Flat Top Trellis 5x1",
     productType: "trellis",
     image: {
-      src: "/pics/shark.jpg",
+      src: "/pics/FT51-54.jpg",
       alt: "ft51"
     },
     mesh: [`5't x 1'w`],
