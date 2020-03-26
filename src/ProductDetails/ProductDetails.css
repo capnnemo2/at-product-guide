@@ -38,3 +38,10 @@ ul {
 .steel-list > li {
   margin-left: 15px;
 }
+
+.instruction-block {
+  text-align: left;
+  width: 90%;
+  margin: 0 auto;
+  list-style-type: disc;
+}

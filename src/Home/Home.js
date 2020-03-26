@@ -66,12 +66,6 @@ export default class Home extends React.Component {
         </form>
 
         <ul>
-          <li key="0" className="Home__li">
-            <p>Purely for reference purposes:</p>
-            <a href="http://www.artisantrellis.com/all-products">
-              Artisan Trellis Catalog
-            </a>
-          </li>
           {productsToDisplay.map(p => (
             <li key={p.id} className="Home__li">
               <Link to={`productDetails/${p.id}`} className="Home__link">

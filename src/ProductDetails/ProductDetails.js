@@ -23,6 +23,16 @@ export default class ProductDetails extends React.Component {
       ? Object.values(product.softSteel)
       : [];
 
+    const prepBend = Object.values(product.prepBend)
+      ? Object.values(product.prepBend)
+      : [];
+
+    const prepWeld = Object.values(product.prepWeld)
+      ? Object.values(product.prepWeld)
+      : [];
+
+    const weld = Object.values(product.weld) ? Object.values(product.weld) : [];
+
     return (
       <div className="ProductDetails">
         <section>
@@ -85,18 +95,27 @@ export default class ProductDetails extends React.Component {
         </section>
         <section>
           <h3 className="uppercase">Prep bend</h3>
-          {/* maybe this should be an un/ordered list? */}
-          <p className="description">{product.prepBend}</p>
+          <ul className="instruction-block">
+            {prepBend.map(i => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
         </section>
         <section>
           <h3 className="uppercase">Prep weld</h3>
-          {/* maybe this should be an un/ordered list? */}
-          <p className="description">{product.prepWeld}</p>
+          <ul className="instruction-block">
+            {prepWeld.map(i => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
         </section>
         <section>
           <h3 className="uppercase">Weld</h3>
-          {/* maybe this should be an un/ordered list? */}
-          <p className="description">{product.weld}</p>
+          <ul className="instruction-block">
+            {weld.map(i => (
+              <li key={i}>{i}</li>
+            ))}
+          </ul>
         </section>
         <section>
           {/* should editing be available to all users or just admin? is there a way for anyone to make changes, but they don't go into effect until the admin approves them? */}

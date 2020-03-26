@@ -157,7 +157,7 @@ export default class AddProduct extends React.Component {
   handleSubmit = () => {
     const newProduct = this.state;
     this.context.addProduct(newProduct);
-    this.props.history.push("/");
+    this.props.history.push("/home");
   };
 
   // CANCEL handler
@@ -208,8 +208,8 @@ export default class AddProduct extends React.Component {
               </select>
             </div>
             <fieldset>
-              <legend>Materials:</legend>
-              <label htmlFor="mesh">Mesh: </label>
+              <legend>Materials</legend>
+              <label htmlFor="mesh">Mesh:</label>
               {this.state.mesh.map((mesh, idx) => (
                 <div className="meshItem" key={idx}>
                   <input
@@ -228,7 +228,7 @@ export default class AddProduct extends React.Component {
                 +
               </button>
               <fieldset>
-                <legend>Hard steel:</legend>
+                <legend>Hard steel</legend>
 
                 <label htmlFor="three-eighths">3/8": </label>
                 {this.state.hardThreeEighths.map((three, idx) => (
@@ -277,7 +277,7 @@ export default class AddProduct extends React.Component {
                 </button>
               </fieldset>
               <fieldset>
-                <legend>Soft steel:</legend>
+                <legend>Soft steel</legend>
                 <label htmlFor="soft-steel">3/8": </label>
                 {this.state.softThreeEighths.map((soft, idx) => (
                   <div className="softThreeEighths" key={idx}>
@@ -300,7 +300,7 @@ export default class AddProduct extends React.Component {
               </fieldset>
             </fieldset>
             <fieldset>
-              <legend>Prep bend:</legend>
+              <legend>Prep bend</legend>
               <div className="textarea__container">
                 <label htmlFor="bends">Bend instructions:</label>
                 <textarea
@@ -311,7 +311,7 @@ export default class AddProduct extends React.Component {
               </div>
             </fieldset>
             <fieldset>
-              <legend>Prep weld:</legend>
+              <legend>Prep weld</legend>
               <div className="textarea__container">
                 <label htmlFor="prep-weld">Weld instructions:</label>
                 <textarea
@@ -322,8 +322,8 @@ export default class AddProduct extends React.Component {
               </div>
             </fieldset>
             <fieldset>
-              {/* maybe there is a way for the textarea fields here to be part of an ordered list and the user can add additional steps */}
-              <legend>Weld:</legend>
+              {/* maybe there is a way for the textarea fields here to be part of an un/ordered list and the user can add additional steps */}
+              <legend>Weld</legend>
               <div className="textarea__container">
                 <label htmlFor="weld">Weld instructions:</label>
                 <textarea
