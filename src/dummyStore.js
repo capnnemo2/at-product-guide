@@ -8,7 +8,7 @@ const dummyStore = [
       src: "../pics/ST-XT.jpg",
       alt: "small trellis"
     },
-    mesh: `4't x 1'w`,
+    mesh: [`4't x 1'w`],
     hardSteel: {
       threeEigths: [`1 x 11 1/4"`],
       oneQuarter: [`4 x 11 1/4"`]
@@ -36,7 +36,7 @@ const dummyStore = [
       src: "../pics/ST-XT.jpg",
       alt: "medium trellis"
     },
-    mesh: `5't x 2'w`,
+    mesh: [`5't x 2'w`],
     hardSteel: {
       threeEigths: [`1 x 20', bend @ 92", cut @ 184"`, `1 x 23 1/4"`],
       oneQuarter: [`3 x 16"`, `1 x 27"`]
@@ -64,7 +64,7 @@ const dummyStore = [
       src: "../pics/ST-XT.jpg",
       alt: "large trellis"
     },
-    mesh: `5't x 3'w`,
+    mesh: [`5't x 3'w`],
     hardSteel: {
       threeEigths: [`1 x 20', bend @ 101 1/2", cut @ 203"`, `1 x 35 1/4"`],
       oneQuarter: [`3 x 24"`, `1 x 36"`]
@@ -92,7 +92,7 @@ const dummyStore = [
       src: "../pics/ST-XT.jpg",
       alt: "extra large trellis"
     },
-    mesh: `5'8"t x 4'w`,
+    mesh: [`5'8"t x 4'w`],
     hardSteel: {
       threeEigths: [`1 x 20', bend @ 121 1/2", cut @ 3"`, `1 x 47 1/4"`],
       oneQuarter: [`3 x 27"`, `1 x 47"`]
@@ -125,7 +125,7 @@ const dummyStore = [
       src: "../pics/SA.jpg",
       alt: "small arbor"
     },
-    mesh: `16't x 1'w`,
+    mesh: [`16't x 1'w`],
     hardSteel: {
       threeEigths: [`2 x 20', bend @ 135", cut @ 30"`, `2 x ~10 3/8"`],
       oneQuarter: []

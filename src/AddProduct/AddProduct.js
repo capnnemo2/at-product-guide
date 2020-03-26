@@ -2,6 +2,29 @@ import React from "react";
 import "./AddProduct.css";
 
 export default class AddProduct extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mesh: [{ measurements: "" }]
+    };
+  }
+
+  handleMeshChange = e => {
+    this.setState({ mesh: e.target.value });
+  };
+
+  handleAddMesh = () => {
+    this.setState({
+      mesh: this.state.mesh.concat([{ mesh: "" }])
+    });
+  };
+
+  handleRemoveMesh = idx => () => {
+    this.setState({
+      mesh: this.state.mesh.filter((s, sidx) => idx !== sidx)
+    });
+  };
+
   handleClickCancel = () => {
     this.props.history.goBack();
   };
@@ -12,30 +35,52 @@ export default class AddProduct extends React.Component {
         <section>
           <form>
             <div>
-              <label htmlFor="name">Product name:</label>
+              <label htmlFor="name">Product name: </label>
               <input type="text" name="name" id="name" required />
             </div>
             <fieldset>
               <legend>Materials:</legend>
-              <label htmlFor="mesh">Mesh:</label>
-              <input type="text" name="mesh" id="mesh" />
-              <button type="button">Add field</button>
+              <label htmlFor="mesh">Mesh: </label>
+              {this.state.mesh.map((mesh, idx) => (
+                <div className="meshItem">
+                  <input
+                    type="text"
+                    name="mesh"
+                    placeholder={`mesh input #${idx + 1}`}
+                    value={mesh.measurements}
+                    onChange={this.handleMeshChange}
+                  />
+                  <button type="button" onClick={this.handleRemoveMesh(idx)}>
+                    -
+                  </button>
+                </div>
+              ))}
+              {/* <input
+                type="text"
+                name="mesh"
+                id="mesh"
+                placeholder="5't x 2'w"
+                value={this.state}
+              /> */}
+              <button type="button" onClick={this.handleAddMesh}>
+                +
+              </button>
               <fieldset>
                 <legend>Hard steel:</legend>
-                <label htmlFor="three-eigths">3/8":</label>
+                <label htmlFor="three-eigths">3/8": </label>
                 <input type="text" name="three-eigths" id="three-eigths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional
                   input field
                 </p>
-                <label htmlFor="quarter-inch">1/4":</label>
+                <label htmlFor="quarter-inch">1/4": </label>
                 <input type="text" name="quarter-inch" id="quarter-inch" />
                 <button type="button">Add field</button>
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
-                <label htmlFor="three-eigths">3/8":</label>
+                <label htmlFor="three-eigths">3/8": </label>
                 <input type="text" name="three-eigths" id="three-eigths" />
                 <button type="button">Add field</button>
                 <p>
