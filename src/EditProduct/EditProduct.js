@@ -22,8 +22,8 @@ export default class AddProduct extends React.Component {
               <input type="text" name="mesh" id="mesh" />
               <fieldset>
                 <legend>Hard steel:</legend>
-                <label for="three-eigths">3/8":</label>
-                <input type="text" name="three-eigths" id="three-eigths" />
+                <label for="three-Eighths">3/8":</label>
+                <input type="text" name="three-Eighths" id="three-Eighths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional
@@ -34,8 +34,8 @@ export default class AddProduct extends React.Component {
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
-                <label for="three-eigths">3/8":</label>
-                <input type="text" name="three-eigths" id="three-eigths" />
+                <label for="three-Eighths">3/8":</label>
+                <input type="text" name="three-Eighths" id="three-Eighths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional

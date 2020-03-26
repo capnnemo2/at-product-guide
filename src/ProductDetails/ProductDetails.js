@@ -8,7 +8,7 @@ export default class ProductDetails extends React.Component {
     const productId = this.props.match.params.product_id;
     const product = dummyStore.find(p => Number(p.id) === Number(productId));
 
-    const threeEigthSteel = Object.values(product.hardSteel)[0]
+    const threeEighthSteel = Object.values(product.hardSteel)[0]
       ? Object.values(product.hardSteel)[0]
       : [];
 
@@ -52,7 +52,7 @@ export default class ProductDetails extends React.Component {
                   <span className="bold">3/8": </span>
                 </p>
                 <ul className="steel-list">
-                  {threeEigthSteel.map(i => (
+                  {threeEighthSteel.map(i => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>

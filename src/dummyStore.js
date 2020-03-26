@@ -10,11 +10,11 @@ const dummyStore = [
     },
     mesh: [`4't x 1'w`],
     hardSteel: {
-      threeEigths: [`1 x 11 1/4"`],
+      threeEighths: [`1 x 11 1/4"`],
       oneQuarter: [`4 x 11 1/4"`]
     },
     softSteel: {
-      threeEigths: `1 x 20', bend @ 67", cut @ 134"`
+      threeEighths: `1 x 20', bend @ 67", cut @ 134"`
     },
     prepBend: `Use the ST on the metal wheely table. Bend to 5-7" from jig.`,
     prepWeld: "",
@@ -38,11 +38,11 @@ const dummyStore = [
     },
     mesh: [`5't x 2'w`],
     hardSteel: {
-      threeEigths: [`1 x 20', bend @ 92", cut @ 184"`, `1 x 23 1/4"`],
+      threeEighths: [`1 x 20', bend @ 92", cut @ 184"`, `1 x 23 1/4"`],
       oneQuarter: [`3 x 16"`, `1 x 27"`]
     },
     softSteel: {
-      threeEigths: ``
+      threeEighths: ``
     },
     prepBend: `Use the top circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
@@ -66,11 +66,11 @@ const dummyStore = [
     },
     mesh: [`5't x 3'w`],
     hardSteel: {
-      threeEigths: [`1 x 20', bend @ 101 1/2", cut @ 203"`, `1 x 35 1/4"`],
+      threeEighths: [`1 x 20', bend @ 101 1/2", cut @ 203"`, `1 x 35 1/4"`],
       oneQuarter: [`3 x 24"`, `1 x 36"`]
     },
     softSteel: {
-      threeEigths: ``
+      threeEighths: ``
     },
     prepBend: `Use the second circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
@@ -94,11 +94,11 @@ const dummyStore = [
     },
     mesh: [`5'8"t x 4'w`],
     hardSteel: {
-      threeEigths: [`1 x 20', bend @ 121 1/2", cut @ 3"`, `1 x 47 1/4"`],
+      threeEighths: [`1 x 20', bend @ 121 1/2", cut @ 3"`, `1 x 47 1/4"`],
       oneQuarter: [`3 x 27"`, `1 x 47"`]
     },
     softSteel: {
-      threeEigths: ``
+      threeEighths: ``
     },
     prepBend: `Use the third circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`,
     prepWeld: "",
@@ -127,11 +127,11 @@ const dummyStore = [
     },
     mesh: [`16't x 1'w`],
     hardSteel: {
-      threeEigths: [`2 x 20', bend @ 135", cut @ 30"`, `2 x ~10 3/8"`],
+      threeEighths: [`2 x 20', bend @ 135", cut @ 30"`, `2 x ~10 3/8"`],
       oneQuarter: []
     },
     softSteel: {
-      threeEigths: ``
+      threeEighths: ``
     },
     prepBend: `Use the circle jig table, bend on the fifth circle to the second hole`,
     prepWeld: "",

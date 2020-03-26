@@ -6,7 +6,7 @@ export default class AddProduct extends React.Component {
     super(props);
     this.state = {
       mesh: [{ measurements: "" }],
-      hardThreeEigths: [{ measurements: "" }],
+      hardThreeEighths: [{ measurements: "" }],
       hardOneQuarter: [{ measurements: "" }]
     };
   }
@@ -33,23 +33,25 @@ export default class AddProduct extends React.Component {
   };
 
   // HARD STEEL 3/8"
-  handleThreeEigthsChange = idx => e => {
-    const newThreeEigths = this.state.hardThreeEigths.map((three, sidx) => {
+  handleThreeEighthsChange = idx => e => {
+    const newThreeEighths = this.state.hardThreeEighths.map((three, sidx) => {
       if (idx !== sidx) return three;
       return { ...three, measurements: e.target.value };
     });
-    this.setState({ hardThreeEigths: newThreeEigths });
+    this.setState({ hardThreeEighths: newThreeEighths });
   };
 
-  handleAddThreeEigths = () => {
+  handleAddThreeEighths = () => {
     this.setState({
-      hardThreeEigths: this.state.hardThreeEigths.concat([{ measurements: "" }])
+      hardThreeEighths: this.state.hardThreeEighths.concat([
+        { measurements: "" }
+      ])
     });
   };
 
-  handleRemoveThreeEigths = idx => () => {
+  handleRemoveThreeEighths = idx => () => {
     this.setState({
-      hardThreeEigths: this.state.hardThreeEigths.filter(
+      hardThreeEighths: this.state.hardThreeEighths.filter(
         (s, sidx) => idx !== sidx
       )
     });
@@ -94,31 +96,31 @@ export default class AddProduct extends React.Component {
               </button>
               <fieldset>
                 <legend>Hard steel:</legend>
-                <label htmlFor="three-eigths">3/8": </label>
+                <label htmlFor="three-Eighths">3/8": </label>
 
-                {this.state.hardThreeEigths.map((three, idx) => (
-                  <div className="threeEigths" key={idx}>
+                {this.state.hardThreeEighths.map((three, idx) => (
+                  <div className="threeEighths" key={idx}>
                     <input
                       type="text"
-                      name="three-eigths"
+                      name="three-Eighths"
                       placeholder={`3/8" input #${idx + 1}`}
                       value={three.measurements}
-                      onChange={this.handleThreeEigthsChange(idx)}
+                      onChange={this.handleThreeEighthsChange(idx)}
                     />
                     <button
                       type="button"
-                      onClick={this.handleRemoveThreeEigths(idx)}
+                      onClick={this.handleRemoveThreeEighths(idx)}
                     >
                       -
                     </button>
                   </div>
                 ))}
-                <button type="button" onClick={this.handleAddThreeEigths}>
+                <button type="button" onClick={this.handleAddThreeEighths}>
                   +
                 </button>
                 <br />
 
-                {/* <input type="text" name="three-eigths" id="three-eigths" />
+                {/* <input type="text" name="three-Eighths" id="three-Eighths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional
@@ -130,8 +132,8 @@ export default class AddProduct extends React.Component {
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
-                <label htmlFor="three-eigths">3/8": </label>
-                <input type="text" name="three-eigths" id="three-eigths" />
+                <label htmlFor="three-Eighths">3/8": </label>
+                <input type="text" name="three-Eighths" id="three-Eighths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional
