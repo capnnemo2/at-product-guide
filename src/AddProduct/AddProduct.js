@@ -1,7 +1,10 @@
 import React from "react";
+import ATContext from "../ATContext";
 import "./AddProduct.css";
 
 export default class AddProduct extends React.Component {
+  static contextType = ATContext;
+
   state = {
     productCode: "",
     productName: "",
@@ -14,6 +17,10 @@ export default class AddProduct extends React.Component {
     prepWeld: "",
     weld: ""
   };
+
+  // ------------------------------------------------------------------
+  // NEED TO DECIDE IF PREPBEND, PREPWELD, AND WELD SHOULD BE UN/ORDERED LISTS
+  // ------------------------------------------------------------------
 
   updateProductCode(code) {
     this.setState({
@@ -147,6 +154,12 @@ export default class AddProduct extends React.Component {
     });
   };
 
+  handleSubmit = () => {
+    const newProduct = this.state;
+    this.context.addProduct(newProduct);
+    this.props.history.push("/");
+  };
+
   // CANCEL handler
   handleClickCancel = () => {
     this.props.history.goBack();
@@ -156,7 +169,12 @@ export default class AddProduct extends React.Component {
     return (
       <div className="AddProduct">
         <section>
-          <form>
+          <form
+            onSubmit={e => {
+              e.preventDefault();
+              this.handleSubmit();
+            }}
+          >
             <div>
               <label htmlFor="code">Product code: </label>
               <input

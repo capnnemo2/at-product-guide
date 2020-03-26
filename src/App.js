@@ -27,9 +27,14 @@ export default class App extends React.Component {
     });
   }
 
+  addProduct = newProduct => {
+    this.setState({ products: [...this.state.products, newProduct] });
+  };
+
   render() {
     const value = {
-      products: this.state.products
+      products: this.state.products,
+      addProduct: this.addProduct
     };
     return (
       <ATContext.Provider value={value}>
