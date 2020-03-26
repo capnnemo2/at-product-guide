@@ -233,7 +233,7 @@ export default class AddProduct extends React.Component {
               </div>
             </fieldset>
             <fieldset>
-              {/* maybe there is a way for the input fields here to be part of an ordered list and the user can add additional steps */}
+              {/* maybe there is a way for the textarea fields here to be part of an ordered list and the user can add additional steps */}
               <legend>Weld:</legend>
               <div className="textarea__container">
                 <label htmlFor="weld">Weld instructions:</label>

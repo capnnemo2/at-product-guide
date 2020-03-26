@@ -29,7 +29,6 @@ export default class Home extends React.Component {
     );
     const getProduct = findProduct ? findProduct[0] : "";
     const productId = getProduct ? getProduct.id : "";
-    console.log(productId);
     // end of the inefficiency
 
     const productsToDisplay =

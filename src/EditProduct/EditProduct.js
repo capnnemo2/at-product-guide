@@ -13,28 +13,28 @@ export default class AddProduct extends React.Component {
         <section>
           <form>
             <div>
-              <label for="name">Product name:</label>
+              <label htmlFor="name">Product name:</label>
               <input type="text" name="name" id="name" required />
             </div>
             <fieldset>
               <legend>Materials:</legend>
-              <label for="mesh">Mesh:</label>
+              <label htmlFor="mesh">Mesh:</label>
               <input type="text" name="mesh" id="mesh" />
               <fieldset>
                 <legend>Hard steel:</legend>
-                <label for="three-Eighths">3/8":</label>
+                <label htmlFor="three-Eighths">3/8":</label>
                 <input type="text" name="three-Eighths" id="three-Eighths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional
                   input field
                 </p>
-                <label for="quarter-inch">1/4":</label>
+                <label htmlFor="quarter-inch">1/4":</label>
                 <input type="text" name="quarter-inch" id="quarter-inch" />
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
-                <label for="three-Eighths">3/8":</label>
+                <label htmlFor="three-Eighths">3/8":</label>
                 <input type="text" name="three-Eighths" id="three-Eighths" />
                 <button type="button">Add field</button>
                 <p>
@@ -46,22 +46,22 @@ export default class AddProduct extends React.Component {
             <fieldset>
               <legend>Prep bend:</legend>
               <div className="textarea__container">
-                <label for="bends">Bend instructions:</label>
+                <label htmlFor="bends">Bend instructions:</label>
                 <textarea name="bends" id="bends"></textarea>
               </div>
             </fieldset>
             <fieldset>
               <legend>Prep weld:</legend>
               <div className="textarea__container">
-                <label for="prep-weld">Weld instructions:</label>
+                <label htmlFor="prep-weld">Weld instructions:</label>
                 <textarea name="prep-weld" id="prep-weld"></textarea>
               </div>
             </fieldset>
             <fieldset>
-              {/* maybe there is a way for the input fields here to be part of an ordered list and the user can add additional steps */}
+              {/* maybe there is a way htmlFor the input fields here to be part of an ordered list and the user can add additional steps */}
               <legend>Weld:</legend>
               <div className="textarea__container">
-                <label for="weld">Weld instructions:</label>
+                <label htmlFor="weld">Weld instructions:</label>
                 <textarea name="weld" id="weld"></textarea>
               </div>
             </fieldset>
