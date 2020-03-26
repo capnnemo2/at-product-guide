@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ATContext from "../ATContext";
-import dummyStore from "../dummyStore";
 import "./Home.css";
 
 export default class Home extends React.Component {
