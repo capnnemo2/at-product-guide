@@ -10,8 +10,8 @@ const dummyStore = [
     },
     mesh: `4't x 1'w`,
     hardSteel: {
-      threeEigths: `1 x 11 1/4"`,
-      oneQuarter: `4 x 11 1/4"`
+      threeEigths: [`1 x 11 1/4"`],
+      oneQuarter: [`4 x 11 1/4"`]
     },
     softSteel: {
       threeEigths: `1 x 20', bend @ 67", cut @ 134"`
@@ -128,7 +128,7 @@ const dummyStore = [
     mesh: `16't x 1'w`,
     hardSteel: {
       threeEigths: [`2 x 20', bend @ 135", cut @ 30"`, `2 x ~10 3/8"`],
-      oneQuarter: ``
+      oneQuarter: []
     },
     softSteel: {
       threeEigths: ``

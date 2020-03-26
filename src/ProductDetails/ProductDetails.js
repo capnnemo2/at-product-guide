@@ -8,10 +8,17 @@ export default class ProductDetails extends React.Component {
     const productId = this.props.match.params.product_id;
     const product = dummyStore.find(p => Number(p.id) === Number(productId));
 
-    console.log(Object.values(product.hardSteel));
-    console.log(Object.keys(product.hardSteel));
-    console.log(Object.values(product.hardSteel)[0]);
-    console.log(Object.values(product.hardSteel)[0][0]);
+    const threeEigthSteel = Object.values(product.hardSteel)[0]
+      ? Object.values(product.hardSteel)[0]
+      : [];
+
+    const quarterInchSteel = Object.values(product.hardSteel)[1]
+      ? Object.values(product.hardSteel)[1]
+      : [];
+
+    const softSteel = Object.values(product.softSteel)
+      ? Object.values(product.softSteel)
+      : [];
 
     return (
       <div className="ProductDetails">
@@ -45,7 +52,7 @@ export default class ProductDetails extends React.Component {
                   <span className="bold">3/8": </span>
                 </p>
                 <ul className="steel-list">
-                  {Object.values(product.hardSteel)[0].map(i => (
+                  {threeEigthSteel.map(i => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
@@ -55,7 +62,7 @@ export default class ProductDetails extends React.Component {
                   <span className="bold">1/4": </span>
                 </p>
                 <ul className="steel-list">
-                  {Object.values(product.hardSteel)[1].map(i => (
+                  {quarterInchSteel.map(i => (
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
@@ -69,7 +76,7 @@ export default class ProductDetails extends React.Component {
                 <p>
                   <span className="bold">3/8": </span>
                 </p>
-                {Object.values(product.softSteel)[0]}
+                {softSteel}
               </div>
             </fieldset>
           </div>
