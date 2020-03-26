@@ -7,7 +7,8 @@ export default class AddProduct extends React.Component {
     this.state = {
       mesh: [{ measurements: "" }],
       hardThreeEighths: [{ measurements: "" }],
-      hardOneQuarter: [{ measurements: "" }]
+      hardOneQuarter: [{ measurements: "" }],
+      softThreeEighths: []
     };
   }
 
@@ -57,6 +58,31 @@ export default class AddProduct extends React.Component {
     });
   };
 
+  // HARD STEEL 1/4"
+  handleOneQuarterChange = idx => e => {
+    const newOneQuarter = this.state.hardOneQuarter.map((quarter, sidx) => {
+      if (idx !== sidx) return quarter;
+      return { ...quarter, measurements: e.target.value };
+    });
+    this.setState({ hardOneQuarter: newOneQuarter });
+  };
+
+  handleAddOneQuarter = () => {
+    this.setState({
+      hardOneQuarter: this.state.hardOneQuarter.concat([{ measurements: "" }])
+    });
+  };
+
+  handleRemoveOneQuarter = idx => () => {
+    this.setState({
+      hardOneQuarter: this.state.hardOneQuarter.filter(
+        (s, sidx) => idx !== sidx
+      )
+    });
+  };
+
+  // SOFT STEEL 3/8"
+
   // CLICK CANCEL
   handleClickCancel = () => {
     this.props.history.goBack();
@@ -96,10 +122,10 @@ export default class AddProduct extends React.Component {
               </button>
               <fieldset>
                 <legend>Hard steel:</legend>
-                <label htmlFor="three-Eighths">3/8": </label>
 
+                <label htmlFor="three-Eighths">3/8": </label>
                 {this.state.hardThreeEighths.map((three, idx) => (
-                  <div className="threeEighths" key={idx}>
+                  <div className="hardThreeEighths" key={idx}>
                     <input
                       type="text"
                       name="three-Eighths"
@@ -118,17 +144,30 @@ export default class AddProduct extends React.Component {
                 <button type="button" onClick={this.handleAddThreeEighths}>
                   +
                 </button>
+
                 <br />
 
-                {/* <input type="text" name="three-Eighths" id="three-Eighths" />
-                <button type="button">Add field</button>
-                <p>
-                  Add field button should allow the user to add an additional
-                  input field
-                </p> */}
                 <label htmlFor="quarter-inch">1/4": </label>
-                <input type="text" name="quarter-inch" id="quarter-inch" />
-                <button type="button">Add field</button>
+                {this.state.hardOneQuarter.map((quarter, idx) => (
+                  <div className="hardOneQuarter" key={idx}>
+                    <input
+                      type="text"
+                      name="quarter-inch"
+                      placeholder={`1/4" input #${idx}`}
+                      value={quarter.measurements}
+                      onChange={this.handleOneQuarterChange(idx)}
+                    />
+                    <button
+                      type="button"
+                      onClick={this.handleRemoveOneQuarter(idx)}
+                    >
+                      -
+                    </button>
+                  </div>
+                ))}
+                <button type="button" onClick={this.handleAddOneQuarter}>
+                  +
+                </button>
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
