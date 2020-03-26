@@ -24,3 +24,17 @@ ul {
   border: 1px dashed black;
   margin: 10px;
 }
+
+.materials {
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.steel-list {
+  list-style-type: disc;
+}
+
+.steel-list > li {
+  margin-left: 15px;
+}

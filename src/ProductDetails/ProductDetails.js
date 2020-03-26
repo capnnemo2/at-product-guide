@@ -7,10 +7,9 @@ export default class ProductDetails extends React.Component {
   render() {
     const productId = this.props.match.params.product_id;
     const product = dummyStore.find(p => Number(p.id) === Number(productId));
-    // console.log(product.hardSteel);
-    // console.log(product.hardSteel.threeEigths);
-    // console.log(Object.keys(product.hardSteel));
+
     console.log(Object.values(product.hardSteel));
+    console.log(Object.keys(product.hardSteel));
     console.log(Object.values(product.hardSteel)[0]);
     console.log(Object.values(product.hardSteel)[0][0]);
 
@@ -24,89 +23,56 @@ export default class ProductDetails extends React.Component {
               src={require("../pics/SA.jpg")}
               alt="small arbor"
               height="400"
-              width="400"
+              width="300"
             />
           </div>
         </section>
         <section>
           <h3 className="uppercase">Materials</h3>
-          <div>
-            <p>
-              <span className="bold">Mesh: </span>
+          <div className="materials">
+            <fieldset>
+              <legend>
+                <span className="bold">Mesh</span>
+              </legend>
               {product.mesh}
-            </p>
-          </div>
-          <div className="hard-steel">
-            <p>
-              <span className="bold">Hard steel: </span>
-            </p>
-            <div>
-              <p>
-                <span className="bold">3/8": </span>
-              </p>
-              <ul>
-                {Object.values(product.hardSteel)[0].map(i => (
-                  <li key={i}>{product.hardSteel[0][i]}</li>
-                ))}
-              </ul>
-
-              {/* {Object.values(product.hardSteel)[0][0]}
-              <br />
-              {Object.values(product.hardSteel)[0][1]} */}
-            </div>
-            <div>
-              <p>
-                <span className="bold">1/4": </span>
-              </p>
-
-              {Object.values(product.hardSteel)[1][0]}
-              <br />
-              {Object.values(product.hardSteel)[1][1]}
-            </div>
-          </div>
-          <div className="soft-steel">
-            <p>
-              <span className="bold">Soft steel: </span>
-            </p>
-            <div>
-              <p>
-                <span className="bold">3/8": </span>
-              </p>
-              {Object.values(product.softSteel)[0]}
-            </div>
-          </div>
-          {/* <ul>
-            <li>
-              <span className="bold">Mesh: </span>
-              {product.mesh}
-            </li>
-            <li>
-              <span className="bold">Hard steel:</span>
-              <ul>
-                <li>
-                  // it would be great if this created a ul with an li for each threeEigths entry
+            </fieldset>
+            <fieldset className="hard-steel">
+              <legend>
+                <span className="bold">Hard steel</span>
+              </legend>
+              <div>
+                <p>
                   <span className="bold">3/8": </span>
-                  {product.hardSteel[0].threeEigths[0]}
-                  <br />
-                  {product.hardSteel[0].threeEigths[1]}
-                </li>
-                <li>
+                </p>
+                <ul className="steel-list">
+                  {Object.values(product.hardSteel)[0].map(i => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p>
                   <span className="bold">1/4": </span>
-                  {product.hardSteel[0].oneQuarter}
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <span className="bold">Soft steel:</span>
-              <ul>
-                <li>
+                </p>
+                <ul className="steel-list">
+                  {Object.values(product.hardSteel)[1].map(i => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
+              </div>
+            </fieldset>
+            <fieldset className="soft-steel">
+              <legend>
+                <span className="bold">Soft steel</span>
+              </legend>
+              <div>
+                <p>
                   <span className="bold">3/8": </span>
-                  {product.softSteel[0].threeEigths}
-                </li>
-              </ul>
-            </li>
-          </ul> */}
+                </p>
+                {Object.values(product.softSteel)[0]}
+              </div>
+            </fieldset>
+          </div>
         </section>
         <section>
           <h3 className="uppercase">Prep bend</h3>
