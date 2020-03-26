@@ -5,7 +5,7 @@ const dummyStore = [
     productName: "Small Trellis",
     productType: "trellis",
     image: {
-      src: "../pics/ST-XT.jpg",
+      src: "/pics/ST-XT.jpg",
       alt: "small trellis"
     },
     mesh: [`4't x 1'w`],
@@ -33,7 +33,7 @@ const dummyStore = [
     productName: "Medium Trellis",
     productType: "trellis",
     image: {
-      src: "../pics/ST-XT.jpg",
+      src: "/pics/ST-XT.jpg",
       alt: "medium trellis"
     },
     mesh: [`5't x 2'w`],

@@ -26,7 +26,7 @@ export default class ProductDetails extends React.Component {
           <h2 className="uppercase">{product.productName}</h2>
           <div>
             <img
-              src={require("../pics/ST-XT.jpg")}
+              src={product.image.src}
               alt="trellises"
               height="400"
               width="300"
