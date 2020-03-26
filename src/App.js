@@ -11,13 +11,21 @@ import AddComment from "./AddComment/AddComment";
 import EditProduct from "./EditProduct/EditProduct";
 import EditComment from "./EditComment/EditComment";
 import NotFound from "./NotFound/NotFound";
-import "./App.css";
+import dummyStore from "./dummyStore";
 import ATContext from "./ATContext";
+import "./App.css";
 
 export default class App extends React.Component {
   state = {
     products: []
   };
+
+  componentDidMount() {
+    const productArray = dummyStore;
+    this.setState({
+      products: productArray
+    });
+  }
 
   render() {
     const value = {

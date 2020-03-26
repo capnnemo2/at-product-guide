@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import ATContext from "../ATContext";
 import dummyStore from "../dummyStore";
+import "./Home.css";
 
 export default class Home extends React.Component {
+  static contextType = ATContext;
+
   state = {
     filter: "all",
     productCode: ""
@@ -22,7 +25,7 @@ export default class Home extends React.Component {
   }
 
   render() {
-    const findProduct = dummyStore.filter(
+    const findProduct = this.context.products.filter(
       p => p.productCode === this.state.productCode
     );
     const getProduct = findProduct ? findProduct[0] : "";
@@ -30,8 +33,10 @@ export default class Home extends React.Component {
 
     const productsToDisplay =
       this.state.filter === "all"
-        ? dummyStore
-        : dummyStore.filter(p => p.productType === this.state.filter);
+        ? this.context.products
+        : this.context.products.filter(
+            p => p.productType === this.state.filter
+          );
     return (
       <div className="Home">
         <form>
