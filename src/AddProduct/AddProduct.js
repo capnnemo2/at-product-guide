@@ -9,13 +9,18 @@ export default class AddProduct extends React.Component {
     };
   }
 
-  handleMeshChange = e => {
-    this.setState({ mesh: e.target.value });
+  // MESH
+  handleMeshChange = idx => e => {
+    const newMesh = this.state.mesh.map((mesh, sidx) => {
+      if (idx !== sidx) return mesh;
+      return { ...mesh, measurements: e.target.value };
+    });
+    this.setState({ mesh: newMesh });
   };
 
   handleAddMesh = () => {
     this.setState({
-      mesh: this.state.mesh.concat([{ mesh: "" }])
+      mesh: this.state.mesh.concat([{ measurements: "" }])
     });
   };
 
@@ -24,6 +29,8 @@ export default class AddProduct extends React.Component {
       mesh: this.state.mesh.filter((s, sidx) => idx !== sidx)
     });
   };
+
+  // HARD STEEL 3/8"
 
   handleClickCancel = () => {
     this.props.history.goBack();
@@ -48,20 +55,13 @@ export default class AddProduct extends React.Component {
                     name="mesh"
                     placeholder={`mesh input #${idx + 1}`}
                     value={mesh.measurements}
-                    onChange={this.handleMeshChange}
+                    onChange={this.handleMeshChange(idx)}
                   />
                   <button type="button" onClick={this.handleRemoveMesh(idx)}>
                     -
                   </button>
                 </div>
               ))}
-              {/* <input
-                type="text"
-                name="mesh"
-                id="mesh"
-                placeholder="5't x 2'w"
-                value={this.state}
-              /> */}
               <button type="button" onClick={this.handleAddMesh}>
                 +
               </button>
