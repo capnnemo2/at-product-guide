@@ -5,7 +5,9 @@ export default class AddProduct extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mesh: [{ measurements: "" }]
+      mesh: [{ measurements: "" }],
+      hardThreeEigths: [{ measurements: "" }],
+      hardOneQuarter: [{ measurements: "" }]
     };
   }
 
@@ -31,7 +33,29 @@ export default class AddProduct extends React.Component {
   };
 
   // HARD STEEL 3/8"
+  handleThreeEigthsChange = idx => e => {
+    const newThreeEigths = this.state.hardThreeEigths.map((three, sidx) => {
+      if (idx !== sidx) return three;
+      return { ...three, measurements: e.target.value };
+    });
+    this.setState({ hardThreeEigths: newThreeEigths });
+  };
 
+  handleAddThreeEigths = () => {
+    this.setState({
+      hardThreeEigths: this.state.hardThreeEigths.concat([{ measurements: "" }])
+    });
+  };
+
+  handleRemoveThreeEigths = idx => () => {
+    this.setState({
+      hardThreeEigths: this.state.hardThreeEigths.filter(
+        (s, sidx) => idx !== sidx
+      )
+    });
+  };
+
+  // CLICK CANCEL
   handleClickCancel = () => {
     this.props.history.goBack();
   };
@@ -44,12 +68,15 @@ export default class AddProduct extends React.Component {
             <div>
               <label htmlFor="name">Product name: </label>
               <input type="text" name="name" id="name" required />
+              <br />
+              <label htmlFor="code">Product code: </label>
+              <input type="text" name="code" id="code" required />
             </div>
             <fieldset>
               <legend>Materials:</legend>
               <label htmlFor="mesh">Mesh: </label>
               {this.state.mesh.map((mesh, idx) => (
-                <div className="meshItem">
+                <div className="meshItem" key={idx}>
                   <input
                     type="text"
                     name="mesh"
@@ -68,12 +95,35 @@ export default class AddProduct extends React.Component {
               <fieldset>
                 <legend>Hard steel:</legend>
                 <label htmlFor="three-eigths">3/8": </label>
-                <input type="text" name="three-eigths" id="three-eigths" />
+
+                {this.state.hardThreeEigths.map((three, idx) => (
+                  <div className="threeEigths" key={idx}>
+                    <input
+                      type="text"
+                      name="three-eigths"
+                      placeholder={`3/8" input #${idx + 1}`}
+                      value={three.measurements}
+                      onChange={this.handleThreeEigthsChange(idx)}
+                    />
+                    <button
+                      type="button"
+                      onClick={this.handleRemoveThreeEigths(idx)}
+                    >
+                      -
+                    </button>
+                  </div>
+                ))}
+                <button type="button" onClick={this.handleAddThreeEigths}>
+                  +
+                </button>
+                <br />
+
+                {/* <input type="text" name="three-eigths" id="three-eigths" />
                 <button type="button">Add field</button>
                 <p>
                   Add field button should allow the user to add an additional
                   input field
-                </p>
+                </p> */}
                 <label htmlFor="quarter-inch">1/4": </label>
                 <input type="text" name="quarter-inch" id="quarter-inch" />
                 <button type="button">Add field</button>
