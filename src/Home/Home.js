@@ -17,19 +17,16 @@ export default class Home extends React.Component {
 
   updateProductCode(code) {
     this.setState({
-      // will I need .toString() here if there are numbers involved?
       productCode: code.toUpperCase()
     });
   }
 
   render() {
-    //   there should be a better, more efficient way to get the productCode that the user has entered
     const findProduct = dummyStore.filter(
       p => p.productCode === this.state.productCode
     );
     const getProduct = findProduct ? findProduct[0] : "";
     const productId = getProduct ? getProduct.id : "";
-    // end of the inefficiency
 
     const productsToDisplay =
       this.state.filter === "all"
@@ -37,7 +34,6 @@ export default class Home extends React.Component {
         : dummyStore.filter(p => p.productType === this.state.filter);
     return (
       <div className="Home">
-        {/* is it better to have two separate forms? does it matter? */}
         <form>
           <label htmlFor="search" className="filter-label">
             Know what you're looking for? Enter product code:
@@ -48,8 +44,11 @@ export default class Home extends React.Component {
             id="search"
             onChange={e => this.updateProductCode(e.target.value)}
           />
-          {/* this link shouldn't be active if there is no input */}
-          <Link to={`/productDetails/${productId}`}>Zip to it</Link>
+          {productId !== "" ? (
+            <Link to={`/productDetails/${productId}`}>Zip to it</Link>
+          ) : (
+            ""
+          )}
           <br />
           <label htmlFor="filter" className="filter-label">
             Filter:

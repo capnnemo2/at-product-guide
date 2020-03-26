@@ -2,16 +2,13 @@ import React from "react";
 import "./AddProduct.css";
 
 export default class AddProduct extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      productType: "",
-      mesh: [{ measurements: "" }],
-      hardThreeEighths: [{ measurements: "" }],
-      hardOneQuarter: [{ measurements: "" }],
-      softThreeEighths: []
-    };
-  }
+  state = {
+    productType: "",
+    mesh: [{ measurements: "" }],
+    hardThreeEighths: [{ measurements: "" }],
+    hardOneQuarter: [{ measurements: "" }],
+    softThreeEighths: []
+  };
 
   updateProductType(type) {
     this.setState({
