@@ -83,6 +83,32 @@ export default class AddProduct extends React.Component {
 
   // SOFT STEEL 3/8"
 
+  handleSoftSteelChange = idx => e => {
+    const newSoftThreeEighths = this.state.softThreeEighths.map(
+      (soft, sidx) => {
+        if (idx !== sidx) return soft;
+        return { ...soft, measurements: e.target.value };
+      }
+    );
+    this.setState({ softThreeEighths: newSoftThreeEighths });
+  };
+
+  handleAddSoft = () => {
+    this.setState({
+      softThreeEighths: this.state.softThreeEighths.concat([
+        { measurements: "" }
+      ])
+    });
+  };
+
+  handleRemoveSoft = idx => () => {
+    this.setState({
+      softThreeEighths: this.state.softThreeEighths.filter(
+        (s, sidx) => idx !== sidx
+      )
+    });
+  };
+
   // CLICK CANCEL
   handleClickCancel = () => {
     this.props.history.goBack();
@@ -123,12 +149,12 @@ export default class AddProduct extends React.Component {
               <fieldset>
                 <legend>Hard steel:</legend>
 
-                <label htmlFor="three-Eighths">3/8": </label>
+                <label htmlFor="three-eighths">3/8": </label>
                 {this.state.hardThreeEighths.map((three, idx) => (
                   <div className="hardThreeEighths" key={idx}>
                     <input
                       type="text"
-                      name="three-Eighths"
+                      name="three-eighths"
                       placeholder={`3/8" input #${idx + 1}`}
                       value={three.measurements}
                       onChange={this.handleThreeEighthsChange(idx)}
@@ -171,13 +197,25 @@ export default class AddProduct extends React.Component {
               </fieldset>
               <fieldset>
                 <legend>Soft steel:</legend>
-                <label htmlFor="three-Eighths">3/8": </label>
-                <input type="text" name="three-Eighths" id="three-Eighths" />
-                <button type="button">Add field</button>
-                <p>
-                  Add field button should allow the user to add an additional
-                  input field
-                </p>
+                <label htmlFor="soft-steel">3/8": </label>
+                {this.state.softThreeEighths.map((soft, idx) => (
+                  <div className="softThreeEighths" key={idx}>
+                    <input
+                      type="text"
+                      name="soft-steel"
+                      placeholder={`soft steel input #${idx}`}
+                      value={soft.measurements}
+                      onChange={this.handleSoftSteelChange(idx)}
+                    />
+                    <button type="button" onClick={this.handleRemoveSoft(idx)}>
+                      -
+                    </button>
+                  </div>
+                ))}
+
+                <button type="button" onClick={this.handleAddSoft}>
+                  +
+                </button>
               </fieldset>
             </fieldset>
             <fieldset>
