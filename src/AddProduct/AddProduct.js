@@ -5,6 +5,7 @@ export default class AddProduct extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      productType: "",
       mesh: [{ measurements: "" }],
       hardThreeEighths: [{ measurements: "" }],
       hardOneQuarter: [{ measurements: "" }],
@@ -12,7 +13,13 @@ export default class AddProduct extends React.Component {
     };
   }
 
-  // MESH
+  updateProductType(type) {
+    this.setState({
+      productType: type
+    });
+  }
+
+  // MESH handlers
   handleMeshChange = idx => e => {
     const newMesh = this.state.mesh.map((mesh, sidx) => {
       if (idx !== sidx) return mesh;
@@ -33,7 +40,7 @@ export default class AddProduct extends React.Component {
     });
   };
 
-  // HARD STEEL 3/8"
+  // HARD STEEL 3/8" handlers
   handleThreeEighthsChange = idx => e => {
     const newThreeEighths = this.state.hardThreeEighths.map((three, sidx) => {
       if (idx !== sidx) return three;
@@ -58,7 +65,7 @@ export default class AddProduct extends React.Component {
     });
   };
 
-  // HARD STEEL 1/4"
+  // HARD STEEL 1/4" handlers
   handleOneQuarterChange = idx => e => {
     const newOneQuarter = this.state.hardOneQuarter.map((quarter, sidx) => {
       if (idx !== sidx) return quarter;
@@ -81,8 +88,7 @@ export default class AddProduct extends React.Component {
     });
   };
 
-  // SOFT STEEL 3/8"
-
+  // SOFT STEEL 3/8" handlers
   handleSoftSteelChange = idx => e => {
     const newSoftThreeEighths = this.state.softThreeEighths.map(
       (soft, sidx) => {
@@ -109,7 +115,7 @@ export default class AddProduct extends React.Component {
     });
   };
 
-  // CLICK CANCEL
+  // CANCEL handler
   handleClickCancel = () => {
     this.props.history.goBack();
   };
@@ -125,6 +131,20 @@ export default class AddProduct extends React.Component {
               <br />
               <label htmlFor="code">Product code: </label>
               <input type="text" name="code" id="code" required />
+              <br />
+              {/* this should be a select/option */}
+              <label htmlFor="type">Product type: </label>
+              <select
+                name="type"
+                id="type"
+                onChange={e => this.updateProductType(e.target.value)}
+                required
+              >
+                <option value="">Choose one</option>
+                <option value="arbor">Arbor</option>
+                <option value="trellis">Trellis</option>
+                <option value="topiary">Topiary</option>
+              </select>
             </div>
             <fieldset>
               <legend>Materials:</legend>
