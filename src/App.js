@@ -39,11 +39,19 @@ export default class App extends React.Component {
     this.setState({ products: newProducts });
   };
 
+  updateProduct = (newProduct, productId) => {
+    let newProducts = this.state.products.map(p =>
+      Number(p.id) === Number(productId) ? newProduct : p
+    );
+    this.setState({ products: newProducts });
+  };
+
   render() {
     const value = {
       products: this.state.products,
       addProduct: this.addProduct,
-      deleteProduct: this.deleteProduct
+      deleteProduct: this.deleteProduct,
+      updateProduct: this.updateProduct
     };
     console.log(this.state.products);
     return (
