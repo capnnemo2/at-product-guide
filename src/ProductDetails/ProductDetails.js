@@ -108,7 +108,7 @@ export default class ProductDetails extends React.Component {
         </section>
         <section>
           {/* should editing be available to all users or just admin? is there a way for anyone to make changes, but they don't go into effect until the admin approves them? */}
-          <Link to={"/edit-product"}>Edit specs</Link>
+          <Link to={`/edit-product/${productId}`}>Edit specs</Link>
           <br />
           <Link to={"/home"}>Home</Link>
           <br />

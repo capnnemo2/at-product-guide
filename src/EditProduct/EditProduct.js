@@ -1,15 +1,20 @@
 import React from "react";
+import ATContext from "../ATContext";
 import "./EditProduct.css";
 
-// THIS WILL NEED TO PRE-FILL ONCE IT IS HOOKED UP TO A BACK-END
-export default class AddProduct extends React.Component {
+export default class EditProduct extends React.Component {
+  static contextType = ATContext;
+
   handleClickCancel = () => {
     this.props.history.goBack();
   };
 
   render() {
-    return (
-      <div className="AddProduct">
+    const productId = Number(this.props.match.params.product_id);
+    const product = this.context.products.find(p => p.id === productId);
+    console.log(product);
+    return product ? (
+      <div className="EditProduct">
         <section>
           <form>
             <div>
@@ -72,6 +77,8 @@ export default class AddProduct extends React.Component {
           </form>
         </section>
       </div>
+    ) : (
+      ""
     );
   }
 }
