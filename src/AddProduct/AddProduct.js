@@ -213,6 +213,8 @@ export default class AddProduct extends React.Component {
     };
     newProduct.mesh = newProduct.mesh.map(m => m.measurements);
     newProduct.prepBend = newProduct.prepBend.map(pb => pb.measurements);
+    newProduct.prepWeld = newProduct.prepWeld.map(pw => pw.measurements);
+    newProduct.weld = newProduct.weld.map(w => w.measurements);
     delete newProduct.hardThreeEighths;
     delete newProduct.hardOneQuarter;
     delete newProduct.softThreeEighths;
@@ -370,7 +372,7 @@ export default class AddProduct extends React.Component {
                       name="prepBend"
                       placeholder={`prepBend input #${idx + 1}`}
                       value={prepB.measurements}
-                      onChange={e => this.handlePrepBendChange(idx)}
+                      onChange={this.handlePrepBendChange(idx)}
                     ></textarea>
                     <button
                       type="button"
@@ -395,7 +397,7 @@ export default class AddProduct extends React.Component {
                       name="prepWeld"
                       placeholder={`prepWeld input #${idx + 1}`}
                       value={prepW.measurements}
-                      onChange={e => this.handlePrepWeldChange(idx)}
+                      onChange={this.handlePrepWeldChange(idx)}
                     ></textarea>
                     <button
                       type="button"
@@ -420,7 +422,7 @@ export default class AddProduct extends React.Component {
                       name="weld"
                       placeholder={`weld input #${idx + 1}`}
                       value={window.measurements}
-                      onChange={e => this.handleWeldChange(idx)}
+                      onChange={this.handleWeldChange(idx)}
                     ></textarea>
                     <button type="button" onClick={this.handleRemoveWeld(idx)}>
                       -

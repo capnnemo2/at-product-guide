@@ -112,7 +112,16 @@ export default class ProductDetails extends React.Component {
           <br />
           <Link to={"/home"}>Home</Link>
           <br />
-          <button type="button">Delete product</button>
+          <button
+            type="button"
+            onClick={e => {
+              e.preventDefault();
+              this.context.deleteProduct(productId);
+              this.props.history.push("/home");
+            }}
+          >
+            Delete product
+          </button>
         </section>
         <section>
           <h4 className="uppercase">Comments</h4>

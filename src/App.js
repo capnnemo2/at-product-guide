@@ -27,18 +27,23 @@ export default class App extends React.Component {
     });
   }
 
-  // TODO: do I need to figure out how to assign an id # to new products in this static client or can I wait for the back-end?
-  // I won't be able to delete newly added products on the static client if I don't figure out assigning an id
-  // ALSO cannot navigate to the productDetails page for new products, so need to figure something out
   addProduct = newProduct => {
     this.setState({ products: [...this.state.products, newProduct] });
     console.log(this.state.products);
   };
 
+  deleteProduct = productId => {
+    const newProducts = this.state.products.filter(
+      p => Number(p.id) !== Number(productId)
+    );
+    this.setState({ products: newProducts });
+  };
+
   render() {
     const value = {
       products: this.state.products,
-      addProduct: this.addProduct
+      addProduct: this.addProduct,
+      deleteProduct: this.deleteProduct
     };
     console.log(this.state.products);
     return (
