@@ -40,6 +40,7 @@ export default class App extends React.Component {
       products: this.state.products,
       addProduct: this.addProduct
     };
+    console.log(this.state.products);
     return (
       <ATContext.Provider value={value}>
         <div className="App">

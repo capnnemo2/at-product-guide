@@ -14,13 +14,23 @@ export default class AddProduct extends React.Component {
       src: "/pics/shark.jpg",
       alt: "new product"
     },
-    mesh: [{ measurements: "" }],
+    mesh: [],
+    hardSteel: {
+      threeEighths: [{ measurements: "" }],
+      oneQuarter: [{ measurements: "" }]
+    },
+    softSteel: {
+      threeEighths: ``
+    },
+    //
     hardThreeEighths: [{ measurements: "" }],
     hardOneQuarter: [{ measurements: "" }],
     softThreeEighths: [],
+    //
     prepBend: "",
     prepWeld: "",
-    weld: ""
+    weld: "",
+    comments: []
   };
 
   updateProductCode(code) {
@@ -156,7 +166,6 @@ export default class AddProduct extends React.Component {
   };
 
   handleSubmit = () => {
-    console.log(this.state.id);
     let newProduct = this.state;
     newProduct = { ...newProduct, id: this.context.products.length + 1 };
     this.context.addProduct(newProduct);
