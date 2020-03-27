@@ -24,6 +24,18 @@ export default class EditProduct extends React.Component {
     comments: []
   };
 
+  componentDidMount() {
+    const productId = Number(this.props.match.params.product_id);
+    const product = this.context.products.find(p => p.id === productId);
+    this.setState({
+      id: product.id,
+      productCode: product.productCode,
+      productName: product.productName,
+      productType: product.productType
+    });
+    console.log(`componentDidMount ran`, this.state);
+  }
+
   updateProductCode(code) {
     this.setState({
       productCode: code
@@ -226,7 +238,7 @@ export default class EditProduct extends React.Component {
               <input
                 type="text"
                 name="code"
-                defaultValue={product.productCode}
+                defaultValue={this.state.productCode}
                 onChange={e => this.updateProductCode(e.target.value)}
                 required
               />
