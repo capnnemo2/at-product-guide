@@ -31,9 +31,20 @@ export default class EditProduct extends React.Component {
       id: product.id,
       productCode: product.productCode,
       productName: product.productName,
-      productType: product.productType
+      productType: product.productType,
+      mesh: product.mesh,
+      hardThreeEighths: product.hardSteel.threeEighths,
+      hardOneQuarter: product.hardSteel.oneQuarter,
+      softThreeEighths: product.softSteel.threeEighths,
+      prepBend: product.prepBend,
+      prepWeld: product.prepWeld,
+      weld: product.weld,
+      comments: product.comments,
+      image: {
+        src: "/pics/shark.jpg",
+        alt: product.productName
+      }
     });
-    console.log(`componentDidMount ran`, this.state);
   }
 
   updateProductCode(code) {
@@ -44,7 +55,10 @@ export default class EditProduct extends React.Component {
 
   updateProductName(name) {
     this.setState({
-      productName: name
+      productName: name,
+      image: {
+        alt: name
+      }
     });
   }
 
@@ -221,9 +235,6 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find(p => p.id === productId);
-    console.log(product);
-    const hardThreeEighthsLength = product.hardSteel.threeEighths.length;
-    console.log(hardThreeEighthsLength);
     return product ? (
       <div className="EditProduct">
         <section>
@@ -238,7 +249,7 @@ export default class EditProduct extends React.Component {
               <input
                 type="text"
                 name="code"
-                defaultValue={this.state.productCode}
+                value={this.state.productCode}
                 onChange={e => this.updateProductCode(e.target.value)}
                 required
               />
@@ -247,7 +258,7 @@ export default class EditProduct extends React.Component {
               <input
                 type="text"
                 name="name"
-                defaultValue={product.productName}
+                value={this.state.productName}
                 onChange={e => this.updateProductName(e.target.value)}
                 required
               />
@@ -255,7 +266,8 @@ export default class EditProduct extends React.Component {
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
-                defaultValue={product.productType}
+                // defaultValue={this.state.productType}
+                value={this.state.productType}
                 onChange={e => this.updateProductType(e.target.value)}
                 required
               >
@@ -267,16 +279,13 @@ export default class EditProduct extends React.Component {
             <fieldset>
               <legend>Materials</legend>
               <label htmlFor="mesh">Mesh:</label>
-              {/* mapping from context rather than state allows to have correct number of fields and pre-fill them, but cannot add/remove new fields because that is dependent on state, not context */}
-              {/* what I need: context to set state initially */}
-              {product.mesh.map((mesh, idx) => (
+              {this.state.mesh.map((mesh, idx) => (
                 <div className="meshItem" key={idx}>
                   <input
                     type="text"
                     name="mesh"
                     placeholder={`mesh input #${idx + 1}`}
                     defaultValue={mesh}
-                    value={mesh.measurements}
                     onChange={this.handleMeshChange(idx)}
                   />
                   <button type="button" onClick={this.handleRemoveMesh(idx)}>
@@ -297,7 +306,7 @@ export default class EditProduct extends React.Component {
                       type="text"
                       name="three-eighths"
                       placeholder={`3/8" input #${idx + 1}`}
-                      value={three.measurements}
+                      defaultValue={three}
                       onChange={this.handleThreeEighthsChange(idx)}
                     />
                     <button
@@ -321,7 +330,7 @@ export default class EditProduct extends React.Component {
                       type="text"
                       name="quarter-inch"
                       placeholder={`1/4" input #${idx}`}
-                      value={quarter.measurements}
+                      defaultValue={quarter}
                       onChange={this.handleOneQuarterChange(idx)}
                     />
                     <button
@@ -345,7 +354,7 @@ export default class EditProduct extends React.Component {
                       type="text"
                       name="soft-steel"
                       placeholder={`soft steel input #${idx}`}
-                      value={soft.measurements}
+                      defaultValue={soft}
                       onChange={this.handleSoftSteelChange(idx)}
                     />
                     <button type="button" onClick={this.handleRemoveSoft(idx)}>
@@ -368,7 +377,7 @@ export default class EditProduct extends React.Component {
                     <textarea
                       name="prepBend"
                       placeholder={`prepBend input #${idx + 1}`}
-                      value={prepB.measurements}
+                      defaultValue={prepB}
                       onChange={this.handlePrepBendChange(idx)}
                     ></textarea>
                     <button
@@ -393,7 +402,7 @@ export default class EditProduct extends React.Component {
                     <textarea
                       name="prepWeld"
                       placeholder={`prepWeld input #${idx + 1}`}
-                      value={prepW.measurements}
+                      defaultValue={prepW}
                       onChange={this.handlePrepWeldChange(idx)}
                     ></textarea>
                     <button
@@ -418,7 +427,7 @@ export default class EditProduct extends React.Component {
                     <textarea
                       name="weld"
                       placeholder={`weld input #${idx + 1}`}
-                      value={window.measurements}
+                      defaultValue={w}
                       onChange={this.handleWeldChange(idx)}
                     ></textarea>
                     <button type="button" onClick={this.handleRemoveWeld(idx)}>

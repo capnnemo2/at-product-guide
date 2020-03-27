@@ -14,7 +14,7 @@ const dummyStore = [
       oneQuarter: [`4 x 11 1/4"`]
     },
     softSteel: {
-      threeEighths: `1 x 20', bend @ 67", cut @ 134"`
+      threeEighths: [`1 x 20', bend @ 67", cut @ 134"`]
     },
     prepBend: [
       `Use the ST jig on the metal wheely table. Bend to 5-7" from jig.`

@@ -32,7 +32,10 @@ export default class AddProduct extends React.Component {
 
   updateProductName(name) {
     this.setState({
-      productName: name
+      productName: name,
+      image: {
+        alt: name
+      }
     });
   }
 
@@ -417,7 +420,7 @@ export default class AddProduct extends React.Component {
                     <textarea
                       name="weld"
                       placeholder={`weld input #${idx + 1}`}
-                      value={window.measurements}
+                      value={w.measurements}
                       onChange={this.handleWeldChange(idx)}
                     ></textarea>
                     <button type="button" onClick={this.handleRemoveWeld(idx)}>
