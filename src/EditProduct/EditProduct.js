@@ -124,7 +124,7 @@ export default class EditProduct extends React.Component {
 
   handleAddOneQuarter = () => {
     this.setState({
-      hardOneQuarter: this.state.hardOneQuarter.concat([{ measurements: "" }])
+      hardOneQuarter: this.state.hardOneQuarter.concat("")
     });
   };
 
@@ -149,9 +149,7 @@ export default class EditProduct extends React.Component {
 
   handleAddSoft = () => {
     this.setState({
-      softThreeEighths: this.state.softThreeEighths.concat([
-        { measurements: "" }
-      ])
+      softThreeEighths: this.state.softThreeEighths.concat("")
     });
   };
 
@@ -174,7 +172,7 @@ export default class EditProduct extends React.Component {
 
   handleAddPrepBend = () => {
     this.setState({
-      prepBend: this.state.prepBend.concat([{ measurements: "" }])
+      prepBend: this.state.prepBend.concat("")
     });
   };
 
@@ -195,7 +193,7 @@ export default class EditProduct extends React.Component {
 
   handleAddPrepWeld = () => {
     this.setState({
-      prepWeld: this.state.prepWeld.concat([{ measurements: "" }])
+      prepWeld: this.state.prepWeld.concat("")
     });
   };
 
@@ -215,7 +213,7 @@ export default class EditProduct extends React.Component {
   };
 
   handleAddWeld = () => {
-    this.setState({ weld: this.state.weld.concat([{ measurements: "" }]) });
+    this.setState({ weld: this.state.weld.concat("") });
   };
 
   handleRemoveWeld = idx => () => {
@@ -224,7 +222,24 @@ export default class EditProduct extends React.Component {
     });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    let newProduct = this.state;
+
+    newProduct.hardSteel = {
+      threeEighths: newProduct.hardThreeEighths,
+      oneQuarter: newProduct.hardOneQuarter
+    };
+    newProduct.softSteel = {
+      threeEighths: newProduct.softThreeEighths
+    };
+
+    delete newProduct.hardThreeEighths;
+    delete newProduct.hardOneQuarter;
+    delete newProduct.softThreeEighths;
+
+    this.context.updateProduct(newProduct);
+    this.props.history.push("/home");
+  };
 
   // CANCEL handler
   handleClickCancel = () => {
@@ -234,7 +249,6 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find(p => p.id === productId);
-    console.log(product.mesh);
     return product ? (
       <div className="EditProduct">
         <section>
@@ -329,7 +343,7 @@ export default class EditProduct extends React.Component {
                     <input
                       type="text"
                       name="quarter-inch"
-                      placeholder={`1/4" input #${idx}`}
+                      placeholder={`1/4" input #${idx + 1}`}
                       defaultValue={quarter}
                       onChange={this.handleOneQuarterChange(idx)}
                     />
@@ -353,7 +367,7 @@ export default class EditProduct extends React.Component {
                     <input
                       type="text"
                       name="soft-steel"
-                      placeholder={`soft steel input #${idx}`}
+                      placeholder={`soft steel input #${idx + 1}`}
                       defaultValue={soft}
                       onChange={this.handleSoftSteelChange(idx)}
                     />

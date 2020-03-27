@@ -322,7 +322,7 @@ export default class AddProduct extends React.Component {
                     <input
                       type="text"
                       name="quarter-inch"
-                      placeholder={`1/4" input #${idx}`}
+                      placeholder={`1/4" input #${idx + 1}`}
                       value={quarter.measurements}
                       onChange={this.handleOneQuarterChange(idx)}
                     />
@@ -346,7 +346,7 @@ export default class AddProduct extends React.Component {
                     <input
                       type="text"
                       name="soft-steel"
-                      placeholder={`soft steel input #${idx}`}
+                      placeholder={`soft steel input #${idx + 1}`}
                       value={soft.measurements}
                       onChange={this.handleSoftSteelChange(idx)}
                     />
