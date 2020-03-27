@@ -32,7 +32,7 @@ export default class EditProduct extends React.Component {
       productCode: product.productCode,
       productName: product.productName,
       productType: product.productType,
-      mesh: product.mesh,
+      mesh: product.mesh || [],
       hardThreeEighths: product.hardSteel.threeEighths,
       hardOneQuarter: product.hardSteel.oneQuarter,
       softThreeEighths: product.softSteel.threeEighths,
@@ -77,9 +77,10 @@ export default class EditProduct extends React.Component {
     this.setState({ mesh: newMesh });
   };
 
+  // changed concat to '' rather than [{measurements: ''}] for some reason this works...?
   handleAddMesh = () => {
     this.setState({
-      mesh: this.state.mesh.concat([{ measurements: "" }])
+      mesh: this.state.mesh.concat("")
     });
   };
 
@@ -100,9 +101,7 @@ export default class EditProduct extends React.Component {
 
   handleAddThreeEighths = () => {
     this.setState({
-      hardThreeEighths: this.state.hardThreeEighths.concat([
-        { measurements: "" }
-      ])
+      hardThreeEighths: this.state.hardThreeEighths.concat("")
     });
   };
 
@@ -235,6 +234,7 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find(p => p.id === productId);
+    console.log(product.mesh);
     return product ? (
       <div className="EditProduct">
         <section>

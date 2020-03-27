@@ -29,7 +29,6 @@ export default class App extends React.Component {
 
   addProduct = newProduct => {
     this.setState({ products: [...this.state.products, newProduct] });
-    console.log(this.state.products);
   };
 
   deleteProduct = productId => {

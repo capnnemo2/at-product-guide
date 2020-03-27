@@ -44,7 +44,7 @@ const dummyStore = [
       oneQuarter: [`3 x 16"`, `1 x 27"`]
     },
     softSteel: {
-      threeEighths: ``
+      threeEighths: []
     },
     prepBend: [
       `Use the top circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`
@@ -74,7 +74,7 @@ const dummyStore = [
       oneQuarter: [`3 x 24"`, `1 x 36"`]
     },
     softSteel: {
-      threeEighths: ``
+      threeEighths: []
     },
     prepBend: [
       `Use the second circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`
@@ -104,7 +104,7 @@ const dummyStore = [
       oneQuarter: [`3 x 27"`, `1 x 47"`]
     },
     softSteel: {
-      threeEighths: ``
+      threeEighths: []
     },
     prepBend: [
       `Use the third circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`
@@ -141,7 +141,7 @@ const dummyStore = [
       oneQuarter: []
     },
     softSteel: {
-      threeEighths: ``
+      threeEighths: []
     },
     prepBend: [
       `Use the circle jig table, bend on the fifth circle to the second hole`
@@ -177,7 +177,7 @@ const dummyStore = [
       ]
     },
     softSteel: {
-      threeEighths: ``
+      threeEighths: []
     },
     prepBend: [
       `The 10" base rings get spun/bent on Mark's magic table motor. Use the jig that is marked for 1/4" to make 10" rings.`,
@@ -225,7 +225,7 @@ const dummyStore = [
       oneQuarter: []
     },
     softSteel: {
-      threeEighths: ``
+      threeEighths: []
     },
     prepBend: [],
     prepWeld: [],
