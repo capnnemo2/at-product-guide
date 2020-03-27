@@ -6,7 +6,7 @@ export default class AddProduct extends React.Component {
   static contextType = ATContext;
 
   state = {
-    id: this.context.products.length + 1,
+    id: "",
     productCode: "",
     productName: "",
     productType: "",
@@ -157,7 +157,8 @@ export default class AddProduct extends React.Component {
 
   handleSubmit = () => {
     console.log(this.state.id);
-    const newProduct = this.state;
+    let newProduct = this.state;
+    newProduct = { ...newProduct, id: this.context.products.length + 1 };
     this.context.addProduct(newProduct);
     this.props.history.push("/home");
   };
