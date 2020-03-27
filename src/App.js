@@ -77,7 +77,7 @@ export default class App extends React.Component {
               <Route path="/add-product" component={AddProduct} />
               <Route path="/add-comment" component={AddComment} />
               <Route path="/edit-product/:product_id" component={EditProduct} />
-              <Route path="/edit-comment" component={EditComment} />
+              <Route path="/edit-comment/:comment_id" component={EditComment} />
               <Route component={NotFound} />
             </Switch>
           </main>

@@ -203,7 +203,6 @@ export default class AddProduct extends React.Component {
   handleSubmit = () => {
     let newProduct = this.state;
     newProduct = { ...newProduct, id: this.context.products.length + 1 };
-
     newProduct.hardSteel = {
       threeEighths: newProduct.hardThreeEighths.map(hte => hte.measurements),
       oneQuarter: newProduct.hardOneQuarter.map(hoq => hoq.measurements)
