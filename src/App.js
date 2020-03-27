@@ -32,6 +32,7 @@ export default class App extends React.Component {
   // ALSO cannot navigate to the productDetails page for new products, so need to figure something out
   addProduct = newProduct => {
     this.setState({ products: [...this.state.products, newProduct] });
+    console.log(this.state.products);
   };
 
   render() {

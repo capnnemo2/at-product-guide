@@ -6,9 +6,14 @@ export default class AddProduct extends React.Component {
   static contextType = ATContext;
 
   state = {
+    id: this.context.products.length + 1,
     productCode: "",
     productName: "",
     productType: "",
+    image: {
+      src: "/pics/shark.jpg",
+      alt: "new product"
+    },
     mesh: [{ measurements: "" }],
     hardThreeEighths: [{ measurements: "" }],
     hardOneQuarter: [{ measurements: "" }],
@@ -17,10 +22,6 @@ export default class AddProduct extends React.Component {
     prepWeld: "",
     weld: ""
   };
-
-  // ------------------------------------------------------------------
-  // NEED TO DECIDE IF PREPBEND, PREPWELD, AND WELD SHOULD BE UN/ORDERED LISTS
-  // ------------------------------------------------------------------
 
   updateProductCode(code) {
     this.setState({
@@ -155,6 +156,7 @@ export default class AddProduct extends React.Component {
   };
 
   handleSubmit = () => {
+    console.log(this.state.id);
     const newProduct = this.state;
     this.context.addProduct(newProduct);
     this.props.history.push("/home");
