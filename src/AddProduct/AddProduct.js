@@ -15,21 +15,12 @@ export default class AddProduct extends React.Component {
       alt: "new product"
     },
     mesh: [],
-    hardSteel: {
-      threeEighths: [{ measurements: "" }],
-      oneQuarter: [{ measurements: "" }]
-    },
-    softSteel: {
-      threeEighths: ``
-    },
-    //
-    hardThreeEighths: [{ measurements: "" }],
-    hardOneQuarter: [{ measurements: "" }],
+    hardThreeEighths: [],
+    hardOneQuarter: [],
     softThreeEighths: [],
-    //
-    prepBend: "",
-    prepWeld: "",
-    weld: "",
+    prepBend: [],
+    prepWeld: [],
+    weld: [],
     comments: []
   };
 
@@ -48,24 +39,6 @@ export default class AddProduct extends React.Component {
   updateProductType(type) {
     this.setState({
       productType: type
-    });
-  }
-
-  updatePrepBend(pBend) {
-    this.setState({
-      prepBend: pBend
-    });
-  }
-
-  updatePrepWeld(pWeld) {
-    this.setState({
-      prepWeld: pWeld
-    });
-  }
-
-  updateWeld(weld) {
-    this.setState({
-      weld: weld
     });
   }
 
@@ -165,9 +138,85 @@ export default class AddProduct extends React.Component {
     });
   };
 
+  // PREPBEND handlers
+  handlePrepBendChange = idx => e => {
+    const newPrepBend = this.state.prepBend.map((prepB, sidx) => {
+      if (idx !== sidx) return prepB;
+      return { ...prepB, measurements: e.target.value };
+    });
+    this.setState({ prepBend: newPrepBend });
+  };
+
+  handleAddPrepBend = () => {
+    this.setState({
+      prepBend: this.state.prepBend.concat([{ measurements: "" }])
+    });
+  };
+
+  handleRemovePrepBend = idx => () => {
+    this.setState({
+      prepBend: this.state.prepBend.filter((s, sidx) => idx !== sidx)
+    });
+  };
+
+  // PREPWELD handlers
+  handlePrepWeldChange = idx => e => {
+    const newPrepWeld = this.state.prepWeld.map((prepW, sidx) => {
+      if (idx !== sidx) return prepW;
+      return { ...prepW, measurements: e.target.value };
+    });
+    this.setState({ prepWeld: newPrepWeld });
+  };
+
+  handleAddPrepWeld = () => {
+    this.setState({
+      prepWeld: this.state.prepWeld.concat([{ measurements: "" }])
+    });
+  };
+
+  handleRemovePrepWeld = idx => () => {
+    this.setState({
+      prepWeld: this.state.prepWeld.filter((s, sidx) => idx !== sidx)
+    });
+  };
+
+  // WELD handlers
+  handleWeldChange = idx => e => {
+    const newWeld = this.state.weld.map((w, sidx) => {
+      if (idx !== sidx) return w;
+      return { ...w, measurements: e.target.value };
+    });
+    this.setState({ weld: newWeld });
+  };
+
+  handleAddWeld = () => {
+    this.setState({ weld: this.state.weld.concat([{ measurements: "" }]) });
+  };
+
+  handleRemoveWeld = idx => () => {
+    this.setState({
+      weld: this.state.weld.filter((s, sidx) => idx !== sidx)
+    });
+  };
+
+  // handle submit and convert state to match dummyStore
   handleSubmit = () => {
     let newProduct = this.state;
     newProduct = { ...newProduct, id: this.context.products.length + 1 };
+
+    newProduct.hardSteel = {
+      threeEighths: newProduct.hardThreeEighths.map(hte => hte.measurements),
+      oneQuarter: newProduct.hardOneQuarter.map(hoq => hoq.measurements)
+    };
+    newProduct.softSteel = {
+      threeEighths: newProduct.softThreeEighths.map(ste => ste.measurements)
+    };
+    newProduct.mesh = newProduct.mesh.map(m => m.measurements);
+    newProduct.prepBend = newProduct.prepBend.map(pb => pb.measurements);
+    delete newProduct.hardThreeEighths;
+    delete newProduct.hardOneQuarter;
+    delete newProduct.softThreeEighths;
+
     this.context.addProduct(newProduct);
     this.props.history.push("/home");
   };
@@ -314,35 +363,73 @@ export default class AddProduct extends React.Component {
             <fieldset>
               <legend>Prep bend</legend>
               <div className="textarea__container">
-                <label htmlFor="bends">Bend instructions:</label>
-                <textarea
-                  name="bends"
-                  id="bends"
-                  onChange={e => this.updatePrepBend(e.target.value)}
-                ></textarea>
+                <label htmlFor="prepBend">Bend instructions:</label>
+                {this.state.prepBend.map((prepB, idx) => (
+                  <div className="prepBendItem" key={idx}>
+                    <textarea
+                      name="prepBend"
+                      placeholder={`prepBend input #${idx + 1}`}
+                      value={prepB.measurements}
+                      onChange={e => this.handlePrepBendChange(idx)}
+                    ></textarea>
+                    <button
+                      type="button"
+                      onClick={this.handleRemovePrepBend(idx)}
+                    >
+                      -
+                    </button>
+                  </div>
+                ))}
+                <button type="button" onClick={this.handleAddPrepBend}>
+                  +
+                </button>
               </div>
             </fieldset>
             <fieldset>
               <legend>Prep weld</legend>
               <div className="textarea__container">
-                <label htmlFor="prep-weld">Weld instructions:</label>
-                <textarea
-                  name="prep-weld"
-                  id="prep-weld"
-                  onChange={e => this.updatePrepWeld(e.target.value)}
-                ></textarea>
+                <label htmlFor="prep-weld">Prep weld instructions:</label>
+                {this.state.prepWeld.map((prepW, idx) => (
+                  <div className="prepWeldItem" key={idx}>
+                    <textarea
+                      name="prepWeld"
+                      placeholder={`prepWeld input #${idx + 1}`}
+                      value={prepW.measurements}
+                      onChange={e => this.handlePrepWeldChange(idx)}
+                    ></textarea>
+                    <button
+                      type="button"
+                      onClick={this.handleRemovePrepWeld(idx)}
+                    >
+                      -
+                    </button>
+                  </div>
+                ))}
+                <button type="button" onClick={this.handleAddPrepWeld}>
+                  +
+                </button>
               </div>
             </fieldset>
             <fieldset>
-              {/* maybe there is a way for the textarea fields here to be part of an un/ordered list and the user can add additional steps */}
               <legend>Weld</legend>
               <div className="textarea__container">
                 <label htmlFor="weld">Weld instructions:</label>
-                <textarea
-                  name="weld"
-                  id="weld"
-                  onChange={e => this.updateWeld(e.target.value)}
-                ></textarea>
+                {this.state.weld.map((w, idx) => (
+                  <div className="weldItem" key={idx}>
+                    <textarea
+                      name="weld"
+                      placeholder={`weld input #${idx + 1}`}
+                      value={window.measurements}
+                      onChange={e => this.handleWeldChange(idx)}
+                    ></textarea>
+                    <button type="button" onClick={this.handleRemoveWeld(idx)}>
+                      -
+                    </button>
+                  </div>
+                ))}
+                <button type="button" onClick={this.handleAddWeld}>
+                  +
+                </button>
               </div>
             </fieldset>
             <button type="submit">Submit</button>
