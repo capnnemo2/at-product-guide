@@ -53,7 +53,6 @@ export default class App extends React.Component {
       deleteProduct: this.deleteProduct,
       updateProduct: this.updateProduct
     };
-    console.log(this.state.products);
     return (
       <ATContext.Provider value={value}>
         <div className="App">

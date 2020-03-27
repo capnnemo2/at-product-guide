@@ -242,7 +242,6 @@ export default class AddProduct extends React.Component {
               <input
                 type="text"
                 name="code"
-                id="code"
                 onChange={e => this.updateProductCode(e.target.value)}
                 required
               />
@@ -251,7 +250,6 @@ export default class AddProduct extends React.Component {
               <input
                 type="text"
                 name="name"
-                id="name"
                 onChange={e => this.updateProductName(e.target.value)}
                 required
               />
@@ -259,7 +257,6 @@ export default class AddProduct extends React.Component {
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
-                id="type"
                 onChange={e => this.updateProductType(e.target.value)}
                 required
               >

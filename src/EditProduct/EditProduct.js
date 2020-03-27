@@ -210,6 +210,8 @@ export default class EditProduct extends React.Component {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find(p => p.id === productId);
     console.log(product);
+    const hardThreeEighthsLength = product.hardSteel.threeEighths.length;
+    console.log(hardThreeEighthsLength);
     return product ? (
       <div className="EditProduct">
         <section>
@@ -224,7 +226,7 @@ export default class EditProduct extends React.Component {
               <input
                 type="text"
                 name="code"
-                id="code"
+                defaultValue={product.productCode}
                 onChange={e => this.updateProductCode(e.target.value)}
                 required
               />
@@ -233,7 +235,7 @@ export default class EditProduct extends React.Component {
               <input
                 type="text"
                 name="name"
-                id="name"
+                defaultValue={product.productName}
                 onChange={e => this.updateProductName(e.target.value)}
                 required
               />
@@ -241,11 +243,10 @@ export default class EditProduct extends React.Component {
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
-                id="type"
+                defaultValue={product.productType}
                 onChange={e => this.updateProductType(e.target.value)}
                 required
               >
-                <option value="">Choose one</option>
                 <option value="arbor">Arbor</option>
                 <option value="trellis">Trellis</option>
                 <option value="topiary">Topiary</option>
@@ -254,12 +255,15 @@ export default class EditProduct extends React.Component {
             <fieldset>
               <legend>Materials</legend>
               <label htmlFor="mesh">Mesh:</label>
-              {this.state.mesh.map((mesh, idx) => (
+              {/* mapping from context rather than state allows to have correct number of fields and pre-fill them, but cannot add/remove new fields because that is dependent on state, not context */}
+              {/* what I need: context to set state initially */}
+              {product.mesh.map((mesh, idx) => (
                 <div className="meshItem" key={idx}>
                   <input
                     type="text"
                     name="mesh"
                     placeholder={`mesh input #${idx + 1}`}
+                    defaultValue={mesh}
                     value={mesh.measurements}
                     onChange={this.handleMeshChange(idx)}
                   />
