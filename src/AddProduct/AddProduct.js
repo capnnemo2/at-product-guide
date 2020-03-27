@@ -34,7 +34,8 @@ export default class AddProduct extends React.Component {
     this.setState({
       productName: name,
       image: {
-        alt: name
+        alt: name,
+        src: "/pics/shark.jpg"
       }
     });
   }

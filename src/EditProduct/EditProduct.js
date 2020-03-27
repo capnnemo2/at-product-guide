@@ -41,7 +41,7 @@ export default class EditProduct extends React.Component {
       weld: product.weld,
       comments: product.comments,
       image: {
-        src: "/pics/shark.jpg",
+        src: product.image.src,
         alt: product.productName
       }
     });
@@ -237,7 +237,7 @@ export default class EditProduct extends React.Component {
     delete newProduct.hardOneQuarter;
     delete newProduct.softThreeEighths;
 
-    this.context.updateProduct(newProduct);
+    this.context.updateProduct(newProduct, newProduct.id);
     this.props.history.push("/home");
   };
 
