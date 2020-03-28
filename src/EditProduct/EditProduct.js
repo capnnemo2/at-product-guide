@@ -11,8 +11,8 @@ export default class EditProduct extends React.Component {
     productName: "",
     productType: "",
     image: {
-      src: "/pics/shark.jpg",
-      alt: "new product"
+      src: "",
+      alt: ""
     },
     mesh: [],
     hardThreeEighths: [],
