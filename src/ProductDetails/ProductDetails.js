@@ -17,7 +17,10 @@ export default class ProductDetails extends React.Component {
     const prepBend = Object.values(product.prepBend);
     const prepWeld = Object.values(product.prepWeld);
     const weld = Object.values(product.weld);
-
+    const comments = this.context.comments.filter(
+      c => Number(c.productId) === Number(productId)
+    );
+    console.log(comments);
     return (
       <div className="ProductDetails">
         <section>
@@ -127,7 +130,7 @@ export default class ProductDetails extends React.Component {
           <h4 className="uppercase">Comments</h4>
           <div>
             <ul>
-              {product.comments.map(comment => (
+              {comments.map(comment => (
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>

@@ -17,13 +17,15 @@ import "./App.css";
 
 export default class App extends React.Component {
   state = {
-    products: []
+    products: [],
+    comments: []
   };
 
   componentDidMount() {
-    const productArray = dummyStore;
+    // const productArray = dummyStore.products;
     this.setState({
-      products: productArray
+      products: dummyStore.products,
+      comments: dummyStore.comments
     });
   }
 
@@ -48,6 +50,7 @@ export default class App extends React.Component {
   render() {
     const value = {
       products: this.state.products,
+      comments: this.state.comments,
       addProduct: this.addProduct,
       deleteProduct: this.deleteProduct,
       updateProduct: this.updateProduct
