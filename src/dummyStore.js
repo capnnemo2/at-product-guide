@@ -21,14 +21,7 @@ export default {
         `Use the ST jig on the metal wheely table. Bend to 5-7" from jig.`
       ],
       prepWeld: [],
-      weld: [`First weld: 12" from top.`],
-      comments: [
-        {
-          id: 1,
-          user_name: `Jeff`,
-          content: `The jig for STs lives in my area.`
-        }
-      ]
+      weld: [`First weld: 12" from top.`]
     },
     {
       id: 2,
@@ -51,8 +44,7 @@ export default {
         `Use the top circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`
       ],
       prepWeld: [],
-      weld: [`First weld: one foot spike length up from the bottom.`],
-      comments: []
+      weld: [`First weld: one foot spike length up from the bottom.`]
     },
     {
       id: 3,
@@ -75,14 +67,7 @@ export default {
         `Use the second circle on the circle jig table. Bend the cut 20' 3/8" hard steel to the second hole (in the fifth circle).`
       ],
       prepWeld: [],
-      weld: [`First weld: one foot spike length up from the bottom.`],
-      comments: [
-        {
-          id: 1,
-          user_name: `Marty`,
-          content: `These are the same as MTs, just bigger.`
-        }
-      ]
+      weld: [`First weld: one foot spike length up from the bottom.`]
     },
     {
       id: 4,
@@ -107,18 +92,6 @@ export default {
       prepWeld: [],
       weld: [
         `Add a piece of ⅜” with a crosspiece to the end of your table so that the entire bent 1 x 20' can rest on table with only the bottom hanging off the edge. After you slide the bent 1 x 20' into the crosspiece, mark on your table one foot spike length up from the bottom. This is your first weld location.`
-      ],
-      comments: [
-        {
-          id: 1,
-          user_name: `Marty`,
-          content: `These are very big.`
-        },
-        {
-          id: 2,
-          user_name: `Ben`,
-          content: `Whoa, these are heavy.`
-        }
       ]
     },
     {
@@ -142,14 +115,7 @@ export default {
         `Use the circle jig table, bend on the fifth circle to the second hole`
       ],
       prepWeld: [],
-      weld: [`First weld: 13 1/2"`],
-      comments: [
-        {
-          id: 1,
-          user_name: `Daniel`,
-          content: `I can make a million of these in one day.`
-        }
-      ]
+      weld: [`First weld: 13 1/2"`]
     },
     {
       id: 6,
@@ -196,13 +162,6 @@ export default {
         `Flip the ball over so that the flat side of your MG faces up.`,
         `Weld on the remaining 3 x 14” diameter MG pieces exactly as you did the first side.`,
         `Backweld.`
-      ],
-      comments: [
-        {
-          id: 1,
-          user_name: `Mark`,
-          content: `I know electricity.`
-        }
       ]
     },
     {
@@ -236,14 +195,21 @@ export default {
         If it fits, weld the bottom piece of mesh and complete the side.`,
         `Weld ⅜” crosspiece to mesh and ⅜”.`,
         `Backweld.`
-      ],
-      comments: [
-        {
-          id: 1,
-          user_name: `Nate`,
-          content: `I can make these!`
-        }
       ]
+    }
+  ],
+  comments: [
+    {
+      id: 1,
+      user_name: "Jeff",
+      content: "This is the first comment",
+      productId: 1
+    },
+    {
+      id: 2,
+      user_name: "Ben",
+      content: `I think I'm figuring this out!`,
+      productId: 6
     }
   ]
 };
