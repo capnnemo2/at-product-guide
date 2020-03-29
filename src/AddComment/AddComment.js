@@ -1,7 +1,16 @@
 import React from "react";
+import ATContext from "../ATContext";
 import "./AddComment.css";
 
 export default class AddComment extends React.Component {
+  static contextType = ATContext;
+
+  state = {
+    id: "",
+    user_name: "",
+    content: ""
+  };
+
   handleClickCancel = () => {
     this.props.history.goBack();
   };

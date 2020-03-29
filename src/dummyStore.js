@@ -51,13 +51,7 @@ const dummyStore = [
     ],
     prepWeld: [],
     weld: [`First weld: one foot spike length up from the bottom.`],
-    comments: [
-      {
-        id: 1,
-        user_name: `Jeff`,
-        content: `These are easy-peasy.`
-      }
-    ]
+    comments: []
   },
   {
     id: 3,

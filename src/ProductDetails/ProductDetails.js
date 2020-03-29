@@ -5,6 +5,7 @@ import ATContext from "../ATContext";
 
 export default class ProductDetails extends React.Component {
   static contextType = ATContext;
+
   render() {
     const productId = this.props.match.params.product_id;
     const product = this.context.products.find(
@@ -107,7 +108,6 @@ export default class ProductDetails extends React.Component {
           </ul>
         </section>
         <section>
-          {/* should editing be available to all users or just admin? is there a way for anyone to make changes, but they don't go into effect until the admin approves them? */}
           <Link to={`/edit-product/${productId}`}>Edit specs</Link>
           <br />
           <Link to={"/home"}>Home</Link>
@@ -131,9 +131,7 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
-                  {/* the edit comment option should only be available for the user who left it */}
                   <Link to={"/edit-comment"}>Edit comment</Link>
-                  {/* this button should only appear for the admin user */}
                   <button type="button">Delete</button>
                 </li>
               ))}
