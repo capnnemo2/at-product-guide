@@ -22,7 +22,6 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    // const productArray = dummyStore.products;
     this.setState({
       products: dummyStore.products,
       comments: dummyStore.comments

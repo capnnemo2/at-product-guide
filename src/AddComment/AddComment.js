@@ -8,8 +8,15 @@ export default class AddComment extends React.Component {
   state = {
     id: "",
     user_name: "",
-    content: ""
+    content: "",
+    productId: ""
   };
+
+  componentDidMount() {
+    this.setState({
+      productId: this.props.match.params.product_id
+    });
+  }
 
   updateUserName(name) {
     this.setState({
@@ -29,11 +36,11 @@ export default class AddComment extends React.Component {
       p => Number(p.id) === Number(this.props.match.params.product_id)
     );
 
-    newComment = { ...newComment, id: product[0].comments.length + 1 };
+    newComment = { ...newComment, id: this.context.comments.length + 1 };
 
     console.log(`this is new comment:`, newComment);
     console.log(`this is product;`, product);
-    console.log(product[0].comments);
+    console.log(this.context.comments);
   };
 
   handleClickCancel = () => {
@@ -41,6 +48,7 @@ export default class AddComment extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="AddComment">
         <section>

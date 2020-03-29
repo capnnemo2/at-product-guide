@@ -20,7 +20,6 @@ export default class ProductDetails extends React.Component {
     const comments = this.context.comments.filter(
       c => Number(c.productId) === Number(productId)
     );
-    console.log(comments);
     return (
       <div className="ProductDetails">
         <section>
