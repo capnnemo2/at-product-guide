@@ -303,7 +303,7 @@ export default class EditProduct extends React.Component {
     delete newProduct.softThreeEighths;
 
     this.context.updateProduct(newProduct, newProduct.id);
-    this.props.history.push("/home");
+    this.props.history.push(`/productDetails/${newProduct.id}`);
   };
 
   // CANCEL handler
