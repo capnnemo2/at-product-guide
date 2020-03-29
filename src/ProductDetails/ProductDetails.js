@@ -131,13 +131,15 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
-                  <Link to={"/edit-comment"}>Edit comment</Link>
+                  <Link to={"/edit-comment/"}>Edit comment</Link>
                   <button type="button">Delete</button>
                 </li>
               ))}
             </ul>
           </div>
-          <Link to={"/add-comment"}>Add comment</Link>
+          <Link to={`/add-comment/${this.props.match.params.product_id}`}>
+            Add comment
+          </Link>
         </section>
       </div>
     );
