@@ -207,17 +207,28 @@ export default class AddProduct extends React.Component {
   handleSubmit = () => {
     let newProduct = this.state;
     newProduct = { ...newProduct, id: this.context.products.length + 1 };
+    newProduct.productCode = newProduct.productCode.toUpperCase();
     newProduct.hardSteel = {
-      threeEighths: newProduct.hardThreeEighths.map(hte => hte.measurements),
-      oneQuarter: newProduct.hardOneQuarter.map(hoq => hoq.measurements)
+      threeEighths: newProduct.hardThreeEighths
+        .map(hte => hte.measurements)
+        .filter(Boolean),
+      oneQuarter: newProduct.hardOneQuarter
+        .map(hoq => hoq.measurements)
+        .filter(Boolean)
     };
     newProduct.softSteel = {
-      threeEighths: newProduct.softThreeEighths.map(ste => ste.measurements)
+      threeEighths: newProduct.softThreeEighths
+        .map(ste => ste.measurements)
+        .filter(Boolean)
     };
-    newProduct.mesh = newProduct.mesh.map(m => m.measurements);
-    newProduct.prepBend = newProduct.prepBend.map(pb => pb.measurements);
-    newProduct.prepWeld = newProduct.prepWeld.map(pw => pw.measurements);
-    newProduct.weld = newProduct.weld.map(w => w.measurements);
+    newProduct.mesh = newProduct.mesh.map(m => m.measurements).filter(Boolean);
+    newProduct.prepBend = newProduct.prepBend
+      .map(pb => pb.measurements)
+      .filter(Boolean);
+    newProduct.prepWeld = newProduct.prepWeld
+      .map(pw => pw.measurements)
+      .filter(Boolean);
+    newProduct.weld = newProduct.weld.map(w => w.measurements).filter(Boolean);
     delete newProduct.hardThreeEighths;
     delete newProduct.hardOneQuarter;
     delete newProduct.softThreeEighths;

@@ -231,12 +231,72 @@ export default class EditProduct extends React.Component {
     let newProduct = this.state;
 
     newProduct.hardSteel = {
-      threeEighths: newProduct.hardThreeEighths,
+      threeEighths: newProduct.hardThreeEighths
+        .map(function(hte) {
+          if (hte.measurements) {
+            return hte.measurements;
+          } else {
+            return hte;
+          }
+        })
+        .filter(Boolean),
       oneQuarter: newProduct.hardOneQuarter
+        .map(function(hoq) {
+          if (hoq.measurements) {
+            return hoq.measurements;
+          } else {
+            return hoq;
+          }
+        })
+        .filter(Boolean)
     };
     newProduct.softSteel = {
       threeEighths: newProduct.softThreeEighths
+        .map(function(ste) {
+          if (ste.measurements) {
+            return ste.measurements;
+          } else {
+            return ste;
+          }
+        })
+        .filter(Boolean)
     };
+    newProduct.mesh = newProduct.mesh
+      .map(function(m) {
+        if (m.measurements) {
+          return m.measurements;
+        } else {
+          return m;
+        }
+      })
+      .filter(Boolean);
+    newProduct.prepBend = newProduct.prepBend
+      .map(function(pb) {
+        if (pb.measurements) {
+          return pb.measurements;
+        } else {
+          return pb;
+        }
+      })
+      .filter(Boolean);
+    newProduct.prepWeld = newProduct.prepWeld
+      .map(function(pw) {
+        if (pw.measurements) {
+          return pw.measurements;
+        } else {
+          return pw;
+        }
+      })
+      .filter(Boolean);
+    newProduct.weld = newProduct.weld
+      .map(function(w) {
+        if (w.measurements) {
+          return w.measurements;
+        } else {
+          return w;
+        }
+      })
+      .filter(Boolean);
 
     delete newProduct.hardThreeEighths;
     delete newProduct.hardOneQuarter;
@@ -254,6 +314,18 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find(p => p.id === productId);
+    console.log(this.state.mesh);
+    console.log(
+      this.state.mesh
+        .map(function(m) {
+          if (m.measurements) {
+            return m.measurements;
+          } else {
+            return m;
+          }
+        })
+        .filter(Boolean)
+    );
     return product ? (
       <div className="EditProduct">
         <section>
