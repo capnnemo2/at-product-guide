@@ -1,5 +1,5 @@
-# Artisan Trellis Product Guide
+# Affable Triceratops Product Guide
 
-This app serves as a repository for the specs of all products manufactored by the company Artisan Trellis.
+This app serves as a repository for the specs of products manufactored by the company Affable Triceratops.
 
 ---

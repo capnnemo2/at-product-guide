@@ -9,7 +9,7 @@ export default class Landing extends React.Component {
         <section className="section">
           <p>
             This product guide is a repository of specifications on how to make
-            all Artisan Trellis products.
+            Affable Triceratops products.
           </p>
         </section>
         <section className="section">
