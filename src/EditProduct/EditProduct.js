@@ -33,7 +33,7 @@ export default class EditProduct extends React.Component {
       productCode: product.productCode,
       productName: product.productName,
       productType: product.productType,
-      mesh: [product.mesh] || [],
+      mesh: product.mesh || [],
       hardThreeEighths: product.hardSteel.threeEighths,
       hardOneQuarter: product.hardSteel.oneQuarter,
       softThreeEighths: product.softSteel.threeEighths,
@@ -77,7 +77,7 @@ export default class EditProduct extends React.Component {
   handleMeshChange = idx => e => {
     const newMesh = this.state.mesh.map((mesh, sidx) => {
       if (idx !== sidx) return mesh;
-      return { ...mesh, measurements: e.target.value };
+      return { measurements: e.target.value };
     });
     this.setState({ mesh: newMesh });
   };
@@ -99,7 +99,7 @@ export default class EditProduct extends React.Component {
   handleThreeEighthsChange = idx => e => {
     const newThreeEighths = this.state.hardThreeEighths.map((three, sidx) => {
       if (idx !== sidx) return three;
-      return { ...three, measurements: e.target.value };
+      return { measurements: e.target.value };
     });
     this.setState({ hardThreeEighths: newThreeEighths });
   };
@@ -122,7 +122,7 @@ export default class EditProduct extends React.Component {
   handleOneQuarterChange = idx => e => {
     const newOneQuarter = this.state.hardOneQuarter.map((quarter, sidx) => {
       if (idx !== sidx) return quarter;
-      return { ...quarter, measurements: e.target.value };
+      return { measurements: e.target.value };
     });
     this.setState({ hardOneQuarter: newOneQuarter });
   };
@@ -146,7 +146,7 @@ export default class EditProduct extends React.Component {
     const newSoftThreeEighths = this.state.softThreeEighths.map(
       (soft, sidx) => {
         if (idx !== sidx) return soft;
-        return { ...soft, measurements: e.target.value };
+        return { measurements: e.target.value };
       }
     );
     this.setState({ softThreeEighths: newSoftThreeEighths });
@@ -170,7 +170,7 @@ export default class EditProduct extends React.Component {
   handlePrepBendChange = idx => e => {
     const newPrepBend = this.state.prepBend.map((prepB, sidx) => {
       if (idx !== sidx) return prepB;
-      return { ...prepB, measurements: e.target.value };
+      return { measurements: e.target.value };
     });
     this.setState({ prepBend: newPrepBend });
   };
@@ -191,7 +191,7 @@ export default class EditProduct extends React.Component {
   handlePrepWeldChange = idx => e => {
     const newPrepWeld = this.state.prepWeld.map((prepW, sidx) => {
       if (idx !== sidx) return prepW;
-      return { ...prepW, measurements: e.target.value };
+      return { measurements: e.target.value };
     });
     this.setState({ prepWeld: newPrepWeld });
   };
@@ -212,7 +212,7 @@ export default class EditProduct extends React.Component {
   handleWeldChange = idx => e => {
     const newWeld = this.state.weld.map((w, sidx) => {
       if (idx !== sidx) return w;
-      return { ...w, measurements: e.target.value };
+      return { measurements: e.target.value };
     });
     this.setState({ weld: newWeld });
   };
