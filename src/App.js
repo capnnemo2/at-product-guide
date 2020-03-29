@@ -28,8 +28,11 @@ export default class App extends React.Component {
     });
   }
 
+  // product handlers
   addProduct = newProduct => {
-    this.setState({ products: [...this.state.products, newProduct] });
+    this.setState({
+      products: [...this.state.products, newProduct]
+    });
   };
 
   deleteProduct = productId => {
@@ -46,13 +49,29 @@ export default class App extends React.Component {
     this.setState({ products: newProducts });
   };
 
+  // comment handlers
+  addComment = newComment => {
+    this.setState({
+      comments: [...this.state.comments, newComment]
+    });
+  };
+
+  deleteComment = commentId => {
+    const newComments = this.state.comments.filter(
+      c => Number(c.id) !== Number(commentId)
+    );
+    this.setState({ comments: newComments });
+  };
+
   render() {
     const value = {
       products: this.state.products,
       comments: this.state.comments,
       addProduct: this.addProduct,
       deleteProduct: this.deleteProduct,
-      updateProduct: this.updateProduct
+      updateProduct: this.updateProduct,
+      addComment: this.addComment,
+      deleteComment: this.deleteComment
     };
     return (
       <ATContext.Provider value={value}>

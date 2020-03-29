@@ -5,5 +5,7 @@ export default React.createContext({
   comments: [],
   addProduct: () => {},
   deleteProduct: () => {},
-  updateProduct: () => {}
+  updateProduct: () => {},
+  addComment: () => {},
+  deleteComment: () => {}
 });

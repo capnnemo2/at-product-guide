@@ -32,15 +32,11 @@ export default class AddComment extends React.Component {
 
   handleSubmit = () => {
     let newComment = this.state;
-    const product = this.context.products.filter(
-      p => Number(p.id) === Number(this.props.match.params.product_id)
-    );
-
     newComment = { ...newComment, id: this.context.comments.length + 1 };
-
-    console.log(`this is new comment:`, newComment);
-    console.log(`this is product;`, product);
-    console.log(this.context.comments);
+    this.context.addComment(newComment);
+    this.props.history.push(
+      `/productDetails/${this.props.match.params.product_id}`
+    );
   };
 
   handleClickCancel = () => {
