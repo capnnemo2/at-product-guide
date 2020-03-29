@@ -6,6 +6,10 @@ import ATContext from "../ATContext";
 export default class ProductDetails extends React.Component {
   static contextType = ATContext;
 
+  handleDeleteComment = commentId => {
+    this.context.deleteComment(commentId);
+  };
+
   render() {
     const productId = this.props.match.params.product_id;
     const product = this.context.products.find(
@@ -20,6 +24,7 @@ export default class ProductDetails extends React.Component {
     const comments = this.context.comments.filter(
       c => Number(c.productId) === Number(productId)
     );
+    console.log(comments);
     return (
       <div className="ProductDetails">
         <section>
@@ -134,7 +139,15 @@ export default class ProductDetails extends React.Component {
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
                   <Link to={"/edit-comment/"}>Edit comment</Link>
-                  <button type="button">Delete</button>
+                  <button
+                    type="button"
+                    onClick={e => {
+                      e.preventDefault();
+                      this.handleDeleteComment(comment.id);
+                    }}
+                  >
+                    Delete
+                  </button>
                 </li>
               ))}
             </ul>
