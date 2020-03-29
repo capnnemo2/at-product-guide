@@ -7,5 +7,6 @@ export default React.createContext({
   deleteProduct: () => {},
   updateProduct: () => {},
   addComment: () => {},
-  deleteComment: () => {}
+  deleteComment: () => {},
+  updateComment: () => {}
 });

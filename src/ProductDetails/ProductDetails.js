@@ -138,7 +138,7 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
-                  <Link to={"/edit-comment/"}>Edit comment</Link>
+                  <Link to={`/edit-comment/${comment.id}`}>Edit comment</Link>
                   <button
                     type="button"
                     onClick={e => {

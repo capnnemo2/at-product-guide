@@ -69,10 +69,6 @@ export default class EditProduct extends React.Component {
     });
   }
 
-  // handleMeshChange = idx => e => {
-  //   this.setState({ newMesh: {[idx]: e.target.value }});
-  // };
-
   // MESH handlers
   handleMeshChange = idx => e => {
     const newMesh = this.state.mesh.map((mesh, sidx) => {
@@ -82,7 +78,6 @@ export default class EditProduct extends React.Component {
     this.setState({ mesh: newMesh });
   };
 
-  // changed concat to '' rather than [{measurements: ''}] and for some reason this works...?
   handleAddMesh = () => {
     this.setState({
       mesh: this.state.mesh.concat("")
@@ -314,18 +309,6 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find(p => p.id === productId);
-    console.log(this.state.mesh);
-    console.log(
-      this.state.mesh
-        .map(function(m) {
-          if (m.measurements) {
-            return m.measurements;
-          } else {
-            return m;
-          }
-        })
-        .filter(Boolean)
-    );
     return product ? (
       <div className="EditProduct">
         <section>

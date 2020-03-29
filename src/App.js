@@ -63,6 +63,14 @@ export default class App extends React.Component {
     this.setState({ comments: newComments });
   };
 
+  updateComment = (newComment, commentId) => {
+    console.log(`update comment ran`);
+    let newComments = this.state.comments.map(c =>
+      Number(c.id) === Number(commentId) ? newComment : c
+    );
+    this.setState({ comments: newComments });
+  };
+
   render() {
     const value = {
       products: this.state.products,
@@ -71,7 +79,8 @@ export default class App extends React.Component {
       deleteProduct: this.deleteProduct,
       updateProduct: this.updateProduct,
       addComment: this.addComment,
-      deleteComment: this.deleteComment
+      deleteComment: this.deleteComment,
+      updateComment: this.updateComment
     };
     return (
       <ATContext.Provider value={value}>
