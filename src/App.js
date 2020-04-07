@@ -12,60 +12,108 @@ import EditProduct from "./EditProduct/EditProduct";
 import EditComment from "./EditComment/EditComment";
 import NotFound from "./NotFound/NotFound";
 import dummyStore from "./dummyStore";
+import config from "./config";
 import ATContext from "./ATContext";
 import "./App.css";
 
 export default class App extends React.Component {
   state = {
     products: [],
-    comments: []
+    comments: [],
+    error: null,
+  };
+
+  setProducts = (products) => {
+    this.setState({
+      products,
+      error: null,
+    });
+  };
+
+  setComments = (comments) => {
+    this.setState({
+      comments,
+      error: null,
+    });
   };
 
   componentDidMount() {
-    this.setState({
-      products: dummyStore.products,
-      comments: dummyStore.comments
-    });
+    fetch(`${config.API_ENDPOINT}/products`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `${config.API_KEY}`,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setProducts)
+      .catch((error) => this.setState({ error }));
+
+    fetch(`${config.API_ENDPOINT}/comments`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `${config.API_KEY}`,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json();
+      })
+      .then(this.setComments)
+      .catch((error) => this.setState({ error }));
+
+    // this.setState({
+    //   products: dummyStore.products,
+    //   comments: dummyStore.comments,
+    // });
   }
 
   // product handlers
-  addProduct = newProduct => {
+  addProduct = (newProduct) => {
     this.setState({
-      products: [...this.state.products, newProduct]
+      products: [...this.state.products, newProduct],
     });
   };
 
-  deleteProduct = productId => {
+  deleteProduct = (productId) => {
     const newProducts = this.state.products.filter(
-      p => Number(p.id) !== Number(productId)
+      (p) => Number(p.id) !== Number(productId)
     );
     this.setState({ products: newProducts });
   };
 
   updateProduct = (newProduct, productId) => {
-    let newProducts = this.state.products.map(p =>
+    let newProducts = this.state.products.map((p) =>
       Number(p.id) === Number(productId) ? newProduct : p
     );
     this.setState({ products: newProducts });
   };
 
   // comment handlers
-  addComment = newComment => {
+  addComment = (newComment) => {
     this.setState({
-      comments: [...this.state.comments, newComment]
+      comments: [...this.state.comments, newComment],
     });
   };
 
-  deleteComment = commentId => {
+  deleteComment = (commentId) => {
     const newComments = this.state.comments.filter(
-      c => Number(c.id) !== Number(commentId)
+      (c) => Number(c.id) !== Number(commentId)
     );
     this.setState({ comments: newComments });
   };
 
   updateComment = (newComment, commentId) => {
     console.log(`update comment ran`);
-    let newComments = this.state.comments.map(c =>
+    let newComments = this.state.comments.map((c) =>
       Number(c.id) === Number(commentId) ? newComment : c
     );
     this.setState({ comments: newComments });
@@ -80,7 +128,7 @@ export default class App extends React.Component {
       updateProduct: this.updateProduct,
       addComment: this.addComment,
       deleteComment: this.deleteComment,
-      updateComment: this.updateComment
+      updateComment: this.updateComment,
     };
     return (
       <ATContext.Provider value={value}>

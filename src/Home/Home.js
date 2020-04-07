@@ -8,24 +8,24 @@ export default class Home extends React.Component {
 
   state = {
     filter: "all",
-    productCode: ""
+    productCode: "",
   };
 
   updateFilter(filter) {
     this.setState({
-      filter: filter
+      filter: filter,
     });
   }
 
   updateProductCode(code) {
     this.setState({
-      productCode: code.toUpperCase()
+      productCode: code.toUpperCase(),
     });
   }
 
   render() {
     const findProduct = this.context.products.filter(
-      p => p.productCode === this.state.productCode
+      (p) => p.productCode === this.state.productCode
     );
     const getProduct = findProduct ? findProduct[0] : "";
     const productId = getProduct ? getProduct.id : "";
@@ -34,8 +34,15 @@ export default class Home extends React.Component {
       this.state.filter === "all"
         ? this.context.products
         : this.context.products.filter(
-            p => p.productType === this.state.filter
+            (p) => p.productType === this.state.filter
           );
+
+    console.log(findProduct);
+    console.log(getProduct);
+    console.log(productId);
+    console.log(productsToDisplay);
+    console.log(this.context.products);
+
     return (
       <div className="Home">
         <form>
@@ -46,7 +53,7 @@ export default class Home extends React.Component {
             type="text"
             name="search"
             id="search"
-            onChange={e => this.updateProductCode(e.target.value)}
+            onChange={(e) => this.updateProductCode(e.target.value)}
           />
           {productId !== "" ? (
             <Link to={`/productDetails/${productId}`}>Zip to it</Link>
@@ -57,7 +64,10 @@ export default class Home extends React.Component {
           <label htmlFor="filter" className="filter-label">
             Filter:
           </label>{" "}
-          <select id="filter" onChange={e => this.updateFilter(e.target.value)}>
+          <select
+            id="filter"
+            onChange={(e) => this.updateFilter(e.target.value)}
+          >
             <option value="all">All</option>
             <option value="trellis">Trellises</option>
             <option value="arbor">Arbors</option>
@@ -66,18 +76,18 @@ export default class Home extends React.Component {
         </form>
 
         <ul>
-          {productsToDisplay.map(p => (
+          {productsToDisplay.map((p) => (
             <li key={p.id} className="Home__li">
               <Link to={`productDetails/${p.id}`} className="Home__link">
-                {p.productName}
+                {p.product_name}
               </Link>
               <br />
-              <img
+              {/* <img
                 src={p.image.src}
                 alt={p.image.alt}
                 height="200"
                 width="200"
-              />
+              /> */}
             </li>
           ))}
         </ul>
