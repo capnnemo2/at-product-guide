@@ -8,19 +8,19 @@ export default class AddProduct extends React.Component {
 
   state = {
     id: "",
-    productCode: "",
-    productName: "",
-    productType: "",
-    image: {
-      src: "/pics/shark.jpg",
-      alt: "new product",
-    },
+    product_code: "",
+    product_name: "",
+    product_type: "",
+    // image: {
+    //   src: "/pics/shark.jpg",
+    //   alt: "new product",
+    // },
     mesh: [],
-    hardThreeEighths: [],
-    hardOneQuarter: [],
-    softThreeEighths: [],
-    prepBend: [],
-    prepWeld: [],
+    hard_three_eighths: [],
+    hard_one_quarter: [],
+    soft_three_eighths: [],
+    prep_bend: [],
+    prep_weld: [],
     weld: [],
     comments: [],
     error: null,
@@ -28,23 +28,23 @@ export default class AddProduct extends React.Component {
 
   updateProductCode(code) {
     this.setState({
-      productCode: code,
+      product_code: code,
     });
   }
 
   updateProductName(name) {
     this.setState({
-      productName: name,
-      image: {
-        alt: name,
-        src: "/pics/shark.jpg",
-      },
+      product_name: name,
+      // image: {
+      //   alt: name,
+      //   src: "/pics/shark.jpg",
+      // },
     });
   }
 
   updateProductType(type) {
     this.setState({
-      productType: type,
+      product_type: type,
     });
   }
 
@@ -71,16 +71,16 @@ export default class AddProduct extends React.Component {
 
   // HARD STEEL 3/8" handlers
   handleThreeEighthsChange = (idx) => (e) => {
-    const newThreeEighths = this.state.hardThreeEighths.map((three, sidx) => {
+    const newThreeEighths = this.state.hard_three_eighths.map((three, sidx) => {
       if (idx !== sidx) return three;
       return { ...three, measurements: e.target.value };
     });
-    this.setState({ hardThreeEighths: newThreeEighths });
+    this.setState({ hard_three_eighths: newThreeEighths });
   };
 
   handleAddThreeEighths = () => {
     this.setState({
-      hardThreeEighths: this.state.hardThreeEighths.concat([
+      hard_three_eighths: this.state.hard_three_eighths.concat([
         { measurements: "" },
       ]),
     });
@@ -88,7 +88,7 @@ export default class AddProduct extends React.Component {
 
   handleRemoveThreeEighths = (idx) => () => {
     this.setState({
-      hardThreeEighths: this.state.hardThreeEighths.filter(
+      hard_three_eighths: this.state.hard_three_eighths.filter(
         (s, sidx) => idx !== sidx
       ),
     });
@@ -96,22 +96,24 @@ export default class AddProduct extends React.Component {
 
   // HARD STEEL 1/4" handlers
   handleOneQuarterChange = (idx) => (e) => {
-    const newOneQuarter = this.state.hardOneQuarter.map((quarter, sidx) => {
+    const newOneQuarter = this.state.hard_one_quarter.map((quarter, sidx) => {
       if (idx !== sidx) return quarter;
       return { ...quarter, measurements: e.target.value };
     });
-    this.setState({ hardOneQuarter: newOneQuarter });
+    this.setState({ hard_one_quarter: newOneQuarter });
   };
 
   handleAddOneQuarter = () => {
     this.setState({
-      hardOneQuarter: this.state.hardOneQuarter.concat([{ measurements: "" }]),
+      hard_one_quarter: this.state.hard_one_quarter.concat([
+        { measurements: "" },
+      ]),
     });
   };
 
   handleRemoveOneQuarter = (idx) => () => {
     this.setState({
-      hardOneQuarter: this.state.hardOneQuarter.filter(
+      hard_one_quarter: this.state.hard_one_quarter.filter(
         (s, sidx) => idx !== sidx
       ),
     });
@@ -119,18 +121,18 @@ export default class AddProduct extends React.Component {
 
   // SOFT STEEL 3/8" handlers
   handleSoftSteelChange = (idx) => (e) => {
-    const newSoftThreeEighths = this.state.softThreeEighths.map(
+    const newSoftThreeEighths = this.state.soft_three_eighths.map(
       (soft, sidx) => {
         if (idx !== sidx) return soft;
         return { ...soft, measurements: e.target.value };
       }
     );
-    this.setState({ softThreeEighths: newSoftThreeEighths });
+    this.setState({ soft_three_eighths: newSoftThreeEighths });
   };
 
   handleAddSoft = () => {
     this.setState({
-      softThreeEighths: this.state.softThreeEighths.concat([
+      soft_three_eighths: this.state.soft_three_eighths.concat([
         { measurements: "" },
       ]),
     });
@@ -138,7 +140,7 @@ export default class AddProduct extends React.Component {
 
   handleRemoveSoft = (idx) => () => {
     this.setState({
-      softThreeEighths: this.state.softThreeEighths.filter(
+      soft_three_eighths: this.state.soft_three_eighths.filter(
         (s, sidx) => idx !== sidx
       ),
     });
@@ -146,43 +148,43 @@ export default class AddProduct extends React.Component {
 
   // PREPBEND handlers
   handlePrepBendChange = (idx) => (e) => {
-    const newPrepBend = this.state.prepBend.map((prepB, sidx) => {
+    const newPrepBend = this.state.prep_bend.map((prepB, sidx) => {
       if (idx !== sidx) return prepB;
       return { ...prepB, measurements: e.target.value };
     });
-    this.setState({ prepBend: newPrepBend });
+    this.setState({ prep_bend: newPrepBend });
   };
 
   handleAddPrepBend = () => {
     this.setState({
-      prepBend: this.state.prepBend.concat([{ measurements: "" }]),
+      prep_bend: this.state.prep_bend.concat([{ measurements: "" }]),
     });
   };
 
   handleRemovePrepBend = (idx) => () => {
     this.setState({
-      prepBend: this.state.prepBend.filter((s, sidx) => idx !== sidx),
+      prep_bend: this.state.prep_bend.filter((s, sidx) => idx !== sidx),
     });
   };
 
   // PREPWELD handlers
   handlePrepWeldChange = (idx) => (e) => {
-    const newPrepWeld = this.state.prepWeld.map((prepW, sidx) => {
+    const newPrepWeld = this.state.prep_weld.map((prepW, sidx) => {
       if (idx !== sidx) return prepW;
       return { ...prepW, measurements: e.target.value };
     });
-    this.setState({ prepWeld: newPrepWeld });
+    this.setState({ prep_weld: newPrepWeld });
   };
 
   handleAddPrepWeld = () => {
     this.setState({
-      prepWeld: this.state.prepWeld.concat([{ measurements: "" }]),
+      prep_weld: this.state.prep_weld.concat([{ measurements: "" }]),
     });
   };
 
   handleRemovePrepWeld = (idx) => () => {
     this.setState({
-      prepWeld: this.state.prepWeld.filter((s, sidx) => idx !== sidx),
+      prep_weld: this.state.prep_weld.filter((s, sidx) => idx !== sidx),
     });
   };
 
@@ -209,35 +211,28 @@ export default class AddProduct extends React.Component {
   handleSubmit = () => {
     let newProduct = this.state;
     newProduct = { ...newProduct, id: this.context.products.length + 1 };
-    newProduct.productCode = newProduct.productCode.toUpperCase();
-    newProduct.hardSteel = {
-      threeEighths: newProduct.hardThreeEighths
-        .map((hte) => hte.measurements)
-        .filter(Boolean),
-      oneQuarter: newProduct.hardOneQuarter
-        .map((hoq) => hoq.measurements)
-        .filter(Boolean),
-    };
-    newProduct.softSteel = {
-      threeEighths: newProduct.softThreeEighths
-        .map((ste) => ste.measurements)
-        .filter(Boolean),
-    };
+    newProduct.product_code = newProduct.product_code.toUpperCase();
+    newProduct.hard_three_eighths = newProduct.hard_three_eighths
+      .map((hte) => hte.measurements)
+      .filter(Boolean);
+    newProduct.hard_one_quarter = newProduct.hard_one_quarter
+      .map((hoq) => hoq.measurements)
+      .filter(Boolean);
+    newProduct.soft_three_eighths = newProduct.soft_three_eighths
+      .map((ste) => ste.measurements)
+      .filter(Boolean);
     newProduct.mesh = newProduct.mesh
       .map((m) => m.measurements)
       .filter(Boolean);
-    newProduct.prepBend = newProduct.prepBend
+    newProduct.prep_bend = newProduct.prep_bend
       .map((pb) => pb.measurements)
       .filter(Boolean);
-    newProduct.prepWeld = newProduct.prepWeld
+    newProduct.prep_weld = newProduct.prep_weld
       .map((pw) => pw.measurements)
       .filter(Boolean);
     newProduct.weld = newProduct.weld
       .map((w) => w.measurements)
       .filter(Boolean);
-    delete newProduct.hardThreeEighths;
-    delete newProduct.hardOneQuarter;
-    delete newProduct.softThreeEighths;
 
     fetch(`${config.API_ENDPOINT}/products`, {
       method: "POST",
@@ -333,7 +328,7 @@ export default class AddProduct extends React.Component {
                 <legend>Hard steel</legend>
 
                 <label htmlFor="three-eighths">3/8": </label>
-                {this.state.hardThreeEighths.map((three, idx) => (
+                {this.state.hard_three_eighths.map((three, idx) => (
                   <div className="hardThreeEighths" key={idx}>
                     <input
                       type="text"
@@ -357,7 +352,7 @@ export default class AddProduct extends React.Component {
                 <br />
 
                 <label htmlFor="quarter-inch">1/4": </label>
-                {this.state.hardOneQuarter.map((quarter, idx) => (
+                {this.state.hard_one_quarter.map((quarter, idx) => (
                   <div className="hardOneQuarter" key={idx}>
                     <input
                       type="text"
@@ -381,7 +376,7 @@ export default class AddProduct extends React.Component {
               <fieldset>
                 <legend>Soft steel</legend>
                 <label htmlFor="soft-steel">3/8": </label>
-                {this.state.softThreeEighths.map((soft, idx) => (
+                {this.state.soft_three_eighths.map((soft, idx) => (
                   <div className="softThreeEighths" key={idx}>
                     <input
                       type="text"
@@ -405,7 +400,7 @@ export default class AddProduct extends React.Component {
               <legend>Prep bend</legend>
               <div className="textarea__container">
                 <label htmlFor="prepBend">Bend instructions:</label>
-                {this.state.prepBend.map((prepB, idx) => (
+                {this.state.prep_bend.map((prepB, idx) => (
                   <div className="prepBendItem" key={idx}>
                     <textarea
                       name="prepBend"
@@ -430,7 +425,7 @@ export default class AddProduct extends React.Component {
               <legend>Prep weld</legend>
               <div className="textarea__container">
                 <label htmlFor="prep-weld">Prep weld instructions:</label>
-                {this.state.prepWeld.map((prepW, idx) => (
+                {this.state.prep_weld.map((prepW, idx) => (
                   <div className="prepWeldItem" key={idx}>
                     <textarea
                       name="prepWeld"

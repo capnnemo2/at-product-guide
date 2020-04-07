@@ -11,7 +11,6 @@ import AddComment from "./AddComment/AddComment";
 import EditProduct from "./EditProduct/EditProduct";
 import EditComment from "./EditComment/EditComment";
 import NotFound from "./NotFound/NotFound";
-import dummyStore from "./dummyStore";
 import config from "./config";
 import ATContext from "./ATContext";
 import "./App.css";
@@ -69,11 +68,6 @@ export default class App extends React.Component {
       })
       .then(this.setComments)
       .catch((error) => this.setState({ error }));
-
-    // this.setState({
-    //   products: dummyStore.products,
-    //   comments: dummyStore.comments,
-    // });
   }
 
   // product handlers

@@ -24,6 +24,9 @@ export default class Home extends React.Component {
   }
 
   render() {
+    console.log(this.context.products);
+    console.log(this.context.comments);
+
     const findProduct = this.context.products.filter(
       (p) => p.productCode === this.state.productCode
     );
@@ -36,12 +39,6 @@ export default class Home extends React.Component {
         : this.context.products.filter(
             (p) => p.productType === this.state.filter
           );
-
-    console.log(findProduct);
-    console.log(getProduct);
-    console.log(productId);
-    console.log(productsToDisplay);
-    console.log(this.context.products);
 
     return (
       <div className="Home">
