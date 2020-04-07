@@ -22,7 +22,7 @@ export default class AddProduct extends React.Component {
     prep_bend: [],
     prep_weld: [],
     weld: [],
-    comments: [],
+    // comments: [],
     error: null,
   };
 
