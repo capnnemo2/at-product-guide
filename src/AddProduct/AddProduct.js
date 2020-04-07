@@ -255,9 +255,6 @@ export default class AddProduct extends React.Component {
       .catch((error) => {
         this.setState({ error });
       });
-
-    // this.context.addProduct(newProduct);
-    // this.props.history.push("/home");
   };
 
   // CANCEL handler
