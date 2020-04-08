@@ -37,7 +37,7 @@ export default class ProductDetails extends React.Component {
   handleDeleteComment = (commentId) => {
     fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
       method: "DELETE",
-      header: {
+      headers: {
         "content-type": "application/json",
         Authorization: `${config.API_KEY}`,
       },

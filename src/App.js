@@ -106,7 +106,6 @@ export default class App extends React.Component {
   };
 
   updateComment = (newComment, commentId) => {
-    console.log(`update comment ran`);
     let newComments = this.state.comments.map((c) =>
       Number(c.id) === Number(commentId) ? newComment : c
     );
