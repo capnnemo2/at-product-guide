@@ -48,7 +48,7 @@ export default class ProductDetails extends React.Component {
     const prepWeld = Object.values(product.prep_weld);
     const weld = Object.values(product.weld);
     const comments = this.context.comments.filter(
-      (c) => Number(c.productId) === Number(productId)
+      (c) => Number(c.product_id) === Number(productId)
     );
     return (
       <div className="ProductDetails">

@@ -24,11 +24,8 @@ export default class Home extends React.Component {
   }
 
   render() {
-    console.log(this.context.products);
-    console.log(this.context.comments);
-
     const findProduct = this.context.products.filter(
-      (p) => p.productCode === this.state.productCode
+      (p) => p.product_code === this.state.productCode
     );
     const getProduct = findProduct ? findProduct[0] : "";
     const productId = getProduct ? getProduct.id : "";
@@ -37,7 +34,7 @@ export default class Home extends React.Component {
       this.state.filter === "all"
         ? this.context.products
         : this.context.products.filter(
-            (p) => p.productType === this.state.filter
+            (p) => p.product_type === this.state.filter
           );
 
     return (
