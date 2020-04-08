@@ -1,5 +1,6 @@
 import React from "react";
 import ATContext from "../ATContext";
+import config from "../config";
 import "./EditComment.css";
 
 export default class EditComment extends React.Component {
@@ -9,39 +10,64 @@ export default class EditComment extends React.Component {
     id: "",
     user_name: "",
     content: "",
-    productId: ""
+    product_id: "",
+    error: null,
   };
 
   componentDidMount() {
     const comment = this.context.comments.find(
-      c => Number(c.id) === Number(this.props.match.params.comment_id)
+      (c) => Number(c.id) === Number(this.props.match.params.comment_id)
     );
 
     this.setState({
       id: comment.id,
       user_name: comment.user_name,
       content: comment.content,
-      productId: comment.productId
+      product_id: comment.product_id,
     });
   }
 
   updateUserName(name) {
     this.setState({
-      user_name: name
+      user_name: name,
     });
   }
 
   updateContent(content) {
     this.setState({
-      content: content
+      content: content,
     });
   }
 
   handleSubmit = () => {
     let newComment = this.state;
     console.log(newComment);
-    this.context.updateComment(newComment, newComment.id);
-    this.props.history.push(`/productDetails/${this.state.productId}`);
+    const { comment_id } = this.props.match.params;
+    console.log(comment_id);
+
+    fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
+      method: "PATCH",
+      body: JSON.stringify(newComment),
+      headers: {
+        "content-type": "application/json",
+        Authorization: `${config.API_KEY}`,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        } else if (res) {
+          return res.json();
+        }
+        return true;
+      })
+      .then((data) => {
+        this.context.updateComment(newComment, newComment.id);
+        this.props.history.push(`/productDetails/${this.state.productId}`);
+      })
+      .catch((error) => {
+        this.setState({ error });
+      });
   };
 
   handleClickCancel = () => {
@@ -55,7 +81,7 @@ export default class EditComment extends React.Component {
         <section>
           <form
             className="addCommentForm"
-            onSubmit={e => {
+            onSubmit={(e) => {
               e.preventDefault();
               this.handleSubmit();
             }}
@@ -65,7 +91,7 @@ export default class EditComment extends React.Component {
               type="text"
               name="user-name"
               value={this.state.user_name}
-              onChange={e => this.updateUserName(e.target.value)}
+              onChange={(e) => this.updateUserName(e.target.value)}
               required
             />
             <br />
@@ -73,7 +99,7 @@ export default class EditComment extends React.Component {
             <textarea
               name="user-comment"
               value={this.state.content}
-              onChange={e => this.updateContent(e.target.value)}
+              onChange={(e) => this.updateContent(e.target.value)}
               required
             ></textarea>
             <br />
