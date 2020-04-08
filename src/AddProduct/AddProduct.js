@@ -23,7 +23,6 @@ export default class AddProduct extends React.Component {
     prep_bend: [],
     prep_weld: [],
     weld: [],
-    // comments: [],
     error: null,
   };
 
@@ -230,10 +229,9 @@ export default class AddProduct extends React.Component {
     });
   };
 
-  // handle submit and convert state to match dummyStore
+  // button handlers
   handleSubmit = () => {
     let newProduct = this.state;
-    // newProduct = { ...newProduct, id: this.context.products.length + 1 };
     newProduct.product_code = newProduct.product_code.toUpperCase();
     newProduct.product_name = newProduct.product_name.trim();
     newProduct.hard_three_eighths = newProduct.hard_three_eighths
@@ -282,7 +280,6 @@ export default class AddProduct extends React.Component {
       });
   };
 
-  // CANCEL handler
   handleClickCancel = () => {
     this.props.history.goBack();
   };

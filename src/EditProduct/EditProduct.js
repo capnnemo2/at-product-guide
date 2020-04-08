@@ -24,7 +24,6 @@ export default class EditProduct extends React.Component {
     prep_bend: [],
     prep_weld: [],
     weld: [],
-    // comments: [],
     error: null,
   };
 
@@ -43,7 +42,6 @@ export default class EditProduct extends React.Component {
       prep_bend: product.prep_bend,
       prep_weld: product.prep_weld,
       weld: product.weld,
-      // comments: product.comments,
       // image: {
       //   src: product.image.src,
       //   alt: product.productName,
@@ -249,6 +247,7 @@ export default class EditProduct extends React.Component {
     });
   };
 
+  // button handlers
   handleSubmit = () => {
     let newProduct = this.state;
     const { product_id } = this.props.match.params;
@@ -343,7 +342,6 @@ export default class EditProduct extends React.Component {
     this.props.history.push(`/productDetails/${newProduct.id}`);
   };
 
-  // CANCEL handler
   handleClickCancel = () => {
     this.props.history.goBack();
   };
@@ -386,7 +384,6 @@ export default class EditProduct extends React.Component {
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
-                // defaultValue={this.state.productType}
                 value={this.state.product_type}
                 onChange={(e) => this.updateProductType(e.target.value)}
                 required

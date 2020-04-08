@@ -131,7 +131,6 @@ export default class App extends React.Component {
             <Nav />
           </nav>
           <header>
-            {/* maybe just want the header for the landing and home page, when you look at individual products maybe just a navbar? */}
             <Header />
           </header>
 
