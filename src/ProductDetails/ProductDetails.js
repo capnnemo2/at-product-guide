@@ -20,21 +20,41 @@ export default class ProductDetails extends React.Component {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error(res.status);
+          return res.json().then((error) => {
+            throw error;
+          });
         }
-        return res.json();
       })
       .then((data) => {
         this.context.deleteProduct(productId);
-        this.props.history.goBack();
       })
       .catch((error) => {
         this.setState({ error });
       });
+    this.props.history.push("/home");
   };
 
   handleDeleteComment = (commentId) => {
-    this.context.deleteComment(commentId);
+    fetch(`${config.API_ENDPOINT}/comments/${commentId}`, {
+      method: "DELETE",
+      header: {
+        "content-type": "application/json",
+        Authorization: `${config.API_KEY}`,
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then((error) => {
+            throw error;
+          });
+        }
+      })
+      .then((data) => {
+        this.context.deleteComment(commentId);
+      })
+      .catch((error) => {
+        this.setState({ error });
+      });
   };
 
   render() {

@@ -52,22 +52,22 @@ export default class EditProduct extends React.Component {
 
   updateProductCode(code) {
     this.setState({
-      productCode: code,
+      product_code: code,
     });
   }
 
   updateProductName(name) {
     this.setState({
-      productName: name,
-      image: {
-        alt: name,
-      },
+      product_name: name,
+      // image: {
+      //   alt: name,
+      // },
     });
   }
 
   updateProductType(type) {
     this.setState({
-      productType: type,
+      product_type: type,
     });
   }
 
@@ -302,17 +302,18 @@ export default class EditProduct extends React.Component {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error(res.status);
+          return res.json().then((error) => {
+            throw error;
+          });
         }
-        return res.json();
       })
       .then(() => {
         this.context.updateProduct(newProduct, newProduct.id);
-        this.props.history.push(`/productDetails/${newProduct.id}`);
       })
       .catch((error) => {
         this.setState({ error });
       });
+    this.props.history.push(`/productDetails/${newProduct.id}`);
   };
 
   // CANCEL handler

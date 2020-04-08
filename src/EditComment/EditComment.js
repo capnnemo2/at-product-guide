@@ -41,9 +41,7 @@ export default class EditComment extends React.Component {
 
   handleSubmit = () => {
     let newComment = this.state;
-    console.log(newComment);
     const { comment_id } = this.props.match.params;
-    console.log(comment_id);
 
     fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
       method: "PATCH",
@@ -55,19 +53,18 @@ export default class EditComment extends React.Component {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error(res.status);
-        } else if (res) {
-          return res.json();
+          return res.json().then((error) => {
+            throw error;
+          });
         }
-        return true;
       })
       .then((data) => {
         this.context.updateComment(newComment, newComment.id);
-        this.props.history.push(`/productDetails/${this.state.productId}`);
       })
       .catch((error) => {
         this.setState({ error });
       });
+    this.props.history.push(`/productDetails/${this.state.product_id}`);
   };
 
   handleClickCancel = () => {

@@ -210,7 +210,7 @@ export default class AddProduct extends React.Component {
   // handle submit and convert state to match dummyStore
   handleSubmit = () => {
     let newProduct = this.state;
-    newProduct = { ...newProduct, id: this.context.products.length + 1 };
+    // newProduct = { ...newProduct, id: this.context.products.length + 1 };
     newProduct.product_code = newProduct.product_code.toUpperCase();
     newProduct.hard_three_eighths = newProduct.hard_three_eighths
       .map((hte) => hte.measurements)
