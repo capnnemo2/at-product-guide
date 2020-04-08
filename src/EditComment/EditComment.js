@@ -72,7 +72,6 @@ export default class EditComment extends React.Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="AddComment">
         <section>

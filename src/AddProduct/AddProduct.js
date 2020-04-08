@@ -1,6 +1,7 @@
 import React from "react";
 import ATContext from "../ATContext";
 import config from "../config";
+import ValidationError from "../ValidationError/ValidationError";
 import "./AddProduct.css";
 
 export default class AddProduct extends React.Component {
@@ -26,6 +27,7 @@ export default class AddProduct extends React.Component {
     error: null,
   };
 
+  // update state for required fields
   updateProductCode(code) {
     this.setState({
       product_code: code,
@@ -46,6 +48,27 @@ export default class AddProduct extends React.Component {
     this.setState({
       product_type: type,
     });
+  }
+
+  // validation functions
+  validateProductCode() {
+    const newProductCode = this.state.product_code.toUpperCase();
+    const existingCode = this.context.products.find(
+      (p) => p.product_code === newProductCode.trim()
+    );
+    if (existingCode) {
+      return `${newProductCode.toUpperCase()} already exists`;
+    }
+  }
+
+  validateProductName() {
+    const newProductName = this.state.product_name.toUpperCase();
+    const existingName = this.context.products.find(
+      (p) => p.product_name.toUpperCase() === newProductName.trim()
+    );
+    if (existingName) {
+      return `${newProductName} already exists`;
+    }
   }
 
   // MESH handlers
@@ -212,6 +235,7 @@ export default class AddProduct extends React.Component {
     let newProduct = this.state;
     // newProduct = { ...newProduct, id: this.context.products.length + 1 };
     newProduct.product_code = newProduct.product_code.toUpperCase();
+    newProduct.product_name = newProduct.product_name.trim();
     newProduct.hard_three_eighths = newProduct.hard_three_eighths
       .map((hte) => hte.measurements)
       .filter(Boolean);
@@ -263,6 +287,8 @@ export default class AddProduct extends React.Component {
   };
 
   render() {
+    const codeError = this.validateProductCode();
+    const nameError = this.validateProductName();
     return (
       <div className="AddProduct">
         <section>
@@ -280,6 +306,7 @@ export default class AddProduct extends React.Component {
                 onChange={(e) => this.updateProductCode(e.target.value)}
                 required
               />
+              {<ValidationError message={codeError} />}
               <br />
               <label htmlFor="name">Product name: </label>
               <input
@@ -288,6 +315,7 @@ export default class AddProduct extends React.Component {
                 onChange={(e) => this.updateProductName(e.target.value)}
                 required
               />
+              {<ValidationError message={nameError} />}
               <br />
               <label htmlFor="type">Product type: </label>
               <select
@@ -465,7 +493,14 @@ export default class AddProduct extends React.Component {
                 </button>
               </div>
             </fieldset>
-            <button type="submit">Submit</button>
+            <button
+              type="submit"
+              disabled={
+                this.validateProductCode() || this.validateProductName()
+              }
+            >
+              Submit
+            </button>
             <button type="button" onClick={this.handleClickCancel}>
               Cancel
             </button>
