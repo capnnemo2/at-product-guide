@@ -51,6 +51,7 @@ export default class AddComment extends React.Component {
         return res.json();
       })
       .then((data) => {
+        newComment.id = data.id;
         this.context.addComment(newComment);
         this.props.history.push(
           `/productDetails/${this.props.match.params.product_id}`

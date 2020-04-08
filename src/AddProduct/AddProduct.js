@@ -273,6 +273,7 @@ export default class AddProduct extends React.Component {
         return res.json();
       })
       .then((data) => {
+        newProduct.id = data.id;
         this.context.addProduct(newProduct);
         this.props.history.push("/home");
       })
