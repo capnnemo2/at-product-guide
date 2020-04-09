@@ -28,29 +28,38 @@ export default class EditProduct extends React.Component {
     error: null,
   };
 
-  // componentDidMount() {
-  //   const productId = Number(this.props.match.params.product_id);
-  //   const product = this.context.products.find((p) => p.id === productId);
-  //   if (product) {
-  //     this.setState({
-  //       id: product.id,
-  //       product_code: product.product_code,
-  //       product_name: product.product_name,
-  //       product_type: product.product_type,
-  //       mesh: product.mesh || [],
-  //       hard_three_eighths: product.hard_three_eighths,
-  //       hard_one_quarter: product.hard_one_quarter,
-  //       soft_three_eighths: product.soft_three_eighths,
-  //       prep_bend: product.prep_bend,
-  //       prep_weld: product.prep_weld,
-  //       weld: product.weld,
-  //       // image: {
-  //       //   src: product.image.src,
-  //       //   alt: product.productName,
-  //       // },
-  //     });
-  //   }
-  // }
+  componentDidMount() {
+    const productId = Number(this.props.match.params.product_id);
+    const product = this.context.products.find((p) => p.id === productId);
+    if (product) {
+      this.setState({
+        id: product.id,
+        product_code: product.product_code,
+        product_name: product.product_name,
+        product_type: product.product_type,
+        mesh: product.mesh || [],
+        hard_three_eighths: product.hard_three_eighths,
+        hard_one_quarter: product.hard_one_quarter,
+        soft_three_eighths: product.soft_three_eighths,
+        prep_bend: product.prep_bend,
+        prep_weld: product.prep_weld,
+        weld: product.weld,
+        // image: {
+        //   src: product.image.src,
+        //   alt: product.productName,
+        // },
+      });
+    }
+  }
+
+  componentDidUpdate() {
+    const productId = Number(this.props.match.params.product_id);
+    const product = this.context.products.find((p) => p.id === productId);
+
+    if (!this.state.initialFieldsSet && product != null) {
+      this.setFieldsInState(product);
+    }
+  }
 
   setFieldsInState = (product) => {
     this.setState({
@@ -379,8 +388,8 @@ export default class EditProduct extends React.Component {
     console.log(`context`, this.context.products);
     console.log(productId);
 
-    if (product && !this.state.initialFieldsSet) {
-      this.setFieldsInState(product);
+    if (!this.state.initialFieldsSet) {
+      return <div>Product loading...</div>;
     }
 
     return product ? (
