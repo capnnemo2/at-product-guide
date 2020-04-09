@@ -7,6 +7,7 @@ export default class EditComment extends React.Component {
   static contextType = ATContext;
 
   state = {
+    initialFieldsSet: false,
     id: "",
     user_name: "",
     content: "",
@@ -14,17 +15,27 @@ export default class EditComment extends React.Component {
     error: null,
   };
 
-  componentDidMount() {
-    const comment = this.context.comments.find(
-      (c) => Number(c.id) === Number(this.props.match.params.comment_id)
-    );
+  // componentDidMount() {
+  //   const comment = this.context.comments.find(
+  //     (c) => Number(c.id) === Number(this.props.match.params.comment_id)
+  //   );
+  //   this.setState({
+  //     id: comment.id,
+  //     user_name: comment.user_name,
+  //     content: comment.content,
+  //     product_id: comment.product_id,
+  //   });
+  // }
+
+  setFieldsInState = (comment) => {
     this.setState({
+      initialFieldsSet: true,
       id: comment.id,
       user_name: comment.user_name,
       content: comment.content,
       product_id: comment.product_id,
     });
-  }
+  };
 
   updateUserName(name) {
     this.setState({
@@ -74,6 +85,9 @@ export default class EditComment extends React.Component {
     const comment = this.context.comments.find(
       (c) => Number(c.id) === Number(this.props.match.params.comment_id)
     );
+    if (comment && !this.state.initialFieldsSet) {
+      this.setFieldsInState(comment);
+    }
     return comment ? (
       <div className="EditComment">
         <section>

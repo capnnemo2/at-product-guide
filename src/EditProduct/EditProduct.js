@@ -8,6 +8,7 @@ export default class EditProduct extends React.Component {
   static contextType = ATContext;
 
   state = {
+    initialFieldsSet: false,
     id: "",
     product_code: "",
     product_name: "",
@@ -27,10 +28,33 @@ export default class EditProduct extends React.Component {
     error: null,
   };
 
-  componentDidMount() {
-    const productId = Number(this.props.match.params.product_id);
-    const product = this.context.products.find((p) => p.id === productId);
+  // componentDidMount() {
+  //   const productId = Number(this.props.match.params.product_id);
+  //   const product = this.context.products.find((p) => p.id === productId);
+  //   if (product) {
+  //     this.setState({
+  //       id: product.id,
+  //       product_code: product.product_code,
+  //       product_name: product.product_name,
+  //       product_type: product.product_type,
+  //       mesh: product.mesh || [],
+  //       hard_three_eighths: product.hard_three_eighths,
+  //       hard_one_quarter: product.hard_one_quarter,
+  //       soft_three_eighths: product.soft_three_eighths,
+  //       prep_bend: product.prep_bend,
+  //       prep_weld: product.prep_weld,
+  //       weld: product.weld,
+  //       // image: {
+  //       //   src: product.image.src,
+  //       //   alt: product.productName,
+  //       // },
+  //     });
+  //   }
+  // }
+
+  setFieldsInState = (product) => {
     this.setState({
+      initialFieldsSet: true,
       id: product.id,
       product_code: product.product_code,
       product_name: product.product_name,
@@ -47,7 +71,7 @@ export default class EditProduct extends React.Component {
       //   alt: product.productName,
       // },
     });
-  }
+  };
 
   // update state for required fields
   updateProductCode(code) {
@@ -352,6 +376,13 @@ export default class EditProduct extends React.Component {
     console.log(product);
     const codeError = this.validateProductCode();
     const nameError = this.validateProductName();
+    console.log(`context`, this.context.products);
+    console.log(productId);
+
+    if (product && !this.state.initialFieldsSet) {
+      this.setFieldsInState(product);
+    }
+
     return product ? (
       <div className="EditProduct">
         <section>
