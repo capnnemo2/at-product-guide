@@ -37,17 +37,17 @@ export default class EditComment extends React.Component {
   //   });
   // };
 
-  updateUserName(name) {
-    this.setState({
-      user_name: name,
-    });
-  }
+  // updateUserName(name) {
+  //   this.setState({
+  //     user_name: name,
+  //   });
+  // }
 
-  updateContent(content) {
-    this.setState({
-      content: content,
-    });
-  }
+  // updateContent(content) {
+  //   this.setState({
+  //     content: content,
+  //   });
+  // }
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -97,6 +97,7 @@ export default class EditComment extends React.Component {
     //   this.setFieldsInState(comment);
     // }
     console.log(comment);
+
     return comment ? (
       <div className="EditComment">
         <section>

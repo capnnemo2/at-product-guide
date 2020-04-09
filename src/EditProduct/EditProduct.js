@@ -8,23 +8,23 @@ export default class EditProduct extends React.Component {
   static contextType = ATContext;
 
   state = {
-    initialFieldsSet: false,
-    id: "",
-    product_code: "",
-    product_name: "",
-    product_type: "",
-    // image: {
-    //   src: "",
-    //   alt: ""
-    // },
-    mesh: [],
-    newMesh: [],
-    hard_three_eighths: [],
-    hard_one_quarter: [],
-    soft_three_eighths: [],
-    prep_bend: [],
-    prep_weld: [],
-    weld: [],
+    // initialFieldsSet: false,
+    // id: "",
+    // product_code: "",
+    // product_name: "",
+    // product_type: "",
+    // // image: {
+    // //   src: "",
+    // //   alt: ""
+    // // },
+    // mesh: [],
+    // newMesh: [],
+    // hard_three_eighths: [],
+    // hard_one_quarter: [],
+    // soft_three_eighths: [],
+    // prep_bend: [],
+    // prep_weld: [],
+    // weld: [],
     error: null,
   };
 
@@ -52,26 +52,26 @@ export default class EditProduct extends React.Component {
   //   }
   // }
 
-  setFieldsInState = (product) => {
-    this.setState({
-      initialFieldsSet: true,
-      id: product.id,
-      product_code: product.product_code,
-      product_name: product.product_name,
-      product_type: product.product_type,
-      mesh: product.mesh || [],
-      hard_three_eighths: product.hard_three_eighths,
-      hard_one_quarter: product.hard_one_quarter,
-      soft_three_eighths: product.soft_three_eighths,
-      prep_bend: product.prep_bend,
-      prep_weld: product.prep_weld,
-      weld: product.weld,
-      // image: {
-      //   src: product.image.src,
-      //   alt: product.productName,
-      // },
-    });
-  };
+  // setFieldsInState = (product) => {
+  //   this.setState({
+  //     initialFieldsSet: true,
+  //     id: product.id,
+  //     product_code: product.product_code,
+  //     product_name: product.product_name,
+  //     product_type: product.product_type,
+  //     mesh: product.mesh || [],
+  //     hard_three_eighths: product.hard_three_eighths,
+  //     hard_one_quarter: product.hard_one_quarter,
+  //     soft_three_eighths: product.soft_three_eighths,
+  //     prep_bend: product.prep_bend,
+  //     prep_weld: product.prep_weld,
+  //     weld: product.weld,
+  //     // image: {
+  //     //   src: product.image.src,
+  //     //   alt: product.productName,
+  //     // },
+  //   });
+  // };
 
   // update state for required fields
   updateProductCode(code) {
@@ -96,27 +96,29 @@ export default class EditProduct extends React.Component {
   }
 
   // validation functions
-  validateProductCode() {
-    const newProductCode = this.state.product_code.toUpperCase();
-    const existingCode = this.context.products.find(
-      (p) => p.product_code === newProductCode.trim()
-    );
-    if (existingCode) {
-      if (existingCode.id !== this.state.id)
-        return `${newProductCode.toUpperCase()} already exists`;
-    }
-  }
+  // THESE WON'T WORK BECAUSE WE AREN'T USING STATE ANYMORE
+  // MUST BE REFACTORED!!
+  // validateProductCode() {
+  //   const newProductCode = this.state.product_code.toUpperCase();
+  //   const existingCode = this.context.products.find(
+  //     (p) => p.product_code === newProductCode.trim()
+  //   );
+  //   if (existingCode) {
+  //     if (existingCode.id !== this.state.id)
+  //       return `${newProductCode.toUpperCase()} already exists`;
+  //   }
+  // }
 
-  validateProductName() {
-    const newProductName = this.state.product_name.toUpperCase();
-    const existingName = this.context.products.find(
-      (p) => p.product_name.toUpperCase() === newProductName.trim()
-    );
-    if (existingName) {
-      if (existingName.id !== this.state.id)
-        return `${newProductName} already exists`;
-    }
-  }
+  // validateProductName() {
+  //   const newProductName = this.state.product_name.toUpperCase();
+  //   const existingName = this.context.products.find(
+  //     (p) => p.product_name.toUpperCase() === newProductName.trim()
+  //   );
+  //   if (existingName) {
+  //     if (existingName.id !== this.state.id)
+  //       return `${newProductName} already exists`;
+  //   }
+  // }
 
   // MESH handlers
   handleMeshChange = (idx) => (e) => {
@@ -128,9 +130,10 @@ export default class EditProduct extends React.Component {
   };
 
   handleAddMesh = () => {
-    this.setState({
-      mesh: this.state.mesh.concat(""),
-    });
+    // this.setState({
+    //   mesh: this.state.mesh.concat(""),
+    // });
+    product.mesh.concat("");
   };
 
   handleRemoveMesh = (idx) => () => {
@@ -272,7 +275,9 @@ export default class EditProduct extends React.Component {
   };
 
   // button handlers
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
+
     let newProduct = this.state;
     const { product_id } = this.props.match.params;
 
@@ -374,50 +379,56 @@ export default class EditProduct extends React.Component {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find((p) => p.id === productId);
     console.log(product);
-    const codeError = this.validateProductCode();
-    const nameError = this.validateProductName();
+
+    // BRING THESE BACK AFTER REFACTOR!!
+    // const codeError = this.validateProductCode();
+    // const nameError = this.validateProductName();
+
     console.log(`context`, this.context.products);
     console.log(productId);
 
-    if (product && !this.state.initialFieldsSet) {
-      this.setFieldsInState(product);
-    }
+    // if (product && !this.state.initialFieldsSet) {
+    //   this.setFieldsInState(product);
+    // }
 
     return product ? (
       <div className="EditProduct">
         <section>
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              this.handleSubmit();
-            }}
+            onSubmit={this.handleSubmit}
+            // onSubmit={(e) => {
+            //   e.preventDefault();
+            //   this.handleSubmit();
+            // }}
           >
             <div>
               <label htmlFor="code">Product code: </label>
               <input
                 type="text"
                 name="code"
-                value={this.state.product_code}
-                onChange={(e) => this.updateProductCode(e.target.value)}
+                defaultValue={product.product_code}
+                // onChange={(e) => this.updateProductCode(e.target.value)}
                 required
               />
-              {<ValidationError message={codeError} />}
+              {/* BRING THIS BACK AFER REFACTOR */}
+              {/* {<ValidationError message={codeError} />} */}
               <br />
               <label htmlFor="name">Product name: </label>
               <input
                 type="text"
                 name="name"
-                value={this.state.product_name}
-                onChange={(e) => this.updateProductName(e.target.value)}
+                defaultValue={product.product_name}
+                // onChange={(e) => this.updateProductName(e.target.value)}
                 required
               />
-              {<ValidationError message={nameError} />}
+              {/* BRING THIS BACK AFTER REFACTOR */}
+              {/* {<ValidationError message={nameError} />} */}
               <br />
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
-                value={this.state.product_type}
-                onChange={(e) => this.updateProductType(e.target.value)}
+                // defaultValue={product.product_type}
+                // onChange={(e) => this.updateProductType(e.target.value)}
                 required
               >
                 <option value="arbor">Arbor</option>
@@ -428,14 +439,14 @@ export default class EditProduct extends React.Component {
             <fieldset>
               <legend>Materials</legend>
               <label htmlFor="mesh">Mesh:</label>
-              {this.state.mesh.map((mesh, idx) => (
+              {product.mesh.map((mesh, idx) => (
                 <div className="meshItem" key={idx}>
                   <input
                     type="text"
                     name="mesh"
                     placeholder={`mesh input #${idx + 1}`}
                     defaultValue={mesh}
-                    onChange={this.handleMeshChange(idx)}
+                    // onChange={this.handleMeshChange(idx)}
                   />
                   <button type="button" onClick={this.handleRemoveMesh(idx)}>
                     -
@@ -449,14 +460,14 @@ export default class EditProduct extends React.Component {
                 <legend>Hard steel</legend>
 
                 <label htmlFor="three-eighths">3/8": </label>
-                {this.state.hard_three_eighths.map((three, idx) => (
+                {product.hard_three_eighths.map((three, idx) => (
                   <div className="hardThreeEighths" key={idx}>
                     <input
                       type="text"
                       name="three-eighths"
                       placeholder={`3/8" input #${idx + 1}`}
                       defaultValue={three}
-                      onChange={this.handleThreeEighthsChange(idx)}
+                      // onChange={this.handleThreeEighthsChange(idx)}
                     />
                     <button
                       type="button"
@@ -473,14 +484,14 @@ export default class EditProduct extends React.Component {
                 <br />
 
                 <label htmlFor="quarter-inch">1/4": </label>
-                {this.state.hard_one_quarter.map((quarter, idx) => (
+                {product.hard_one_quarter.map((quarter, idx) => (
                   <div className="hardOneQuarter" key={idx}>
                     <input
                       type="text"
                       name="quarter-inch"
                       placeholder={`1/4" input #${idx + 1}`}
                       defaultValue={quarter}
-                      onChange={this.handleOneQuarterChange(idx)}
+                      // onChange={this.handleOneQuarterChange(idx)}
                     />
                     <button
                       type="button"
@@ -497,14 +508,14 @@ export default class EditProduct extends React.Component {
               <fieldset>
                 <legend>Soft steel</legend>
                 <label htmlFor="soft-steel">3/8": </label>
-                {this.state.soft_three_eighths.map((soft, idx) => (
+                {product.soft_three_eighths.map((soft, idx) => (
                   <div className="softThreeEighths" key={idx}>
                     <input
                       type="text"
                       name="soft-steel"
                       placeholder={`soft steel input #${idx + 1}`}
                       defaultValue={soft}
-                      onChange={this.handleSoftSteelChange(idx)}
+                      // onChange={this.handleSoftSteelChange(idx)}
                     />
                     <button type="button" onClick={this.handleRemoveSoft(idx)}>
                       -
@@ -521,13 +532,13 @@ export default class EditProduct extends React.Component {
               <legend>Prep bend</legend>
               <div className="textarea__container">
                 <label htmlFor="prepBend">Bend instructions:</label>
-                {this.state.prep_bend.map((prepB, idx) => (
+                {product.prep_bend.map((prepB, idx) => (
                   <div className="prepBendItem" key={idx}>
                     <textarea
                       name="prepBend"
                       placeholder={`prepBend input #${idx + 1}`}
                       defaultValue={prepB}
-                      onChange={this.handlePrepBendChange(idx)}
+                      // onChange={this.handlePrepBendChange(idx)}
                     ></textarea>
                     <button
                       type="button"
@@ -546,13 +557,13 @@ export default class EditProduct extends React.Component {
               <legend>Prep weld</legend>
               <div className="textarea__container">
                 <label htmlFor="prep-weld">Prep weld instructions:</label>
-                {this.state.prep_weld.map((prepW, idx) => (
+                {product.prep_weld.map((prepW, idx) => (
                   <div className="prepWeldItem" key={idx}>
                     <textarea
                       name="prepWeld"
                       placeholder={`prepWeld input #${idx + 1}`}
                       defaultValue={prepW}
-                      onChange={this.handlePrepWeldChange(idx)}
+                      // onChange={this.handlePrepWeldChange(idx)}
                     ></textarea>
                     <button
                       type="button"
@@ -571,13 +582,13 @@ export default class EditProduct extends React.Component {
               <legend>Weld</legend>
               <div className="textarea__container">
                 <label htmlFor="weld">Weld instructions:</label>
-                {this.state.weld.map((w, idx) => (
+                {product.weld.map((w, idx) => (
                   <div className="weldItem" key={idx}>
                     <textarea
                       name="weld"
                       placeholder={`weld input #${idx + 1}`}
                       defaultValue={w}
-                      onChange={this.handleWeldChange(idx)}
+                      // onChange={this.handleWeldChange(idx)}
                     ></textarea>
                     <button type="button" onClick={this.handleRemoveWeld(idx)}>
                       -
@@ -591,9 +602,9 @@ export default class EditProduct extends React.Component {
             </fieldset>
             <button
               type="submit"
-              disabled={
-                this.validateProductCode() || this.validateProductName()
-              }
+              // disabled={
+              //   this.validateProductCode() || this.validateProductName()
+              // }
             >
               Submit
             </button>
