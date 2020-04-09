@@ -7,11 +7,11 @@ export default class EditComment extends React.Component {
   static contextType = ATContext;
 
   state = {
-    initialFieldsSet: false,
-    id: "",
-    user_name: "",
-    content: "",
-    product_id: "",
+    // initialFieldsSet: false,
+    // id: "",
+    // user_name: "",
+    // content: "",
+    // product_id: "",
     error: null,
   };
 
@@ -27,15 +27,15 @@ export default class EditComment extends React.Component {
   //   });
   // }
 
-  setFieldsInState = (comment) => {
-    this.setState({
-      initialFieldsSet: true,
-      id: comment.id,
-      user_name: comment.user_name,
-      content: comment.content,
-      product_id: comment.product_id,
-    });
-  };
+  // setFieldsInState = (comment) => {
+  //   this.setState({
+  //     initialFieldsSet: true,
+  //     id: comment.id,
+  //     user_name: comment.user_name,
+  //     content: comment.content,
+  //     product_id: comment.product_id,
+  //   });
+  // };
 
   updateUserName(name) {
     this.setState({
@@ -49,9 +49,17 @@ export default class EditComment extends React.Component {
     });
   }
 
-  handleSubmit = () => {
-    let newComment = this.state;
-    const { comment_id } = this.props.match.params;
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const comment_id = Number(this.props.match.params.comment_id);
+    const existingComment = this.context.comments.find(
+      (c) => Number(c.id) === Number(this.props.match.params.comment_id)
+    );
+    const id = comment_id;
+    const product_id = existingComment.product_id;
+    const user_name = e.target.name.value;
+    const content = e.target.content.value;
+    const newComment = { id, user_name, content, product_id };
 
     fetch(`${config.API_ENDPOINT}/comments/${comment_id}`, {
       method: "PATCH",
@@ -69,12 +77,12 @@ export default class EditComment extends React.Component {
         }
       })
       .then((data) => {
-        this.context.updateComment(newComment, newComment.id);
+        this.context.updateComment(newComment, comment_id);
       })
       .catch((error) => {
         this.setState({ error });
       });
-    this.props.history.push(`/productDetails/${this.state.product_id}`);
+    this.props.history.push(`/productDetails/${product_id}`);
   };
 
   handleClickCancel = () => {
@@ -85,33 +93,35 @@ export default class EditComment extends React.Component {
     const comment = this.context.comments.find(
       (c) => Number(c.id) === Number(this.props.match.params.comment_id)
     );
-    if (comment && !this.state.initialFieldsSet) {
-      this.setFieldsInState(comment);
-    }
+    // if (comment && !this.state.initialFieldsSet) {
+    //   this.setFieldsInState(comment);
+    // }
+    console.log(comment);
     return comment ? (
       <div className="EditComment">
         <section>
           <form
             className="editCommentForm"
-            onSubmit={(e) => {
-              e.preventDefault();
-              this.handleSubmit();
-            }}
+            onSubmit={this.handleSubmit}
+            // onSubmit={(e) => {
+            //   e.preventDefault();
+            //   this.handleSubmit();
+            // }}
           >
-            <label htmlFor="user-name">Name: </label>
+            <label htmlFor="name">Name: </label>
             <input
               type="text"
-              name="user-name"
-              value={this.state.user_name}
-              onChange={(e) => this.updateUserName(e.target.value)}
+              name="name"
+              defaultValue={comment.user_name}
+              // onChange={(e) => this.updateUserName(e.target.value)}
               required
             />
             <br />
-            <label htmlFor="user-comment">Comment: </label>
+            <label htmlFor="content">Comment: </label>
             <textarea
-              name="user-comment"
-              value={this.state.content}
-              onChange={(e) => this.updateContent(e.target.value)}
+              name="content"
+              defaultValue={comment.content}
+              // onChange={(e) => this.updateContent(e.target.value)}
               required
             ></textarea>
             <br />
