@@ -349,6 +349,7 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find((p) => p.id === productId);
+    console.log(product);
     const codeError = this.validateProductCode();
     const nameError = this.validateProductName();
     return product ? (
@@ -572,7 +573,7 @@ export default class EditProduct extends React.Component {
         </section>
       </div>
     ) : (
-      ""
+      "Loading...."
     );
   }
 }

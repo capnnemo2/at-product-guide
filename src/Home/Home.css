@@ -9,12 +9,19 @@
 /* not sure why this is necessary, but it is */
 ul {
   margin-left: -38px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .Home__li {
-  min-height: 200px;
-  padding: 6% 0;
+  /* padding: 6% 0; */
+  padding: 20px;
   background-color: #bbb;
+  border: 1px solid #333;
+  margin: 20px;
+  /* display: inline-block; */
+  flex: 1;
+  min-width: 250px;
 }
 
 .Home__li:nth-child(even) {

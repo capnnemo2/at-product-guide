@@ -6,3 +6,36 @@ body {
   text-align: center;
   background-color: black;
 }
+
+input#search {
+  display: block;
+  margin: 10px auto;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+form a {
+  color: white;
+  background-color: #25a925;
+  padding: 10px 25px;
+  display: inline-block;
+  margin: 0px 0 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border-bottom: 5px solid green;
+}
+
+form a:hover {
+  background-color: green;
+}
+
+.nav-container {
+  background-color: #333;
+  padding: 20px;
+}
+
+div.nav-container a {
+  color: white;
+  text-decoration: none;
+}

@@ -18,7 +18,6 @@ export default class EditComment extends React.Component {
     const comment = this.context.comments.find(
       (c) => Number(c.id) === Number(this.props.match.params.comment_id)
     );
-
     this.setState({
       id: comment.id,
       user_name: comment.user_name,
@@ -72,11 +71,14 @@ export default class EditComment extends React.Component {
   };
 
   render() {
-    return (
-      <div className="AddComment">
+    const comment = this.context.comments.find(
+      (c) => Number(c.id) === Number(this.props.match.params.comment_id)
+    );
+    return comment ? (
+      <div className="EditComment">
         <section>
           <form
-            className="addCommentForm"
+            className="editCommentForm"
             onSubmit={(e) => {
               e.preventDefault();
               this.handleSubmit();
@@ -106,6 +108,8 @@ export default class EditComment extends React.Component {
           </form>
         </section>
       </div>
+    ) : (
+      "Loading...."
     );
   }
 }

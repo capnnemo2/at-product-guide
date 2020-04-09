@@ -61,16 +61,22 @@ export default class ProductDetails extends React.Component {
     const { products = [] } = this.context;
     const productId = this.props.match.params.product_id;
     const product = products.find((p) => Number(p.id) === Number(productId));
-    const threeEighthSteel = Object.values(product.hard_three_eighths);
-    const quarterInchSteel = Object.values(product.hard_one_quarter);
-    const softSteel = Object.values(product.soft_three_eighths);
-    const prepBend = Object.values(product.prep_bend);
-    const prepWeld = Object.values(product.prep_weld);
-    const weld = Object.values(product.weld);
-    const comments = this.context.comments.filter(
-      (c) => Number(c.product_id) === Number(productId)
-    );
-    return (
+    const threeEighthSteel = !product
+      ? []
+      : Object.values(product.hard_three_eighths);
+    const quarterInchSteel = !product
+      ? []
+      : Object.values(product.hard_one_quarter);
+    const softSteel = !product ? [] : Object.values(product.soft_three_eighths);
+    const prepBend = !product ? [] : Object.values(product.prep_bend);
+    const prepWeld = !product ? [] : Object.values(product.prep_weld);
+    const weld = !product ? [] : Object.values(product.weld);
+    const comments = !product
+      ? []
+      : this.context.comments.filter(
+          (c) => Number(c.product_id) === Number(productId)
+        );
+    return product ? (
       <div className="ProductDetails">
         <section>
           <h2 className="uppercase">{product.product_name}</h2>
@@ -200,6 +206,8 @@ export default class ProductDetails extends React.Component {
           </Link>
         </section>
       </div>
+    ) : (
+      "Loading...."
     );
   }
 }
