@@ -130,10 +130,10 @@ export default class EditProduct extends React.Component {
   };
 
   handleAddMesh = () => {
-    // this.setState({
-    //   mesh: this.state.mesh.concat(""),
-    // });
-    product.mesh.concat("");
+    this.setState({
+      mesh: this.state.mesh.concat(""),
+    });
+    // product.mesh.concat("");
   };
 
   handleRemoveMesh = (idx) => () => {
