@@ -76,6 +76,12 @@ export default class ProductDetails extends React.Component {
       : this.context.comments.filter(
           (c) => Number(c.product_id) === Number(productId)
         );
+
+    let threeEighthsSteelStr = "";
+    threeEighthSteel.forEach((i) => {
+      threeEighthsSteelStr += `<li key="${i}">${i}</li>`;
+    });
+
     return product ? (
       <div className="ProductDetails">
         <section>
@@ -111,9 +117,11 @@ export default class ProductDetails extends React.Component {
                   <span className="bold">3/8": </span>
                 </p>
                 <ul className="steel-list">
-                  {threeEighthSteel.map((i) => (
+                  {/* {threeEighthSteel.map((i) => (
                     <li key={i}>{i}</li>
-                  ))}
+                  ))} */}
+                  {/* <li key={threeEighthSteel[0]}>{threeEighthSteel[0]}</li> */}
+                  {threeEighthsSteelStr}
                 </ul>
               </div>
               <div>
