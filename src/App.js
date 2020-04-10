@@ -17,11 +17,24 @@ import "./App.css";
 
 export default class App extends React.Component {
   state = {
+    id: "",
+    product_code: "",
+    product_name: "",
+    product_type: "",
+    mesh: [],
+    hard_three_eighths: [],
+    hard_one_quarter: [],
+    soft_three_eighths: [],
+    prep_bend: [],
+    prep_weld: [],
+    weld: [],
+
     products: [],
     comments: [],
     error: null,
   };
 
+  // set initial state
   setProducts = (products) => {
     this.setState({
       products,
@@ -36,6 +49,7 @@ export default class App extends React.Component {
     });
   };
 
+  // get initial data
   componentDidMount() {
     fetch(`${config.API_ENDPOINT}/products`, {
       method: "GET",
@@ -88,6 +102,7 @@ export default class App extends React.Component {
     let newProducts = this.state.products.map((p) =>
       Number(p.id) === Number(productId) ? newProduct : p
     );
+    console.log(newProducts);
     this.setState({ products: newProducts });
   };
 
@@ -112,8 +127,38 @@ export default class App extends React.Component {
     this.setState({ comments: newComments });
   };
 
+  // add/edit product handlers
+  updateProductCode = (code) => {
+    this.setState({
+      product_code: code,
+    });
+  };
+
+  updateProductName = (name) => {
+    this.setState({
+      product_name: name,
+    });
+  };
+
+  updateProductType = (type) => {
+    this.setState({
+      product_type: type,
+    });
+  };
+
   render() {
     const value = {
+      product_code: this.state.product_code,
+      product_name: this.state.product_name,
+      product_type: this.state.product_type,
+      mesh: this.state.mesh,
+      hard_three_eighths: this.state.hard_three_eighths,
+      hard_one_quarter: this.state.hard_one_quarter,
+      soft_three_eighths: this.state.soft_three_eighths,
+      prep_bend: this.state.prep_bend,
+      prep_weld: this.state.prep_weld,
+      weld: this.state.weld,
+
       products: this.state.products,
       comments: this.state.comments,
       addProduct: this.addProduct,
@@ -122,6 +167,10 @@ export default class App extends React.Component {
       addComment: this.addComment,
       deleteComment: this.deleteComment,
       updateComment: this.updateComment,
+
+      updateProductCode: this.updateProductCode,
+      updateProductName: this.updateProductName,
+      updateProductType: this.updateProductType,
     };
     return (
       <ATContext.Provider value={value}>

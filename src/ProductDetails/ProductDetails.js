@@ -76,6 +76,7 @@ export default class ProductDetails extends React.Component {
       : this.context.comments.filter(
           (c) => Number(c.product_id) === Number(productId)
         );
+    console.log(product);
     return product ? (
       <div className="ProductDetails">
         <section>
@@ -98,6 +99,7 @@ export default class ProductDetails extends React.Component {
                   <span className="bold">Mesh</span>
                 </legend>
                 {product.mesh}
+                {/* {product.product_name} */}
               </fieldset>
             ) : (
               ""

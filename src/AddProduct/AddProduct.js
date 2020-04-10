@@ -8,50 +8,50 @@ export default class AddProduct extends React.Component {
   static contextType = ATContext;
 
   state = {
-    id: "",
-    product_code: "",
-    product_name: "",
-    product_type: "",
-    // image: {
-    //   src: "/pics/shark.jpg",
-    //   alt: "new product",
-    // },
-    mesh: [],
-    hard_three_eighths: [],
-    hard_one_quarter: [],
-    soft_three_eighths: [],
-    prep_bend: [],
-    prep_weld: [],
-    weld: [],
+    // id: "",
+    // product_code: "",
+    // product_name: "",
+    // product_type: "",
+    // // image: {
+    // //   src: "/pics/shark.jpg",
+    // //   alt: "new product",
+    // // },
+    // mesh: [],
+    // hard_three_eighths: [],
+    // hard_one_quarter: [],
+    // soft_three_eighths: [],
+    // prep_bend: [],
+    // prep_weld: [],
+    // weld: [],
     error: null,
   };
 
   // update state for required fields
-  updateProductCode(code) {
-    this.setState({
-      product_code: code,
-    });
-  }
+  // updateProductCode(code) {
+  //   this.setState({
+  //     product_code: code,
+  //   });
+  // }
 
-  updateProductName(name) {
-    this.setState({
-      product_name: name,
-      // image: {
-      //   alt: name,
-      //   src: "/pics/shark.jpg",
-      // },
-    });
-  }
+  // updateProductName(name) {
+  //   this.setState({
+  //     product_name: name,
+  //     // image: {
+  //     //   alt: name,
+  //     //   src: "/pics/shark.jpg",
+  //     // },
+  //   });
+  // }
 
-  updateProductType(type) {
-    this.setState({
-      product_type: type,
-    });
-  }
+  // updateProductType(type) {
+  //   this.setState({
+  //     product_type: type,
+  //   });
+  // }
 
   // validation functions
   validateProductCode() {
-    const newProductCode = this.state.product_code.toUpperCase();
+    const newProductCode = this.context.product_code.toUpperCase();
     const existingCode = this.context.products.find(
       (p) => p.product_code === newProductCode.trim()
     );
@@ -61,7 +61,7 @@ export default class AddProduct extends React.Component {
   }
 
   validateProductName() {
-    const newProductName = this.state.product_name.toUpperCase();
+    const newProductName = this.context.product_name.toUpperCase();
     const existingName = this.context.products.find(
       (p) => p.product_name.toUpperCase() === newProductName.trim()
     );
@@ -301,7 +301,7 @@ export default class AddProduct extends React.Component {
               <input
                 type="text"
                 name="code"
-                onChange={(e) => this.updateProductCode(e.target.value)}
+                onChange={(e) => this.context.updateProductCode(e.target.value)}
                 required
               />
               {<ValidationError message={codeError} />}
@@ -310,7 +310,7 @@ export default class AddProduct extends React.Component {
               <input
                 type="text"
                 name="name"
-                onChange={(e) => this.updateProductName(e.target.value)}
+                onChange={(e) => this.context.updateProductName(e.target.value)}
                 required
               />
               {<ValidationError message={nameError} />}
@@ -318,7 +318,7 @@ export default class AddProduct extends React.Component {
               <label htmlFor="type">Product type: </label>
               <select
                 name="type"
-                onChange={(e) => this.updateProductType(e.target.value)}
+                onChange={(e) => this.context.updateProductType(e.target.value)}
                 required
               >
                 <option value="">Choose one</option>
@@ -330,7 +330,7 @@ export default class AddProduct extends React.Component {
             <fieldset>
               <legend>Materials</legend>
               <label htmlFor="mesh">Mesh:</label>
-              {this.state.mesh.map((mesh, idx) => (
+              {this.context.mesh.map((mesh, idx) => (
                 <div className="meshItem" key={idx}>
                   <input
                     type="text"
@@ -351,7 +351,7 @@ export default class AddProduct extends React.Component {
                 <legend>Hard steel</legend>
 
                 <label htmlFor="three-eighths">3/8": </label>
-                {this.state.hard_three_eighths.map((three, idx) => (
+                {this.context.hard_three_eighths.map((three, idx) => (
                   <div className="hardThreeEighths" key={idx}>
                     <input
                       type="text"
@@ -375,7 +375,7 @@ export default class AddProduct extends React.Component {
                 <br />
 
                 <label htmlFor="quarter-inch">1/4": </label>
-                {this.state.hard_one_quarter.map((quarter, idx) => (
+                {this.context.hard_one_quarter.map((quarter, idx) => (
                   <div className="hardOneQuarter" key={idx}>
                     <input
                       type="text"
@@ -399,7 +399,7 @@ export default class AddProduct extends React.Component {
               <fieldset>
                 <legend>Soft steel</legend>
                 <label htmlFor="soft-steel">3/8": </label>
-                {this.state.soft_three_eighths.map((soft, idx) => (
+                {this.context.soft_three_eighths.map((soft, idx) => (
                   <div className="softThreeEighths" key={idx}>
                     <input
                       type="text"
@@ -423,7 +423,7 @@ export default class AddProduct extends React.Component {
               <legend>Prep bend</legend>
               <div className="textarea__container">
                 <label htmlFor="prepBend">Bend instructions:</label>
-                {this.state.prep_bend.map((prepB, idx) => (
+                {this.context.prep_bend.map((prepB, idx) => (
                   <div className="prepBendItem" key={idx}>
                     <textarea
                       name="prepBend"
@@ -448,7 +448,7 @@ export default class AddProduct extends React.Component {
               <legend>Prep weld</legend>
               <div className="textarea__container">
                 <label htmlFor="prep-weld">Prep weld instructions:</label>
-                {this.state.prep_weld.map((prepW, idx) => (
+                {this.context.prep_weld.map((prepW, idx) => (
                   <div className="prepWeldItem" key={idx}>
                     <textarea
                       name="prepWeld"
@@ -473,7 +473,7 @@ export default class AddProduct extends React.Component {
               <legend>Weld</legend>
               <div className="textarea__container">
                 <label htmlFor="weld">Weld instructions:</label>
-                {this.state.weld.map((w, idx) => (
+                {this.context.weld.map((w, idx) => (
                   <div className="weldItem" key={idx}>
                     <textarea
                       name="weld"
