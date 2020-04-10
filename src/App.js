@@ -157,7 +157,7 @@ export default class App extends React.Component {
 
   handleAddMesh = () => {
     this.setState({
-      mesh: this.state.mesh.concat([{ measurements: "" }]),
+      mesh: this.context.mesh.concat([{ measurements: "" }]),
     });
   };
 

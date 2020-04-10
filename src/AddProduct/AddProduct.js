@@ -88,6 +88,7 @@ export default class AddProduct extends React.Component {
   };
 
   handleClickCancel = () => {
+    this.context.clearProduct();
     this.props.history.goBack();
   };
 

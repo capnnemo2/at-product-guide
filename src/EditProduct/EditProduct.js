@@ -11,6 +11,13 @@ export default class EditProduct extends React.Component {
     error: null,
   };
 
+  componentDidMount() {
+    const productId = Number(this.props.match.params.product_id);
+    const product = this.context.products.find((p) => p.id === productId);
+    console.log(`product`, product);
+    console.log(product.id);
+  }
+
   // validation functions
   validateProductCode() {
     const newProductCode = this.context.product_code.toUpperCase();
