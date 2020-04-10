@@ -232,7 +232,6 @@ export default class AddProduct extends React.Component {
   // button handlers
   handleSubmit = () => {
     let newProduct = {};
-    // newProduct.id = this.context.id;
     newProduct.product_code = this.context.product_code.toUpperCase();
     newProduct.product_name = this.context.product_name.trim();
     newProduct.product_type = this.context.product_type;
