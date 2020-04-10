@@ -127,7 +127,7 @@ export default class App extends React.Component {
     this.setState({ comments: newComments });
   };
 
-  // add/edit product handlers
+  // ADD/EDIT PRODUCT HANDLERS
   updateProductCode = (code) => {
     this.setState({
       product_code: code,
@@ -143,6 +143,182 @@ export default class App extends React.Component {
   updateProductType = (type) => {
     this.setState({
       product_type: type,
+    });
+  };
+
+  // mesh handlers
+  handleMeshChange = (idx) => (e) => {
+    const newMesh = this.state.mesh.map((mesh, sidx) => {
+      if (idx !== sidx) return mesh;
+      return { ...mesh, measurements: e.target.value };
+    });
+    this.setState({ mesh: newMesh });
+  };
+
+  handleAddMesh = () => {
+    this.setState({
+      mesh: this.state.mesh.concat([{ measurements: "" }]),
+    });
+  };
+
+  handleRemoveMesh = (idx) => () => {
+    this.setState({
+      mesh: this.state.mesh.filter((s, sidx) => idx !== sidx),
+    });
+  };
+
+  // hard 3/8" handlers
+  handleThreeEighthsChange = (idx) => (e) => {
+    const newThreeEighths = this.state.hard_three_eighths.map((three, sidx) => {
+      if (idx !== sidx) return three;
+      return { ...three, measurements: e.target.value };
+    });
+    this.setState({ hard_three_eighths: newThreeEighths });
+  };
+
+  handleAddThreeEighths = () => {
+    this.setState({
+      hard_three_eighths: this.state.hard_three_eighths.concat([
+        { measurements: "" },
+      ]),
+    });
+  };
+
+  handleRemoveThreeEighths = (idx) => () => {
+    this.setState({
+      hard_three_eighths: this.state.hard_three_eighths.filter(
+        (s, sidx) => idx !== sidx
+      ),
+    });
+  };
+
+  // hard 1/4" handlers
+  handleOneQuarterChange = (idx) => (e) => {
+    const newOneQuarter = this.state.hard_one_quarter.map((quarter, sidx) => {
+      if (idx !== sidx) return quarter;
+      return { ...quarter, measurements: e.target.value };
+    });
+    this.setState({ hard_one_quarter: newOneQuarter });
+  };
+
+  handleAddOneQuarter = () => {
+    this.setState({
+      hard_one_quarter: this.state.hard_one_quarter.concat([
+        { measurements: "" },
+      ]),
+    });
+  };
+
+  handleRemoveOneQuarter = (idx) => () => {
+    this.setState({
+      hard_one_quarter: this.state.hard_one_quarter.filter(
+        (s, sidx) => idx !== sidx
+      ),
+    });
+  };
+
+  // soft steel handlers
+  handleSoftSteelChange = (idx) => (e) => {
+    const newSoftThreeEighths = this.state.soft_three_eighths.map(
+      (soft, sidx) => {
+        if (idx !== sidx) return soft;
+        return { ...soft, measurements: e.target.value };
+      }
+    );
+    this.setState({ soft_three_eighths: newSoftThreeEighths });
+  };
+
+  handleAddSoft = () => {
+    this.setState({
+      soft_three_eighths: this.state.soft_three_eighths.concat([
+        { measurements: "" },
+      ]),
+    });
+  };
+
+  handleRemoveSoft = (idx) => () => {
+    this.setState({
+      soft_three_eighths: this.state.soft_three_eighths.filter(
+        (s, sidx) => idx !== sidx
+      ),
+    });
+  };
+
+  // prep bend handlers
+  handlePrepBendChange = (idx) => (e) => {
+    const newPrepBend = this.state.prep_bend.map((prepB, sidx) => {
+      if (idx !== sidx) return prepB;
+      return { ...prepB, measurements: e.target.value };
+    });
+    this.setState({ prep_bend: newPrepBend });
+  };
+
+  handleAddPrepBend = () => {
+    this.setState({
+      prep_bend: this.state.prep_bend.concat([{ measurements: "" }]),
+    });
+  };
+
+  handleRemovePrepBend = (idx) => () => {
+    this.setState({
+      prep_bend: this.state.prep_bend.filter((s, sidx) => idx !== sidx),
+    });
+  };
+
+  // prep weld handlers
+  handlePrepWeldChange = (idx) => (e) => {
+    const newPrepWeld = this.state.prep_weld.map((prepW, sidx) => {
+      if (idx !== sidx) return prepW;
+      return { ...prepW, measurements: e.target.value };
+    });
+    this.setState({ prep_weld: newPrepWeld });
+  };
+
+  handleAddPrepWeld = () => {
+    this.setState({
+      prep_weld: this.state.prep_weld.concat([{ measurements: "" }]),
+    });
+  };
+
+  handleRemovePrepWeld = (idx) => () => {
+    this.setState({
+      prep_weld: this.state.prep_weld.filter((s, sidx) => idx !== sidx),
+    });
+  };
+
+  // weld handlers
+  handleWeldChange = (idx) => (e) => {
+    const newWeld = this.state.weld.map((w, sidx) => {
+      if (idx !== sidx) return w;
+      return { ...w, measurements: e.target.value };
+    });
+    this.setState({ weld: newWeld });
+  };
+
+  handleAddWeld = () => {
+    this.setState({ weld: this.state.weld.concat([{ measurements: "" }]) });
+  };
+
+  handleRemoveWeld = (idx) => () => {
+    this.setState({
+      weld: this.state.weld.filter((s, sidx) => idx !== sidx),
+    });
+  };
+
+  // clear context
+  clearProduct = () => {
+    this.setState({
+      id: "",
+      product_code: "",
+      product_name: "",
+      product_type: "",
+      mesh: [],
+      hard_three_eighths: [],
+      hard_one_quarter: [],
+      soft_three_eighths: [],
+      prep_bend: [],
+      prep_weld: [],
+      weld: [],
     });
   };
 
@@ -171,6 +347,36 @@ export default class App extends React.Component {
       updateProductCode: this.updateProductCode,
       updateProductName: this.updateProductName,
       updateProductType: this.updateProductType,
+
+      handleMeshChange: this.handleMeshChange,
+      handleAddMesh: this.handleAddMesh,
+      handleRemoveMesh: this.handleRemoveMesh,
+
+      handleThreeEighthsChange: this.handleThreeEighthsChange,
+      handleAddThreeEighths: this.handleAddThreeEighths,
+      handleRemoveThreeEighths: this.handleRemoveThreeEighths,
+
+      handleOneQuarterChange: this.handleOneQuarterChange,
+      handleAddOneQuarter: this.handleAddOneQuarter,
+      handleRemoveOneQuarter: this.handleRemoveOneQuarter,
+
+      handleSoftSteelChange: this.handleSoftSteelChange,
+      handleAddSoft: this.handleAddSoft,
+      handleRemoveSoft: this.handleRemoveSoft,
+
+      handlePrepBendChange: this.handlePrepBendChange,
+      handleAddPrepBend: this.handleAddPrepBend,
+      handleRemovePrepBend: this.handleRemovePrepBend,
+
+      handlePrepWeldChange: this.handlePrepWeldChange,
+      handleAddPrepWeld: this.handleAddPrepWeld,
+      handleRemovePrepWeld: this.handleRemovePrepWeld,
+
+      handleWeldChange: this.handleWeldChange,
+      handleAddWeld: this.handleAddWeld,
+      handleRemoveWeld: this.handleRemoveWeld,
+
+      clearProduct: this.clearProduct,
     };
     return (
       <ATContext.Provider value={value}>
