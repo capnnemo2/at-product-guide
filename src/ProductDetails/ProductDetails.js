@@ -77,20 +77,11 @@ export default class ProductDetails extends React.Component {
           (c) => Number(c.product_id) === Number(productId)
         );
 
-    console.log(threeEighthSteel);
-    console.log(product.hard_three_eighths);
-    console.log(product);
-
-    // let threeEighthsSteelStr = "";
-    // threeEighthSteel.forEach((i) => {
-    //   threeEighthsSteelStr += `<li key="${i}">${i}</li>`;
-    // });
-
     return product ? (
       <div className="ProductDetails">
         <section>
           <h2 className="uppercase">{product.product_name}</h2>
-          <div>
+          <div className="dummyImg">
             {/* <img
               src={product.image.src}
               alt="trellises"
