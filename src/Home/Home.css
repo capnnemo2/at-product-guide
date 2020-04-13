@@ -31,6 +31,6 @@ section a:hover {
 .fake-img {
   height: 400px;
   width: 400px;
-  background-color: white;
+  background-color: yellow;
   margin: 0 auto;
 }

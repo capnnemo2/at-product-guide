@@ -115,8 +115,6 @@ export default class ProductDetails extends React.Component {
                   {threeEighthSteel.map((i) => (
                     <li key={i}>{i}</li>
                   ))}
-                  {/* <li key={threeEighthSteel[0]}>{threeEighthSteel[0]}</li> */}
-                  {/* {threeEighthsSteelStr} */}
                 </ul>
               </div>
               <div>
@@ -168,11 +166,25 @@ export default class ProductDetails extends React.Component {
           </ul>
         </section>
         <section>
-          <Link to={`/edit-product/${productId}`}>Edit specs</Link>
+          <Link className="btn" to={`/edit-product/${productId}`}>
+            Edit specs
+          </Link>
           <br />
           <Link to={"/products"}>Products</Link>
           <br />
-          <button
+
+          <Link
+            className="del-btn"
+            to={`/products`}
+            onClick={(e) => {
+              e.preventDefault();
+              this.handleDelete(productId);
+            }}
+          >
+            Delete product
+          </Link>
+
+          {/* <button
             type="button"
             onClick={(e) => {
               e.preventDefault();
@@ -180,7 +192,7 @@ export default class ProductDetails extends React.Component {
             }}
           >
             Delete product
-          </button>
+          </button> */}
         </section>
         <section>
           <h4 className="uppercase">Comments</h4>
@@ -190,9 +202,13 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
-                  <Link to={`/edit-comment/${comment.id}`}>Edit comment</Link>
+                  <Link className="btn" to={`/edit-comment/${comment.id}`}>
+                    Edit comment
+                  </Link>
+
                   <button
                     type="button"
+                    className="del-btn"
                     onClick={(e) => {
                       e.preventDefault();
                       this.handleDeleteComment(comment.id);
@@ -204,7 +220,10 @@ export default class ProductDetails extends React.Component {
               ))}
             </ul>
           </div>
-          <Link to={`/add-comment/${this.props.match.params.product_id}`}>
+          <Link
+            className="btn"
+            to={`/add-comment/${this.props.match.params.product_id}`}
+          >
             Add comment
           </Link>
         </section>
