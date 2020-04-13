@@ -1,9 +1,36 @@
 section {
   min-height: 100px;
-  padding: 6% 0;
+  padding: 50px 0;
   background-color: #bbb;
 }
 
 section:nth-child(even) {
   background-color: #ddd;
+}
+
+section a {
+  color: white;
+  background-color: #25a925;
+  padding: 10px 25px;
+  display: inline-block;
+  margin: 0px 0 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border-bottom: 5px solid green;
+}
+
+section a:hover {
+  background-color: green;
+}
+
+.first {
+  vertical-align: middle;
+  height: 100vh;
+}
+
+.fake-img {
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  margin: 0 auto;
 }
