@@ -273,7 +273,7 @@ export default class AddProduct extends React.Component {
       .then((data) => {
         newProduct.id = data.id;
         this.context.addProduct(newProduct);
-        this.props.history.push("/home");
+        this.props.history.push("/products");
       })
       .catch((error) => {
         this.setState({ error });
