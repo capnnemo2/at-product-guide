@@ -83,8 +83,8 @@ export default class ProductDetails extends React.Component {
           <h2 className="uppercase">{product.product_name}</h2>
           <div className="dummyImg">
             {/* <img
-              src={product.image.src}
-              alt="trellises"
+              src={product.img_src}
+              alt={product.img_alt}
               height="400"
               width="300"
             /> */}
@@ -101,7 +101,7 @@ export default class ProductDetails extends React.Component {
                 {product.mesh}
               </fieldset>
             ) : (
-              ""
+              <div></div>
             )}
             <fieldset className="hard-steel">
               <legend>
@@ -149,14 +149,19 @@ export default class ProductDetails extends React.Component {
             ))}
           </ul>
         </section>
-        <section>
-          <h3 className="uppercase">Prep weld</h3>
-          <ul className="instruction-block">
-            {prepWeld.map((i) => (
-              <li key={i}>{i}</li>
-            ))}
-          </ul>
-        </section>
+        {product.prepWeld !== [] ? (
+          <section>
+            <h3 className="uppercase">Prep weld</h3>
+            <ul className="instruction-block">
+              {prepWeld.map((i) => (
+                <li key={i}>{i}</li>
+              ))}
+            </ul>
+          </section>
+        ) : (
+          <div></div>
+        )}
+
         <section>
           <h3 className="uppercase">Weld</h3>
           <ul className="instruction-block">

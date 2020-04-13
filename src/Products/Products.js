@@ -79,8 +79,8 @@ export default class Products extends React.Component {
               <br />
               <div className="dummyImg">
                 {/* <img
-                src={p.image_src}
-                alt={p.image_alt}
+                src={p.img_src}
+                alt={p.img_alt}
                 height="200"
                 width="200"
               /> */}
