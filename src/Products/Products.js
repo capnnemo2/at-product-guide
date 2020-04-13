@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ATContext from "../ATContext";
-import "./Home.css";
+import "./Products.css";
 
-export default class Home extends React.Component {
+export default class Products extends React.Component {
   static contextType = ATContext;
 
   state = {
@@ -39,7 +39,7 @@ export default class Home extends React.Component {
     console.log(`products: `, this.context.products);
     console.log(`comments: `, this.context.comments);
     return (
-      <div className="Home">
+      <div className="Products">
         <form>
           <label htmlFor="search" className="filter-label">
             Know what you're looking for? Enter product code:
@@ -72,8 +72,8 @@ export default class Home extends React.Component {
 
         <ul>
           {productsToDisplay.map((p) => (
-            <li key={p.id} className="Home__li">
-              <Link to={`productDetails/${p.id}`} className="Home__link">
+            <li key={p.id} className="Products__li">
+              <Link to={`productDetails/${p.id}`} className="Products__link">
                 {p.product_name}
               </Link>
               <br />

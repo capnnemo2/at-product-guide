@@ -8,7 +8,7 @@ export default class Nav extends React.Component {
       <div>
         <div className="nav-container">
           <Link to="/">Landing</Link>
-          <Link to="/home">Home</Link>
+          <Link to="/products">Products</Link>
           <Link to="/resources">Resources</Link>
         </div>
       </div>

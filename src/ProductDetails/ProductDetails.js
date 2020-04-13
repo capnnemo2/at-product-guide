@@ -31,7 +31,7 @@ export default class ProductDetails extends React.Component {
       .catch((error) => {
         this.setState({ error });
       });
-    this.props.history.push("/home");
+    this.props.history.push("/products");
   };
 
   handleDeleteComment = (commentId) => {
@@ -77,10 +77,14 @@ export default class ProductDetails extends React.Component {
           (c) => Number(c.product_id) === Number(productId)
         );
 
-    let threeEighthsSteelStr = "";
-    threeEighthSteel.forEach((i) => {
-      threeEighthsSteelStr += `<li key="${i}">${i}</li>`;
-    });
+    console.log(threeEighthSteel);
+    console.log(product.hard_three_eighths);
+    console.log(product);
+
+    // let threeEighthsSteelStr = "";
+    // threeEighthSteel.forEach((i) => {
+    //   threeEighthsSteelStr += `<li key="${i}">${i}</li>`;
+    // });
 
     return product ? (
       <div className="ProductDetails">
@@ -117,11 +121,11 @@ export default class ProductDetails extends React.Component {
                   <span className="bold">3/8": </span>
                 </p>
                 <ul className="steel-list">
-                  {/* {threeEighthSteel.map((i) => (
+                  {threeEighthSteel.map((i) => (
                     <li key={i}>{i}</li>
-                  ))} */}
+                  ))}
                   {/* <li key={threeEighthSteel[0]}>{threeEighthSteel[0]}</li> */}
-                  {threeEighthsSteelStr}
+                  {/* {threeEighthsSteelStr} */}
                 </ul>
               </div>
               <div>
@@ -175,7 +179,7 @@ export default class ProductDetails extends React.Component {
         <section>
           <Link to={`/edit-product/${productId}`}>Edit specs</Link>
           <br />
-          <Link to={"/home"}>Home</Link>
+          <Link to={"/products"}>Products</Link>
           <br />
           <button
             type="button"
