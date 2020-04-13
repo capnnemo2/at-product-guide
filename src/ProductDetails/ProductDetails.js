@@ -77,6 +77,7 @@ export default class ProductDetails extends React.Component {
           (c) => Number(c.product_id) === Number(productId)
         );
 
+    console.log(softSteel);
     return product ? (
       <div className="ProductDetails">
         <section>
@@ -93,7 +94,7 @@ export default class ProductDetails extends React.Component {
         <section>
           <h3 className="uppercase">Materials</h3>
           <div className="materials">
-            {product.mesh !== "" ? (
+            {product.mesh.length !== 0 ? (
               <fieldset>
                 <legend>
                   <span className="bold">Mesh</span>
@@ -107,28 +108,36 @@ export default class ProductDetails extends React.Component {
               <legend>
                 <span className="bold">Hard steel</span>
               </legend>
-              <div>
-                <p>
-                  <span className="bold">3/8": </span>
-                </p>
-                <ul className="steel-list">
-                  {threeEighthSteel.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p>
-                  <span className="bold">1/4": </span>
-                </p>
-                <ul className="steel-list">
-                  {quarterInchSteel.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              </div>
+              {threeEighthSteel.length !== 0 ? (
+                <div>
+                  <p>
+                    <span className="bold">3/8": </span>
+                  </p>
+                  <ul className="steel-list">
+                    {threeEighthSteel.map((i) => (
+                      <li key={i}>{i}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
+              {quarterInchSteel.length !== 0 ? (
+                <div>
+                  <p>
+                    <span className="bold">1/4": </span>
+                  </p>
+                  <ul className="steel-list">
+                    {quarterInchSteel.map((i) => (
+                      <li key={i}>{i}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
             </fieldset>
-            {product.softSteel !== [] ? (
+            {softSteel.length !== 0 ? (
               <fieldset className="soft-steel">
                 <legend>
                   <span className="bold">Soft steel</span>
@@ -145,15 +154,19 @@ export default class ProductDetails extends React.Component {
             )}
           </div>
         </section>
-        <section>
-          <h3 className="uppercase">Prep bend</h3>
-          <ul className="instruction-block">
-            {prepBend.map((i) => (
-              <li key={i}>{i}</li>
-            ))}
-          </ul>
-        </section>
-        {product.prepWeld !== [] ? (
+        {prepBend.length !== 0 ? (
+          <section>
+            <h3 className="uppercase">Prep bend</h3>
+            <ul className="instruction-block">
+              {prepBend.map((i) => (
+                <li key={i}>{i}</li>
+              ))}
+            </ul>
+          </section>
+        ) : (
+          ""
+        )}
+        {prepWeld.length !== 0 ? (
           <section>
             <h3 className="uppercase">Prep weld</h3>
             <ul className="instruction-block">
