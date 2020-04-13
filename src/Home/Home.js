@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Landing.css";
+import "./Home.css";
 
-export default class Landing extends React.Component {
+export default class Home extends React.Component {
   render() {
     return (
-      <div className="Landing">
+      <div className="Home">
         <section className="section">
           <p>
             This product guide is a repository of specifications on how to make
