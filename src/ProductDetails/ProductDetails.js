@@ -101,7 +101,7 @@ export default class ProductDetails extends React.Component {
                 {product.mesh}
               </fieldset>
             ) : (
-              <div></div>
+              ""
             )}
             <fieldset className="hard-steel">
               <legend>
@@ -128,17 +128,21 @@ export default class ProductDetails extends React.Component {
                 </ul>
               </div>
             </fieldset>
-            <fieldset className="soft-steel">
-              <legend>
-                <span className="bold">Soft steel</span>
-              </legend>
-              <div>
-                <p>
-                  <span className="bold">3/8": </span>
-                </p>
-                {softSteel}
-              </div>
-            </fieldset>
+            {product.softSteel !== [] ? (
+              <fieldset className="soft-steel">
+                <legend>
+                  <span className="bold">Soft steel</span>
+                </legend>
+                <div>
+                  <p>
+                    <span className="bold">3/8": </span>
+                  </p>
+                  {softSteel}
+                </div>
+              </fieldset>
+            ) : (
+              ""
+            )}
           </div>
         </section>
         <section>
@@ -159,7 +163,7 @@ export default class ProductDetails extends React.Component {
             </ul>
           </section>
         ) : (
-          <div></div>
+          ""
         )}
 
         <section>
