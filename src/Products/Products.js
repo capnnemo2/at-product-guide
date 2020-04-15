@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ATContext from "../ATContext";
+import { Image, Transformation } from "cloudinary-react";
 import "./Products.css";
 
 export default class Products extends React.Component {
@@ -78,12 +79,9 @@ export default class Products extends React.Component {
               </Link>
               <br />
               <div className="dummyImg">
-                {/* <img
-                src={p.img_src}
-                alt={p.img_alt}
-                height="200"
-                width="200"
-              /> */}
+                <Image cloudName="at-product-guide" publicId={p.img_src}>
+                  <Transformation height="200" crop="scale" />
+                </Image>
               </div>
             </li>
           ))}

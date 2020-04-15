@@ -52,8 +52,14 @@ ul {
 .dummyImg {
   height: 200px;
   width: 200px;
-  background-color: yellow;
+  background-color: white;
   margin: 10px auto;
+  border-radius: 5px;
+}
+
+.detail {
+  height: 400px;
+  width: 400px;
 }
 
 .btn {

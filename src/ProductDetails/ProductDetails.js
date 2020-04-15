@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./ProductDetails.css";
 import ATContext from "../ATContext";
 import config from "../config";
+import { Image, Transformation } from "cloudinary-react";
 
 export default class ProductDetails extends React.Component {
   static contextType = ATContext;
@@ -77,18 +78,14 @@ export default class ProductDetails extends React.Component {
           (c) => Number(c.product_id) === Number(productId)
         );
 
-    console.log(softSteel);
     return product ? (
       <div className="ProductDetails">
         <section>
           <h2 className="uppercase">{product.product_name}</h2>
-          <div className="dummyImg">
-            {/* <img
-              src={product.img_src}
-              alt={product.img_alt}
-              height="400"
-              width="300"
-            /> */}
+          <div className="dummyImg detail">
+            <Image cloudName="at-product-guide" publicId={product.img_src}>
+              <Transformation height="400" crop="scale" quality="auto" />
+            </Image>
           </div>
         </section>
         <section>
