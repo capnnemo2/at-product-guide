@@ -7,9 +7,14 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
         <section className="first">
-          <div className="fake-img"></div>
-          <p>Learn how to weld trellises, arbors, and topiary.</p>
-          <Link to="/products">Begin</Link>
+          <div className="fake-img">
+            <div className="splash">
+              <p className="splash-text">
+                Learn how to weld trellises, arbors, and topiary.
+              </p>
+              <Link to="/products">Begin</Link>
+            </div>
+          </div>
         </section>
 
         <section className="section">

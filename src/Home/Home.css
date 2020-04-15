@@ -1,6 +1,5 @@
 section {
   min-height: 100px;
-  padding: 50px 0;
   background-color: #bbb;
 }
 
@@ -29,11 +28,19 @@ section a:hover {
 }
 
 .fake-img {
-  height: 400px;
-  width: 400px;
+  height: 100vh;
 
-  background-image: url("/public/pics/welder.jpg");
+  background-image: url("/pics/welder.jpg");
   background-repeat: no-repeat;
   background-color: white;
-  margin: 0 auto;
+  background-size: cover;
+  /* margin: 0 auto; */
+}
+
+.splash {
+  padding-top: 20vh;
+}
+
+.splash-text {
+  color: white;
 }
