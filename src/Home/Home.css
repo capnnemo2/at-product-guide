@@ -41,3 +41,48 @@ section a:hover {
   padding-top: 20vh;
   color: white;
 }
+
+.landing {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.intro {
+  color: white;
+  padding: 20px;
+}
+
+.icon-left {
+  margin-right: 30px;
+}
+
+.icon-right {
+  margin-left: 30px;
+}
+
+.begin {
+  color: white;
+  background-color: #25a925;
+  font-size: 16px;
+  padding: 10px 25px;
+  display: inline-block;
+  margin: 0px 0 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  border-bottom: 5px solid green;
+}
+
+.begin:hover {
+  background-color: green;
+}
+
+footer {
+  padding: 40px;
+  color: white;
+  font-size: 0.7em;
+}

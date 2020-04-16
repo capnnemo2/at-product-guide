@@ -30,6 +30,10 @@ ul {
   padding: 20px;
 }
 
+.comment blockquote {
+  text-align: left;
+}
+
 .materials {
   width: 80%;
   margin: 0 auto;
@@ -54,16 +58,13 @@ ul {
 }
 
 .dummyImg {
-  height: 200px;
-  width: 200px;
   background-color: white;
   margin: 10px auto;
   border-radius: 5px;
 }
 
-.detail {
-  height: 400px;
-  width: 400px;
+.dummyImg img {
+  max-width: 100%;
 }
 
 .btn {
@@ -78,7 +79,7 @@ ul {
 .del-btn {
   color: white;
   font-size: 16px;
-  background-color: rgb(255, 56, 56);
+  background-color: rgb(255, 83, 83);
   border-bottom: 5px solid red;
   padding: 10px 25px;
   border-radius: 5px;
@@ -86,4 +87,9 @@ ul {
 
 .del-btn:hover {
   background-color: red;
+}
+
+.btn-panel a,
+.btn-panel button {
+  margin: 5px;
 }

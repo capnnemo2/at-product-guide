@@ -1,0 +1,12 @@
+.AddComment h2 {
+  color: white;
+}
+
+.comm-input {
+  padding: 10px;
+  background-color: #bbb;
+}
+
+textarea {
+  vertical-align: middle;
+}

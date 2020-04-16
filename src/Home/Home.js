@@ -1,5 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRulerCombined,
+  faSearch,
+  faClipboardList,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Home.css";
 
 export default class Home extends React.Component {
@@ -16,23 +22,55 @@ export default class Home extends React.Component {
           </div>
         </section>
 
-        <section className="section">
+        <div className="intro">
           <p>
-            Peruse the entire repository of specifications. Search for specific
-            products.
+            What the heck are trellises, arbors, and topiary, you ask? They are
+            metal structures for plants to grow on in your garden.
           </p>
-        </section>
-        <section className="section">
+          <p>Do you have a climbing vine? Give it a trellis to go crazy on.</p>
           <p>
-            Double check measurements, reference images, study detailed
-            instructions.
+            Wish you could walk through a tunnel of flowers? Check out the
+            arbors.
           </p>
-        </section>
-        <section className="section">
+
+          <p>Is your garden lacking flair? Topiary has you covered.</p>
+        </div>
+
+        <div className="landing">
+          <FontAwesomeIcon icon={faSearch} size="4x" className="icon-left" />
           <p>
-            Share your personal tricks, get advice from other professionals.
+            Still curious? Come on in and browse the catalogue. We have
+            pictures.
           </p>
-        </section>
+        </div>
+        <div className="landing">
+          <p>
+            {" "}
+            Already know what you're looking for? Double check measurements and
+            study detailed instructions.
+          </p>
+          <FontAwesomeIcon
+            icon={faRulerCombined}
+            size="4x"
+            className="icon-right"
+          />
+        </div>
+        <div className="landing">
+          <FontAwesomeIcon
+            icon={faClipboardList}
+            size="4x"
+            className="icon-left"
+          />
+          <p>
+            If you're already a pro, drop a comment to share your personal
+            tricks.
+          </p>
+        </div>
+        <Link to="/products" className="begin">
+          Begin
+        </Link>
+
+        <footer>&copy;2020 Ben Hernandez</footer>
       </div>
     );
   }

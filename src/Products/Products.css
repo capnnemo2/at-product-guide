@@ -3,7 +3,7 @@
 }
 
 ul {
-  /* margin-left: -38px; */
+  margin-left: -38px;
   display: flex;
   flex-wrap: wrap;
 }

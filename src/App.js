@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Nav from "./Nav/Nav";
-import Header from "./Header/Header";
 import Home from "./Home/Home";
 import Products from "./Products/Products";
 import Resources from "./Resources/Resources";

@@ -69,14 +69,15 @@ export default class AddComment extends React.Component {
   render() {
     return (
       <div className="AddComment">
-        <section>
-          <form
-            className="addCommentForm"
-            onSubmit={(e) => {
-              e.preventDefault();
-              this.handleSubmit();
-            }}
-          >
+        <h2>Add a comment</h2>
+        <form
+          className="addCommentForm"
+          onSubmit={(e) => {
+            e.preventDefault();
+            this.handleSubmit();
+          }}
+        >
+          <div className="comm-input">
             <label htmlFor="user-name">Name: </label>
             <input
               type="text"
@@ -84,20 +85,30 @@ export default class AddComment extends React.Component {
               onChange={(e) => this.updateUserName(e.target.value)}
               required
             />
-            <br />
+          </div>
+
+          <div className="comm-input">
             <label htmlFor="user-comment">Comment: </label>
             <textarea
               name="user-comment"
               onChange={(e) => this.updateContent(e.target.value)}
               required
             ></textarea>
-            <br />
-            <button type="submit">Submit</button>
-            <button type="button" onClick={this.handleClickCancel}>
+          </div>
+
+          <div className="btn-panel">
+            <button type="submit" className="begin">
+              Submit
+            </button>
+            <button
+              type="button"
+              className="del-btn"
+              onClick={this.handleClickCancel}
+            >
               Cancel
             </button>
-          </form>
-        </section>
+          </div>
+        </form>
       </div>
     );
   }

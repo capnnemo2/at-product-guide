@@ -289,16 +289,18 @@ export default class EditProduct extends React.Component {
     newProduct.product_name = newProduct.product_name.trim();
     newProduct.hard_three_eighths = newProduct.hard_three_eighths
       .map(function (hte) {
-        if (hte.measurements) {
+        console.log({ hte });
+        if (hte.hasOwnProperty("measurements")) {
           return hte.measurements;
         } else {
+          console.log("here296");
           return hte;
         }
       })
       .filter(Boolean);
     newProduct.hard_one_quarter = newProduct.hard_one_quarter
       .map(function (hoq) {
-        if (hoq.measurements) {
+        if (hoq.hasOwnProperty("measurements")) {
           return hoq.measurements;
         } else {
           return hoq;
@@ -307,7 +309,7 @@ export default class EditProduct extends React.Component {
       .filter(Boolean);
     newProduct.soft_three_eighths = newProduct.soft_three_eighths
       .map(function (ste) {
-        if (ste.measurements) {
+        if (ste.hasOwnProperty("measurements")) {
           return ste.measurements;
         } else {
           return ste;
@@ -316,7 +318,7 @@ export default class EditProduct extends React.Component {
       .filter(Boolean);
     newProduct.mesh = newProduct.mesh
       .map(function (m) {
-        if (m.measurements) {
+        if (m.hasOwnProperty("measurements")) {
           return m.measurements;
         } else {
           return m;
@@ -325,7 +327,7 @@ export default class EditProduct extends React.Component {
       .filter(Boolean);
     newProduct.prep_bend = newProduct.prep_bend
       .map(function (pb) {
-        if (pb.measurements) {
+        if (pb.hasOwnProperty("measurements")) {
           return pb.measurements;
         } else {
           return pb;
@@ -334,7 +336,7 @@ export default class EditProduct extends React.Component {
       .filter(Boolean);
     newProduct.prep_weld = newProduct.prep_weld
       .map(function (pw) {
-        if (pw.measurements) {
+        if (pw.hasOwnProperty("measurements")) {
           return pw.measurements;
         } else {
           return pw;
@@ -343,7 +345,7 @@ export default class EditProduct extends React.Component {
       .filter(Boolean);
     newProduct.weld = newProduct.weld
       .map(function (w) {
-        if (w.measurements) {
+        if (w.hasOwnProperty("measurements")) {
           return w.measurements;
         } else {
           return w;

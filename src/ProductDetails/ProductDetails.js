@@ -93,7 +93,7 @@ export default class ProductDetails extends React.Component {
               <Transformation height="400" crop="scale" quality="auto" />
             </Image>
           </div>
-          <div>
+          <div className="btn-panel">
             <Link className="btn" to={`/edit-product/${productId}`}>
               <FontAwesomeIcon icon={faPencilAlt} />
             </Link>
