@@ -127,11 +127,17 @@ export default class App extends React.Component {
       <ATContext.Provider value={value}>
         <div className="App">
           <nav>
-            <Nav />
+            <Switch>
+              <Route exact path="/" render={null} />
+              <Route component={Nav} />
+            </Switch>
           </nav>
-          <header>
-            <Header />
-          </header>
+          {/* <header>
+            <Switch>
+              <Route exact path="/" render={null} />
+              <Route component={Header} />
+            </Switch>
+          </header> */}
 
           <main>
             <Switch>

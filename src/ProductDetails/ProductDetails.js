@@ -4,6 +4,12 @@ import "./ProductDetails.css";
 import ATContext from "../ATContext";
 import config from "../config";
 import { Image, Transformation } from "cloudinary-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faPencilAlt,
+  faTrashAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default class ProductDetails extends React.Component {
   static contextType = ATContext;
@@ -86,6 +92,32 @@ export default class ProductDetails extends React.Component {
             <Image cloudName="at-product-guide" publicId={product.img_src}>
               <Transformation height="400" crop="scale" quality="auto" />
             </Image>
+          </div>
+          <div>
+            <Link className="btn" to={`/edit-product/${productId}`}>
+              <FontAwesomeIcon icon={faPencilAlt} />
+            </Link>
+            <Link to={"/products"}>
+              <FontAwesomeIcon icon={faHome} />
+            </Link>
+            <Link
+              className="del-btn"
+              to={`/products`}
+              onClick={(e) => {
+                if (
+                  window.confirm(
+                    `Are you sure you want to delete this product?`
+                  )
+                ) {
+                  e.preventDefault();
+                  this.handleDelete(productId);
+                } else {
+                  alert(`Whew, that was close!`);
+                }
+              }}
+            >
+              <FontAwesomeIcon icon={faTrashAlt} />
+            </Link>
           </div>
         </section>
         <section>
@@ -184,35 +216,7 @@ export default class ProductDetails extends React.Component {
             ))}
           </ul>
         </section>
-        <section>
-          <Link className="btn" to={`/edit-product/${productId}`}>
-            Edit specs
-          </Link>
-          <br />
-          <Link to={"/products"}>Products</Link>
-          <br />
 
-          <Link
-            className="del-btn"
-            to={`/products`}
-            onClick={(e) => {
-              e.preventDefault();
-              this.handleDelete(productId);
-            }}
-          >
-            Delete product
-          </Link>
-
-          {/* <button
-            type="button"
-            onClick={(e) => {
-              e.preventDefault();
-              this.handleDelete(productId);
-            }}
-          >
-            Delete product
-          </button> */}
-        </section>
         <section>
           <h4 className="uppercase">Comments</h4>
           <div>
@@ -222,18 +226,26 @@ export default class ProductDetails extends React.Component {
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
                   <Link className="btn" to={`/edit-comment/${comment.id}`}>
-                    Edit comment
+                    <FontAwesomeIcon icon={faPencilAlt} />
                   </Link>
 
                   <button
                     type="button"
                     className="del-btn"
                     onClick={(e) => {
-                      e.preventDefault();
-                      this.handleDeleteComment(comment.id);
+                      if (
+                        window.confirm(
+                          "Are you sure you want to delete this comment?"
+                        )
+                      ) {
+                        e.preventDefault();
+                        this.handleDeleteComment(comment.id);
+                      } else {
+                        alert("Whew, that was close!");
+                      }
                     }}
                   >
-                    Delete
+                    <FontAwesomeIcon icon={faTrashAlt} />
                   </button>
                 </li>
               ))}

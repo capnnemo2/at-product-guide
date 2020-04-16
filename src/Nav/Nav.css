@@ -1,6 +1,13 @@
 .nav-container {
   display: flex;
-  justify-content: space-between;
+}
+
+.nav-container a:first-child {
+  margin-right: auto;
+}
+
+.nav-container a {
+  padding: 5px;
 }
 
 .nav-container a:hover {

@@ -5,7 +5,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <div className="Header">
-        <h1>Topiary Welding Product Guide</h1>
+        <h1>Topiary Welding</h1>
       </div>
     );
   }

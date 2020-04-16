@@ -9,9 +9,8 @@ export default class Home extends React.Component {
         <section className="first">
           <div className="fake-img">
             <div className="splash">
-              <p className="splash-text">
-                Learn how to weld trellises, arbors, and topiary.
-              </p>
+              <h1>Topiary Welding</h1>
+              <p>Learn how to weld trellises, arbors, and topiary.</p>
               <Link to="/products">Begin</Link>
             </div>
           </div>

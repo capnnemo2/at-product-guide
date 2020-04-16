@@ -52,7 +52,9 @@ export default class Products extends React.Component {
             onChange={(e) => this.updateProductCode(e.target.value)}
           />
           {productId !== "" ? (
-            <Link to={`/productDetails/${productId}`}>Zip to it</Link>
+            <Link to={`/productDetails/${productId}`}>
+              Get that {this.state.productCode}
+            </Link>
           ) : (
             ""
           )}
