@@ -1,0 +1,19 @@
+.Resources {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.text-block {
+  text-align: left;
+  padding: 0 20px 10px 20px;
+}
+
+.trellis-feet {
+  list-style-type: disc;
+  text-align: left;
+  margin-top: -15px;
+  margin-left: 0;
+  display: block;
+}
