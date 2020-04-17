@@ -17,3 +17,14 @@ ul {
   min-width: 250px;
   border-radius: 5px;
 }
+
+.Products__link {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+  font-weight: bold;
+}
+
+.Products__link:hover {
+  color: green;
+}
