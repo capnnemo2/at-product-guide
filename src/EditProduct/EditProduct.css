@@ -1,0 +1,9 @@
+.EditProduct h2 {
+  padding-top: 10px;
+}
+
+.required-fields {
+  text-align: left;
+  width: 300px;
+  margin: 0 auto;
+}

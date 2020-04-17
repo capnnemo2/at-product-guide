@@ -88,8 +88,6 @@ export default class Products extends React.Component {
             </li>
           ))}
         </ul>
-
-        <Link to="/add-product">Add new product</Link>
       </div>
     );
   }

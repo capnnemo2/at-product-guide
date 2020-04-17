@@ -225,28 +225,29 @@ export default class ProductDetails extends React.Component {
                 <li key={comment.id} className="comment">
                   <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
-                  <Link className="btn" to={`/edit-comment/${comment.id}`}>
-                    <FontAwesomeIcon icon={faPencilAlt} />
-                  </Link>
-
-                  <button
-                    type="button"
-                    className="del-btn"
-                    onClick={(e) => {
-                      if (
-                        window.confirm(
-                          "Are you sure you want to delete this comment?"
-                        )
-                      ) {
-                        e.preventDefault();
-                        this.handleDeleteComment(comment.id);
-                      } else {
-                        alert("Whew, that was close!");
-                      }
-                    }}
-                  >
-                    <FontAwesomeIcon icon={faTrashAlt} />
-                  </button>
+                  <div className="btn-panel">
+                    <Link className="btn" to={`/edit-comment/${comment.id}`}>
+                      <FontAwesomeIcon icon={faPencilAlt} />
+                    </Link>
+                    <button
+                      type="button"
+                      className="del-btn"
+                      onClick={(e) => {
+                        if (
+                          window.confirm(
+                            "Are you sure you want to delete this comment?"
+                          )
+                        ) {
+                          e.preventDefault();
+                          this.handleDeleteComment(comment.id);
+                        } else {
+                          alert("Whew, that was close!");
+                        }
+                      }}
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} />
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>

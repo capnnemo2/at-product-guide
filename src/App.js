@@ -5,7 +5,6 @@ import Home from "./Home/Home";
 import Products from "./Products/Products";
 import Resources from "./Resources/Resources";
 import ProductDetails from "./ProductDetails/ProductDetails";
-import AddProduct from "./AddProduct/AddProduct";
 import AddComment from "./AddComment/AddComment";
 import EditProduct from "./EditProduct/EditProduct";
 import EditComment from "./EditComment/EditComment";
@@ -131,13 +130,6 @@ export default class App extends React.Component {
               <Route component={Nav} />
             </Switch>
           </nav>
-          {/* <header>
-            <Switch>
-              <Route exact path="/" render={null} />
-              <Route component={Header} />
-            </Switch>
-          </header> */}
-
           <main>
             <Switch>
               <Route exact path="/" component={Home} />
@@ -147,7 +139,6 @@ export default class App extends React.Component {
                 path="/productDetails/:product_id"
                 component={ProductDetails}
               />
-              <Route path="/add-product" component={AddProduct} />
               <Route path="/add-comment/:product_id" component={AddComment} />
               <Route path="/edit-product/:product_id" component={EditProduct} />
               <Route path="/edit-comment/:comment_id" component={EditComment} />

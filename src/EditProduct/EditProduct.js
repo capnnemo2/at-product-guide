@@ -13,10 +13,6 @@ export default class EditProduct extends React.Component {
     product_code: "",
     product_name: "",
     product_type: "",
-    // image: {
-    //   src: "",
-    //   alt: ""
-    // },
     mesh: [],
     newMesh: [],
     hard_three_eighths: [],
@@ -44,10 +40,6 @@ export default class EditProduct extends React.Component {
         prep_bend: product.prep_bend,
         prep_weld: product.prep_weld,
         weld: product.weld,
-        // image: {
-        //   src: product.image.src,
-        //   alt: product.productName,
-        // },
       });
     }
   }
@@ -75,10 +67,6 @@ export default class EditProduct extends React.Component {
       prep_bend: product.prep_bend,
       prep_weld: product.prep_weld,
       weld: product.weld,
-      // image: {
-      //   src: product.image.src,
-      //   alt: product.productName,
-      // },
     });
   };
 
@@ -92,9 +80,6 @@ export default class EditProduct extends React.Component {
   updateProductName(name) {
     this.setState({
       product_name: name,
-      // image: {
-      //   alt: name,
-      // },
     });
   }
 
@@ -397,17 +382,19 @@ export default class EditProduct extends React.Component {
     return product ? (
       <div className="EditProduct">
         <section>
+          <h2>Edit Product</h2>
           <form
             onSubmit={(e) => {
               e.preventDefault();
               this.handleSubmit();
             }}
           >
-            <div>
+            <div className="required-fields">
               <label htmlFor="code">Product code: </label>
               <input
                 type="text"
                 name="code"
+                size="8"
                 value={this.state.product_code}
                 onChange={(e) => this.updateProductCode(e.target.value)}
                 required
@@ -418,6 +405,7 @@ export default class EditProduct extends React.Component {
               <input
                 type="text"
                 name="name"
+                size="25"
                 value={this.state.product_name}
                 onChange={(e) => this.updateProductName(e.target.value)}
                 required
@@ -444,6 +432,7 @@ export default class EditProduct extends React.Component {
                   <input
                     type="text"
                     name="mesh"
+                    size="35"
                     placeholder={`mesh input #${idx + 1}`}
                     defaultValue={mesh}
                     onChange={this.handleMeshChange(idx)}
@@ -465,6 +454,7 @@ export default class EditProduct extends React.Component {
                     <input
                       type="text"
                       name="three-eighths"
+                      size="35"
                       placeholder={`3/8" input #${idx + 1}`}
                       defaultValue={three}
                       onChange={this.handleThreeEighthsChange(idx)}
@@ -489,6 +479,7 @@ export default class EditProduct extends React.Component {
                     <input
                       type="text"
                       name="quarter-inch"
+                      size="35"
                       placeholder={`1/4" input #${idx + 1}`}
                       defaultValue={quarter}
                       onChange={this.handleOneQuarterChange(idx)}
@@ -513,6 +504,7 @@ export default class EditProduct extends React.Component {
                     <input
                       type="text"
                       name="soft-steel"
+                      size="35"
                       placeholder={`soft steel input #${idx + 1}`}
                       defaultValue={soft}
                       onChange={this.handleSoftSteelChange(idx)}
@@ -600,17 +592,24 @@ export default class EditProduct extends React.Component {
                 </button>
               </div>
             </fieldset>
-            <button
-              type="submit"
-              disabled={
-                this.validateProductCode() || this.validateProductName()
-              }
-            >
-              Submit
-            </button>
-            <button type="button" onClick={this.handleClickCancel}>
-              Cancel
-            </button>
+            <div className="btn-panel">
+              <button
+                type="submit"
+                className="begin"
+                disabled={
+                  this.validateProductCode() || this.validateProductName()
+                }
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                className="del-btn"
+                onClick={this.handleClickCancel}
+              >
+                Cancel
+              </button>
+            </div>
           </form>
         </section>
       </div>
