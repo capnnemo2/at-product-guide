@@ -80,13 +80,13 @@ export default class Products extends React.Component {
                 {p.product_name}
                 {"  "}
                 {`(${p.product_code})`}
+                <div className="dummyImg">
+                  <Image cloudName="at-product-guide" publicId={p.img_src}>
+                    <Transformation height="200" crop="scale" />
+                  </Image>
+                </div>
               </Link>
               <br />
-              <div className="dummyImg">
-                <Image cloudName="at-product-guide" publicId={p.img_src}>
-                  <Transformation height="200" crop="scale" />
-                </Image>
-              </div>
             </li>
           ))}
         </ul>
