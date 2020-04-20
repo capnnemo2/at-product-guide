@@ -13,7 +13,7 @@ export default class Home extends React.Component {
     return (
       <div className="Home">
         <section className="first">
-          <div className="fake-img">
+          <div className="splash-img">
             <div className="splash">
               <h1>Topiary Welding</h1>
               <p>Learn how to weld trellises, arbors, and topiary.</p>

@@ -1,11 +1,12 @@
 section {
-  min-height: 100px;
-  background-color: #bbb;
+  /* min-height: 100px; */
+  /* background-color: #bbb; */
+  background-color: white;
 }
 
-section:nth-child(even) {
+/* section:nth-child(even) {
   background-color: #ddd;
-}
+} */
 
 section a {
   color: white;
@@ -27,9 +28,8 @@ section a:hover {
   height: 90vh;
 }
 
-.fake-img {
+.splash-img {
   height: 100vh;
-
   background-image: url("/pics/welder.jpg");
   background-repeat: no-repeat;
   background-color: white;

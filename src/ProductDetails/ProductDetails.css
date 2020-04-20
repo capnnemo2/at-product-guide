@@ -6,10 +6,21 @@ ul {
   padding: 10px;
   width: 90%;
   margin: 0 auto;
+  background-color: white;
 }
 
-.uppercase {
-  text-transform: uppercase;
+.ProductDetails section:nth-child(1),
+.ProductDetails section:nth-child(4) {
+  background-color: #0fb8a1;
+  border: 1px solid black;
+}
+
+.instruction-div {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 20px;
 }
 
 .bold {
@@ -56,6 +67,7 @@ ul {
   width: 90%;
   margin: 0 auto;
   list-style-type: disc;
+  list-style-position: inside;
   display: block;
 }
 
@@ -63,6 +75,7 @@ ul {
   background-color: white;
   margin: 10px auto;
   border-radius: 5px;
+  border: 1px solid black;
 }
 
 .dummyImg img {
@@ -89,6 +102,10 @@ ul {
 
 .del-btn:hover {
   background-color: red;
+}
+
+.btn-panel {
+  background-color: white;
 }
 
 .btn-panel a,

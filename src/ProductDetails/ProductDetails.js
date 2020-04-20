@@ -87,7 +87,7 @@ export default class ProductDetails extends React.Component {
     return product ? (
       <div className="ProductDetails">
         <section>
-          <h2 className="uppercase">
+          <h2>
             {product.product_name}
             {"  "}
             {`(${product.product_code})`}
@@ -97,6 +97,9 @@ export default class ProductDetails extends React.Component {
               <Transformation height="400" crop="scale" quality="auto" />
             </Image>
           </div>
+        </section>
+
+        <section>
           <div className="btn-panel">
             <Link className="btn" to={`/edit-product/${productId}`}>
               <FontAwesomeIcon icon={faPencilAlt} />
@@ -124,6 +127,7 @@ export default class ProductDetails extends React.Component {
             </Link>
           </div>
         </section>
+
         <section>
           <h3 className="uppercase">Materials</h3>
           <div className="materials">
@@ -187,38 +191,42 @@ export default class ProductDetails extends React.Component {
             )}
           </div>
         </section>
-        {prepBend.length !== 0 ? (
-          <section>
-            <h3 className="uppercase">Prep bend</h3>
-            <ul className="instruction-block">
-              {prepBend.map((i) => (
-                <li key={i}>{i}</li>
-              ))}
-            </ul>
-          </section>
-        ) : (
-          ""
-        )}
-        {prepWeld.length !== 0 ? (
-          <section>
-            <h3 className="uppercase">Prep weld</h3>
-            <ul className="instruction-block">
-              {prepWeld.map((i) => (
-                <li key={i}>{i}</li>
-              ))}
-            </ul>
-          </section>
-        ) : (
-          ""
-        )}
 
         <section>
-          <h3 className="uppercase">Weld</h3>
-          <ul className="instruction-block">
-            {weld.map((i) => (
-              <li key={i}>{i}</li>
-            ))}
-          </ul>
+          {prepBend.length !== 0 ? (
+            <div className="instruction-div">
+              <h3 className="uppercase">Prep Bend</h3>
+              <ul className="instruction-block">
+                {prepBend.map((i) => (
+                  <li key={i}>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+
+          {prepWeld.length !== 0 ? (
+            <div className="instruction-div">
+              <h3 className="uppercase">Prep Weld</h3>
+              <ul className="instruction-block">
+                {prepWeld.map((i) => (
+                  <li key={i}>{i}</li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            ""
+          )}
+
+          <div className="instruction-div">
+            <h3 className="uppercase">Weld</h3>
+            <ul className="instruction-block">
+              {weld.map((i) => (
+                <li key={i}>{i}</li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <section>
