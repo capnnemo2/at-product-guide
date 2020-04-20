@@ -91,6 +91,8 @@ export default class AddComment extends React.Component {
             <label htmlFor="user-comment">Comment: </label>
             <textarea
               name="user-comment"
+              rows="4"
+              cols="60"
               onChange={(e) => this.updateContent(e.target.value)}
               required
             ></textarea>

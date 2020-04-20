@@ -17,17 +17,17 @@ input#search {
 
 form a {
   color: white;
-  background-color: #25a925;
+  background-color: #0fb8a1;
   padding: 10px 25px;
   display: inline-block;
   margin: 0px 0 20px;
   text-decoration: none;
   border-radius: 5px;
-  border-bottom: 5px solid green;
+  border-bottom: 5px solid #006b5d;
 }
 
 form a:hover {
-  background-color: green;
+  background-color: #006b5d;
 }
 
 .nav-container {

@@ -8,8 +8,10 @@
 
 .nav-container a {
   padding: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .nav-container a:hover {
-  color: green;
+  color: #b7410e;
 }

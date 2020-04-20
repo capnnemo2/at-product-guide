@@ -9,17 +9,17 @@ section:nth-child(even) {
 
 section a {
   color: white;
-  background-color: #25a925;
+  background-color: #0fb8a1;
   padding: 10px 25px;
   display: inline-block;
   margin: 0px 0 20px;
   text-decoration: none;
   border-radius: 5px;
-  border-bottom: 5px solid green;
+  border-bottom: 5px solid #006b5d;
 }
 
 section a:hover {
-  background-color: green;
+  background-color: #006b5d;
 }
 
 .first {
@@ -34,7 +34,6 @@ section a:hover {
   background-repeat: no-repeat;
   background-color: white;
   background-size: cover;
-  /* margin: 0 auto; */
 }
 
 .splash {
@@ -65,20 +64,25 @@ section a:hover {
   margin-left: 30px;
 }
 
+.icon-left,
+.icon-right {
+  color: #ff6d2e;
+}
+
 .begin {
   color: white;
-  background-color: #25a925;
+  background-color: #0fb8a1;
   font-size: 16px;
   padding: 10px 25px;
   display: inline-block;
   margin: 0px 0 20px;
   text-decoration: none;
   border-radius: 5px;
-  border-bottom: 5px solid green;
+  border-bottom: 5px solid #006b5d;
 }
 
 .begin:hover {
-  background-color: green;
+  background-color: #006b5d;
 }
 
 footer {

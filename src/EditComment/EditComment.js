@@ -71,6 +71,8 @@ export default class EditComment extends React.Component {
             <label htmlFor="content">Comment: </label>
             <textarea
               name="content"
+              rows="4"
+              cols="60"
               defaultValue={comment.content}
               required
             ></textarea>

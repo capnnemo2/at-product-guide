@@ -70,7 +70,7 @@ ul {
 }
 
 .btn {
-  background-color: #c9683f;
+  background-color: #ff6d2e;
   border-bottom: 5px solid #b7410e;
 }
 
@@ -81,7 +81,7 @@ ul {
 .del-btn {
   color: white;
   font-size: 16px;
-  background-color: rgb(255, 83, 83);
+  background-color: rgb(250, 95, 95);
   border-bottom: 5px solid red;
   padding: 10px 25px;
   border-radius: 5px;
