@@ -1,10 +1,18 @@
-.AddComment h2 {
-  color: white;
+.AddComment,
+.EditComment {
+  padding-top: 1px;
+  background-color: #0fb8a1;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.comment-inputs {
+  background-color: white;
+  border-top: 1px solid black;
 }
 
 .comm-input {
   padding: 10px;
-  background-color: #bbb;
 }
 
 textarea {

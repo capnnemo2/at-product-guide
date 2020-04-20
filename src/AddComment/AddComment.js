@@ -77,28 +77,28 @@ export default class AddComment extends React.Component {
             this.handleSubmit();
           }}
         >
-          <div className="comm-input">
-            <label htmlFor="user-name">Name: </label>
-            <input
-              type="text"
-              name="user-name"
-              onChange={(e) => this.updateUserName(e.target.value)}
-              required
-            />
+          <div className="comment-inputs">
+            <div className="comm-input">
+              <label htmlFor="user-name">Name: </label>
+              <input
+                type="text"
+                name="user-name"
+                onChange={(e) => this.updateUserName(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="comm-input">
+              <label htmlFor="user-comment">Comment: </label>
+              <textarea
+                name="user-comment"
+                onChange={(e) => this.updateContent(e.target.value)}
+                required
+              ></textarea>
+            </div>
           </div>
 
-          <div className="comm-input">
-            <label htmlFor="user-comment">Comment: </label>
-            <textarea
-              name="user-comment"
-              rows="4"
-              cols="60"
-              onChange={(e) => this.updateContent(e.target.value)}
-              required
-            ></textarea>
-          </div>
-
-          <div className="btn-panel">
+          <div className="btn-panel comm-btns">
             <button type="submit" className="begin">
               Submit
             </button>

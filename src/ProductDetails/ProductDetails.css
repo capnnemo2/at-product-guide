@@ -20,6 +20,7 @@ ul {
   border: 1px solid black;
   border-radius: 5px;
   padding: 0 10px 10px 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -38,9 +39,11 @@ ul {
 }
 
 .comment {
-  border: 1px dashed black;
+  border: 5px solid #0fb8a1;
+  border-radius: 5px;
   margin: 10px auto;
-  padding: 20px;
+  padding: 5px;
+  width: 75%;
 }
 
 .comment blockquote {
@@ -106,6 +109,7 @@ ul {
 
 .btn-panel {
   background-color: white;
+  padding-bottom: 10px;
 }
 
 .btn-panel a,

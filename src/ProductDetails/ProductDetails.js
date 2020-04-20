@@ -235,8 +235,8 @@ export default class ProductDetails extends React.Component {
             <ul>
               {comments.map((comment) => (
                 <li key={comment.id} className="comment">
-                  <p className="italic">{comment.user_name} says:</p>
                   <blockquote>{comment.content}</blockquote>
+                  <p className="italic">- {comment.user_name}</p>
                   <div className="btn-panel">
                     <Link className="btn" to={`/edit-comment/${comment.id}`}>
                       <FontAwesomeIcon icon={faPencilAlt} />

@@ -58,25 +58,26 @@ export default class EditComment extends React.Component {
       <div className="EditComment">
         <h2>Edit comment</h2>
         <form className="editCommentForm" onSubmit={this.handleSubmit}>
-          <div className="comm-input">
-            <label htmlFor="name">Name: </label>
-            <input
-              type="text"
-              name="name"
-              defaultValue={comment.user_name}
-              required
-            />
+          <div className="comment-inputs">
+            <div className="comm-input">
+              <label htmlFor="name">Name: </label>
+              <input
+                type="text"
+                name="name"
+                defaultValue={comment.user_name}
+                required
+              />
+            </div>
+            <div className="comm-input">
+              <label htmlFor="content">Comment: </label>
+              <textarea
+                name="content"
+                defaultValue={comment.content}
+                required
+              ></textarea>
+            </div>
           </div>
-          <div className="comm-input">
-            <label htmlFor="content">Comment: </label>
-            <textarea
-              name="content"
-              rows="4"
-              cols="60"
-              defaultValue={comment.content}
-              required
-            ></textarea>
-          </div>
+
           <div className="btn-panel">
             <button type="submit" className="begin">
               Submit
