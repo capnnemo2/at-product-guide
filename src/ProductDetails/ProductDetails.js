@@ -87,7 +87,11 @@ export default class ProductDetails extends React.Component {
     return product ? (
       <div className="ProductDetails">
         <section>
-          <h2 className="uppercase">{product.product_name}</h2>
+          <h2 className="uppercase">
+            {product.product_name}
+            {"  "}
+            {`(${product.product_code})`}
+          </h2>
           <div className="dummyImg detail">
             <Image cloudName="at-product-guide" publicId={product.img_src}>
               <Transformation height="400" crop="scale" quality="auto" />
@@ -106,7 +110,7 @@ export default class ProductDetails extends React.Component {
               onClick={(e) => {
                 if (
                   window.confirm(
-                    `Are you sure you want to delete this product?`
+                    `Are you sure you want to delete this product? (If this is not a test product, please don't delete it! Thank you!)`
                   )
                 ) {
                   e.preventDefault();

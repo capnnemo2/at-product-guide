@@ -385,8 +385,16 @@ export default class EditProduct extends React.Component {
           <h2>Edit Product</h2>
           <form
             onSubmit={(e) => {
-              e.preventDefault();
-              this.handleSubmit();
+              if (
+                window.confirm(
+                  `Are you sure you want to permanently edit this product? (If this is not a test product, please don't edit it! Thank you!)`
+                )
+              ) {
+                e.preventDefault();
+                this.handleSubmit();
+              } else {
+                alert(`Whew, that was close!`);
+              }
             }}
           >
             <div className="required-fields">

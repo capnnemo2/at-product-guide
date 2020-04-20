@@ -78,6 +78,8 @@ export default class Products extends React.Component {
             <li key={p.id} className="Products__li">
               <Link to={`productDetails/${p.id}`} className="Products__link">
                 {p.product_name}
+                {"  "}
+                {`(${p.product_code})`}
               </Link>
               <br />
               <div className="dummyImg">
