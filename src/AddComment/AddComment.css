@@ -18,3 +18,7 @@
 textarea {
   vertical-align: middle;
 }
+
+.comm-input textarea {
+  width: 80%;
+}
