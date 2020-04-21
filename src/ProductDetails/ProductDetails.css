@@ -70,8 +70,11 @@ ul {
   width: 90%;
   margin: 0 auto;
   list-style-type: disc;
-  list-style-position: inside;
   display: block;
+}
+
+.instruction-block li {
+  margin-bottom: 7px;
 }
 
 .dummyImg {

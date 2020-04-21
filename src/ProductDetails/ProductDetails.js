@@ -192,7 +192,7 @@ export default class ProductDetails extends React.Component {
           </div>
         </section>
 
-        <section>
+        <section className="instructions">
           {prepBend.length !== 0 ? (
             <div className="instruction-div">
               <h3 className="uppercase">Prep Bend</h3>
