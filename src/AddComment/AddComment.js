@@ -98,7 +98,7 @@ export default class AddComment extends React.Component {
             </div>
           </div>
 
-          <div className="btn-panel comm-btns">
+          <div className="btn-panel">
             <button type="submit" className="begin">
               Submit
             </button>

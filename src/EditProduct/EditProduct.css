@@ -1,9 +1,25 @@
-.EditProduct h2 {
-  padding-top: 10px;
+.EditProduct {
+  padding-top: 1px;
+  background-color: #0fb8a1;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .required-fields {
   text-align: left;
   width: 300px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.non-required {
+  background-color: white;
+  border-top: 1px solid black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.non-required fieldset {
+  width: 90%;
   margin: 0 auto;
 }

@@ -369,11 +369,8 @@ export default class EditProduct extends React.Component {
   render() {
     const productId = Number(this.props.match.params.product_id);
     const product = this.context.products.find((p) => p.id === productId);
-    console.log(product);
     const codeError = this.validateProductCode();
     const nameError = this.validateProductName();
-    console.log(`context`, this.context.products);
-    console.log(productId);
 
     if (!this.state.initialFieldsSet) {
       return <div>Product loading...</div>;
@@ -381,57 +378,58 @@ export default class EditProduct extends React.Component {
 
     return product ? (
       <div className="EditProduct">
-        <section>
-          <h2>Edit Product</h2>
-          <form
-            onSubmit={(e) => {
-              if (
-                window.confirm(
-                  `Are you sure you want to permanently edit this product? (If this is not a test product, please don't edit it! Thank you!)`
-                )
-              ) {
-                e.preventDefault();
-                this.handleSubmit();
-              } else {
-                alert(`Whew, that was close!`);
-              }
-            }}
-          >
-            <div className="required-fields">
-              <label htmlFor="code">Product code: </label>
-              <input
-                type="text"
-                name="code"
-                size="8"
-                value={this.state.product_code}
-                onChange={(e) => this.updateProductCode(e.target.value)}
-                required
-              />
-              {<ValidationError message={codeError} />}
-              <br />
-              <label htmlFor="name">Product name: </label>
-              <input
-                type="text"
-                name="name"
-                size="25"
-                value={this.state.product_name}
-                onChange={(e) => this.updateProductName(e.target.value)}
-                required
-              />
-              {<ValidationError message={nameError} />}
-              <br />
-              <label htmlFor="type">Product type: </label>
-              <select
-                name="type"
-                value={this.state.product_type}
-                onChange={(e) => this.updateProductType(e.target.value)}
-                required
-              >
-                <option value="arbor">Arbor</option>
-                <option value="trellis">Trellis</option>
-                <option value="topiary">Topiary</option>
-              </select>
-            </div>
+        <h2>Edit Product</h2>
+        <form
+          onSubmit={(e) => {
+            if (
+              window.confirm(
+                `Are you sure you want to permanently edit this product? (If this is not a test product, please don't edit it! Thank you!)`
+              )
+            ) {
+              e.preventDefault();
+              this.handleSubmit();
+            } else {
+              alert(`Whew, that was close!`);
+            }
+          }}
+        >
+          <div className="required-fields">
+            <label htmlFor="code">Product code: </label>
+            <input
+              type="text"
+              name="code"
+              size="8"
+              value={this.state.product_code}
+              onChange={(e) => this.updateProductCode(e.target.value)}
+              required
+            />
+            {<ValidationError message={codeError} />}
+            <br />
+            <label htmlFor="name">Product name: </label>
+            <input
+              type="text"
+              name="name"
+              size="25"
+              value={this.state.product_name}
+              onChange={(e) => this.updateProductName(e.target.value)}
+              required
+            />
+            {<ValidationError message={nameError} />}
+            <br />
+            <label htmlFor="type">Product type: </label>
+            <select
+              name="type"
+              value={this.state.product_type}
+              onChange={(e) => this.updateProductType(e.target.value)}
+              required
+            >
+              <option value="arbor">Arbor</option>
+              <option value="trellis">Trellis</option>
+              <option value="topiary">Topiary</option>
+            </select>
+          </div>
+
+          <div className="non-required">
             <fieldset>
               <legend>Materials</legend>
               <label htmlFor="mesh">Mesh:</label>
@@ -600,26 +598,27 @@ export default class EditProduct extends React.Component {
                 </button>
               </div>
             </fieldset>
-            <div className="btn-panel">
-              <button
-                type="submit"
-                className="begin"
-                disabled={
-                  this.validateProductCode() || this.validateProductName()
-                }
-              >
-                Submit
-              </button>
-              <button
-                type="button"
-                className="del-btn"
-                onClick={this.handleClickCancel}
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
-        </section>
+          </div>
+
+          <div className="btn-panel">
+            <button
+              type="submit"
+              className="begin"
+              disabled={
+                this.validateProductCode() || this.validateProductName()
+              }
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              className="del-btn"
+              onClick={this.handleClickCancel}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
     ) : (
       "Loading...."
