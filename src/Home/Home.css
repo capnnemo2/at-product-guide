@@ -1,12 +1,6 @@
 section {
-  /* min-height: 100px; */
-  /* background-color: #bbb; */
   background-color: white;
 }
-
-/* section:nth-child(even) {
-  background-color: #ddd;
-} */
 
 section a {
   color: white;

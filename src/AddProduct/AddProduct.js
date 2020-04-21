@@ -12,10 +12,6 @@ export default class AddProduct extends React.Component {
     product_code: "",
     product_name: "",
     product_type: "",
-    // image: {
-    //   src: "/pics/shark.jpg",
-    //   alt: "new product",
-    // },
     mesh: [],
     hard_three_eighths: [],
     hard_one_quarter: [],
@@ -36,10 +32,6 @@ export default class AddProduct extends React.Component {
   updateProductName(name) {
     this.setState({
       product_name: name,
-      // image: {
-      //   alt: name,
-      //   src: "/pics/shark.jpg",
-      // },
     });
   }
 
