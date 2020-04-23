@@ -37,8 +37,6 @@ export default class Products extends React.Component {
         : this.context.products.filter(
             (p) => p.product_type === this.state.filter
           );
-    console.log(`products: `, this.context.products);
-    console.log(`comments: `, this.context.comments);
     return (
       <div className="Products">
         <form>
