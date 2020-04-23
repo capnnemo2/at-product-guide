@@ -16,7 +16,17 @@ And so Topiary Welding was created. Users can browse all products, filter the li
 
 ## Screenshots
 
+### Products
+
 ![Products](/public/pics/products.png "Products Page")
+
+### Product Details
+
+![ProductDetails](/public/pics/productDetails.png "Product Details")
+
+### Add Comment
+
+![AddComment](/public/pics/addComment.png "Add Comment")
 
 ## Technologies Used
 
