@@ -274,11 +274,9 @@ export default class EditProduct extends React.Component {
     newProduct.product_name = newProduct.product_name.trim();
     newProduct.hard_three_eighths = newProduct.hard_three_eighths
       .map(function (hte) {
-        console.log({ hte });
         if (hte.hasOwnProperty("measurements")) {
           return hte.measurements;
         } else {
-          console.log("here296");
           return hte;
         }
       })
