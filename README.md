@@ -16,6 +16,8 @@ And so Topiary Welding was created. Users can browse all products, filter the li
 
 ## Screenshots
 
+![Products](/public/pics/products.png "Products Page")
+
 ## Technologies Used
 
 - React.js
