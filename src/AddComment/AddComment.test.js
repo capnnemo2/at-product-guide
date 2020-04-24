@@ -7,7 +7,7 @@ it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
     <BrowserRouter>
-      <AddComment />
+      <AddComment match={{ params: { product_id: 1 } }} />
     </BrowserRouter>,
     div
   );

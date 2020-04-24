@@ -7,7 +7,7 @@ it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
     <BrowserRouter>
-      <ProductDetails />
+      <ProductDetails match={{ params: { product_id: 1 } }} />
     </BrowserRouter>,
     div
   );
