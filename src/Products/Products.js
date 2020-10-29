@@ -47,6 +47,7 @@ export default class Products extends React.Component {
             type="text"
             name="search"
             id="search"
+            size="8"
             onChange={(e) => this.updateProductCode(e.target.value)}
           />
           {productId !== "" ? (
@@ -70,6 +71,12 @@ export default class Products extends React.Component {
             <option value="topiary">Topiary</option>
           </select>
         </form>
+
+        <div className="add-product-btn">
+          <Link className="btn begin" to="/add-product">
+            Create New Product
+          </Link>
+        </div>
 
         <ul>
           {productsToDisplay.map((p) => (

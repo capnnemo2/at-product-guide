@@ -2,6 +2,15 @@
   color: white;
 }
 
+.Products form {
+  margin-bottom: 15px;
+}
+
+.add-product-btn {
+  margin-bottom: -25px;
+  padding: 0;
+}
+
 ul {
   margin-left: -38px;
   display: flex;
