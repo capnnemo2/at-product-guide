@@ -248,6 +248,8 @@ export default class AddProduct extends React.Component {
       .map((w) => w.measurements)
       .filter(Boolean);
 
+    console.log(newProduct);
+
     fetch(`${config.API_ENDPOINT}/products`, {
       method: "POST",
       body: JSON.stringify(newProduct),
