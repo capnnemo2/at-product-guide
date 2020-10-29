@@ -39,38 +39,32 @@ export default class Products extends React.Component {
           );
     return (
       <div className="Products">
-        <form>
-          <label htmlFor="search" className="filter-label">
-            Know what you're looking for? Enter product code:
-          </label>{" "}
-          <input
-            type="text"
-            name="search"
-            id="search"
-            onChange={(e) => this.updateProductCode(e.target.value)}
-          />
-          {productId !== "" ? (
-            <Link to={`/productDetails/${productId}`}>
-              Get that {this.state.productCode}
-            </Link>
-          ) : (
-            ""
-          )}
-          <br />
-          <label htmlFor="filter" className="filter-label">
-            Filter:
-          </label>{" "}
-          <select
-            id="filter"
-            onChange={(e) => this.updateFilter(e.target.value)}
-          >
-            <option value="all">All</option>
-            <option value="trellis">Trellises</option>
-            <option value="arbor">Arbors</option>
-            <option value="topiary">Topiary</option>
-          </select>
-        </form>
-
+        <label htmlFor="search" className="filter-label">
+          Know what you're looking for? Enter product code:
+        </label>{" "}
+        <input
+          type="text"
+          name="search"
+          id="search"
+          onChange={(e) => this.updateProductCode(e.target.value)}
+        />
+        {productId !== "" ? (
+          <Link to={`/productDetails/${productId}`} className="search-link">
+            Get that {this.state.productCode}
+          </Link>
+        ) : (
+          ""
+        )}
+        <br />
+        <label htmlFor="filter" className="filter-label">
+          Filter:
+        </label>{" "}
+        <select id="filter" onChange={(e) => this.updateFilter(e.target.value)}>
+          <option value="all">All</option>
+          <option value="trellis">Trellises</option>
+          <option value="arbor">Arbors</option>
+          <option value="topiary">Topiary</option>
+        </select>
         <ul>
           {productsToDisplay.map((p) => (
             <li key={p.id} className="Products__li">
