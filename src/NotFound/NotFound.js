@@ -6,6 +6,7 @@ export default class NotFound extends React.Component {
     return (
       <div className="NotFound">
         <p>Sorry, the page you expected isn't here!</p>
+        <p>This project is being updated, thank you for your patience!</p>
       </div>
     );
   }

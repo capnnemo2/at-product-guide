@@ -133,6 +133,7 @@ export default class App extends React.Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route component={NotFound} />
               <Route path="/products" component={Products} />
               <Route path="/resources" component={Resources} />
               <Route
